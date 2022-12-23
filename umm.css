@@ -1,0 +1,105 @@
+body{
+    background-color: #f6f7f8;
+}
+
+.col-md-2{
+    background-color: #0b596d;
+    padding: 0px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+
+.nav-item:hover{
+    background-color: #2e879d ;
+    color: white;
+}
+
+
+
+.nav-link{
+    color: white;
+}
+
+.nav-link:hover{
+    color: white;
+}
+
+#imgee{
+    height: 80px;
+
+}
+
+#imge2{
+    height: 80px;
+    width: 80px;
+}
+
+#imge{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+    /* background-color: rgb(9, 121, 105);  */
+}
+
+#upline{
+    /* background-color: rgb(9, 121, 105); */
+    /* border: 2px solid black; */
+    padding-top: 10px;
+}
+
+.col-4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#text{
+    justify-content: left;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 10px 0px;
+    padding-top: 10px;
+}
+
+#lef{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.card-body{
+    text-align: center;
+}
+
+#pic{
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+
+}
+
+.card-title{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#back{
+    text-decoration: none;
+    color: rgb(110, 110, 110);
+}
+
+#back:hover{
+    color: rgb(0, 0, 0);
+}
+
+.col-12{
+    padding: 25px;
+
+}
