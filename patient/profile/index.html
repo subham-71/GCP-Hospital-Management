@@ -8,43 +8,61 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="umm.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- local imports  -->
+    <link rel="stylesheet" href="umm.css">
+    <link rel="stylesheet" href="../global.css" </head>
 
 <body>
-    <div class="row vh-100 ">
-        <div class="col-md-2 justify-content-center order-2 order-md-1" id="navbar">
+    <div class="profile">
+        <!-- navbar -->
+        <nav class="justify-content-center order-2 order-md-1" id="navbar">
             <div class="justify-content-center pt-1 mt-1 d-none d-md-flex mt-md-2 " id="imge">
                 <img src="https://as1.ftcdn.net/v2/jpg/03/69/94/34/1000_F_369943421_3vEUd3I6K8GtCrVXyWeooQnre9jsSOOL.jpg"
                     class="justify-content-center align-items-center" id="imgee">
             </div>
             <ul class="nav nav-fill flex-column mt-md-5 mt-3">
                 <li class="nav-item">
-                    <a href="" class="nav-link">Profile</a>
+                    <i class="fa fa-user"></i>
+                    <a href="" class="nav-link">
+                        Profile
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Vitals</a>
+                    <i class="fa fa-heartbeat"></i>
+                    <a href="" class="nav-link">
+                        Vitals
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Visits</a>
+                    <i class="fa fa-calendar"></i>
+                    <a href="" class="nav-link">
+                        Visits
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Documents</a>
+                    <i class="fa fa-folder"></i>
+                    <a href="" class="nav-link">
+                        Documents
+                    </a>
                 </li>
             </ul>
-        </div>
-        <div class="col-md-10 order-1 order-md-2">
+        </nav>
+        <!-- navbar ends -->
+
+        <section class="main-content">
             <div class="container">
                 <div class="row " id="upline">
                     <div class="col-4" id="text">
-                        <a href="" id="back" class="d-block"><i class="fas fa-band-aid"></i>Back to home page</a>
+                        <a href="" id="back" class="d-block"><i class="fa fa-arrow-left"></i>Back to home page</a>
                     </div>
                     <div class="col-4">
                         <img src="https://as1.ftcdn.net/v2/jpg/03/69/94/34/1000_F_369943421_3vEUd3I6K8GtCrVXyWeooQnre9jsSOOL.jpg"
-                        class="d-block d-md-none" id="imge2">                        
+                            class="d-block d-md-none" id="imge2">
                     </div>
-                    <span></span>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-12">
@@ -54,42 +72,42 @@
                             <div class="card-body">
                                 <h5 class="card-title">INFORMATION</h5>
                                 <p class="card-text">
-                                    <table class="table" id="lef">                                        
-                                        <tbody>
-                                          <tr>
+                                <table class="table" id="lef">
+                                    <tbody>
+                                        <tr>
                                             <th scope="row">Name</th>
                                             <td>Mark</td>
-                                          </tr>
-                                          <tr>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Age</th>
                                             <td>34</td>
-                                          </tr>
-                                          <tr>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Gender</th>
                                             <td>Male</td>
-                                          </tr>
-                                          <tr>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Patient ID</th>
                                             <td>113456</td>
-                                          </tr>
-                                          <tr>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Blood Group</th>
                                             <td>O+</td>
-                                          </tr>
-                                          <tr>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Height</th>
                                             <td>170 cm</td>
-                                          </tr>
-                                          <tr>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Weight</th>
                                             <td>70 Kg</td>
-                                          </tr>
-                                          <tr>
+                                        </tr>
+                                        <tr>
                                             <th scope="row">Last visit</th>
                                             <td>29-03-2022</td>
-                                         </tr> 
-                                        </tbody>
-                                      </table>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 </p>
                             </div>
                         </div>
@@ -101,14 +119,14 @@
                             <div class="card-body">
                                 <!-- <h5 class="card-title">Card title</h5> -->
                                 <p class="card-text">
-                                    <table class="table">                                        
-                                        <tbody>                                    
-                                            <tr>
-                                                <table class="table ">
-                                                   <thead>
-                                                       <th>Allergies</th>
-                                                   </thead>
-                                                   <tbody>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <table class="table ">
+                                                <thead>
+                                                    <th>Allergies</th>
+                                                </thead>
+                                                <tbody>
                                                     <table class=" table table-borderless">
                                                         <tr id="lef">
                                                             <td>1. </td>
@@ -123,16 +141,16 @@
                                                             <td>Penicillin</td>
                                                         </tr>
                                                     </table>
-                                                   </tbody>
-                                               </table>
-                                            </tr>                                      
-                                
-                                            <tr>
-                                                <table class="table">
-                                                   <thead>
-                                                       <th>Diseases</th>
-                                                   </thead>
-                                                   <tbody>
+                                                </tbody>
+                                            </table>
+                                        </tr>
+
+                                        <tr>
+                                            <table class="table">
+                                                <thead>
+                                                    <th>Diseases</th>
+                                                </thead>
+                                                <tbody>
                                                     <table class=" table table-borderless">
                                                         <tr id="lef">
                                                             <td>1. </td>
@@ -147,14 +165,14 @@
                                                             <td>Weak Eyesight</td>
                                                         </tr>
                                                     </table>
-                                                   </tbody>
-                                               </table>
-                                            </tr>  
-                                            
-                                            <!-- <button class="btn btn-primary mt-5"> Edit my profile </button> -->
-                                          
-                                        </tbody>
-                                      </table>
+                                                </tbody>
+                                            </table>
+                                        </tr>
+
+                                        <!-- <button class="btn btn-primary mt-5"> Edit my profile </button> -->
+
+                                    </tbody>
+                                </table>
                                 </p>
                             </div>
                         </div>
@@ -163,7 +181,7 @@
 
             </div>
 
-        </div>
+        </section>
     </div>
 </body>
 
