@@ -11,3 +11,21 @@ i{
     padding-left: 1px;
     padding-right: 1px;
 }
+
+
+/* add variables for colours */
+
+:root{
+    /* just temporary values*/
+    --primary-color: rgb(145,191,118);
+    --secondary-color: rgb(250,155,78);
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --body-color: #212529;
+    --background-color-secondary: rgb(36, 29, 29);
+    --background-color: #f8f9fa;
+}
