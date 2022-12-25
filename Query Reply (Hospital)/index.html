@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery.tablesorter@2.31.1/dist/js/jquery.tablesorter.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+       
+        <div class="container">
+            <div class="item1">
+                <h3>Active Queries</h3>
+                <table id="query_table" data-paginate = "true">
+                    <thead>
+                      <tr>
+                        <th scope="col">Select</th>
+                        <th scope="col">Name of Hospital</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Requirement</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Urgency</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="radio" name="selected" value="1"></td>
+                        <td>Hospital A</td>
+                        <td>123 Main Street</td>
+                        <td>Masks</td>
+                        <td>1000</td>
+                        <td>High</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="2"></td>
+                        <td>Hospital B</td>
+                        <td>456 Maple Avenue</td>
+                        <td>Gloves</td>
+                        <td>500</td>
+                        <td>Medium</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="3"></td>
+                        <td>Hospital C</td>
+                        <td>789 Oak Street</td>
+                        <td>Gowns</td>
+                        <td>2000</td>
+                        <td>Low</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="4"></td>
+                        <td>Hospital D</td>
+                        <td>111 Pine Street</td>
+                        <td>Hand Sanitizer</td>
+                        <td>5000</td>
+                        <td>High</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="5"></td>
+                        <td>Hospital E</td>
+                        <td>222 Cedar Street</td>
+                        <td>Ventilators</td>
+                        <td>10</td>
+                        <td>Medium</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="6"></td>
+                        <td>Hospital C</td>
+                        <td>789 Oak Street</td>
+                        <td>Gowns</td>
+                        <td>2000</td>
+                        <td>Low</td>
+
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="7"></td>
+                        <td>Hospital D</td>
+                        <td>111 Pine Street</td>
+                        <td>Blood Type B-</td>
+                        <td>5 litres</td>
+                        <td>High</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="8"></td>
+                        <td>Hospital E</td>
+                        <td>222 Cedar Street</td>
+                        <td>Liver</td>
+                        <td>1</td>
+                        <td>Medium</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="9"></td>
+                        <td>Hospital L</td>
+                        <td>789 Oak Street</td>
+                        <td>Gowns</td>
+                        <td>2000</td>
+                        <td>Low</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="10"></td>
+                        <td>Hospital K</td>
+                        <td>111 Pine Street</td>
+                        <td>Hand Sanitizer</td>
+                        <td>5000</td>
+                        <td>High</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="11"></td>
+                        <td>Hospital    N</td>
+                        <td>222 Cedar Street</td>
+                        <td>Ventilators</td>
+                        <td>10</td>
+                        <td>Medium</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="12"></td>
+                        <td>Hospital V</td>
+                        <td>789 Oak Street</td>
+                        <td>Gowns</td>
+                        <td>2000</td>
+                        <td>Low</td>
+
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="13"></td>
+                        <td>Hospital Y</td>
+                        <td>111 Pine Street</td>
+                        <td>Blood Type B-</td>
+                        <td>5 litres</td>
+                        <td>High</td>
+                        
+
+                      </tr>
+                      <tr>
+                        <td><input type="radio" name="selected" value="14"></td>
+                        <td>Hospital X</td>
+                        <td>222 Cedar Street</td>
+                        <td>Liver</td>
+                        <td>1</td>
+                        <td>Medium</td>
+                        
+
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <br>
+            <div class="item2">
+                <h3>Query Selected</h3>
+                <table id = "details">
+                    <thead>
+                        <tr>
+                          <th scope="col">Select</th>
+                          <th scope="col">Name of Hospital</th>
+                          <th scope="col">Address</th>
+                          <th scope="col">Requirement</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Urgency</th>
+                          
+                        </tr>
+                      </thead>
+                    
+                      <tbody>
+
+                      </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="item3">
+                <button type="button" class="btn btn-primary">Reply to Query</button>
+                <button type="button" class="btn btn-primary">Raise a Query</button>                
+              </div>
+            
+              
+        </div>
+        <script src="script.js" async defer></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
