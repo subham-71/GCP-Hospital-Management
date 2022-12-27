@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 .btn{
     background-color: #009999;
     color: white;
@@ -9,7 +11,14 @@
 }
 
 body{
-    background-color: rgb(207, 207, 207);
+    background-color: rgb(241, 241, 241);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container{
@@ -17,10 +26,10 @@ body{
 }
 
 .temp{
-    background: linear-gradient(to bottom right, #03baba,white);
+    /* background: linear-gradient(to bottom right, #03baba,white); */
     /* border: 3px solid #009999; */
-    height: 200px;
-    width: 200px;
+    height: 120px;
+    width: 120px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 10%;
     text-align: center;
@@ -29,7 +38,7 @@ body{
 
 .temp:hover{
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(to top,#009999,white);
+    /* background: linear-gradient(to top,#009999,white); */
 }
 
 .readings{
@@ -43,12 +52,50 @@ body{
 }
 
 .icon{
-    font-size: 3.5rem;
+    font-size: 2rem;
     padding-top: 0.5rem;
     color: #008080;
     z-index: 100;
 }
 
-h2{
-    color:#004d4d;
+#calendar{
+    color: #025d5d;
+    border-radius: 10%;
+}
+
+.fc-daygrid-day-number{
+    color: #025d5d;
+    font-family: 'Quicksand', sans-serif;
+}
+
+title{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.fc-button-group{
+    border-radius: 50%;
+}
+
+i{
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+:root{
+    /* just temporary values*/
+    --primary-color: rgb(145,191,118);
+    --secondary-color: rgb(250,155,78);
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --body-color: #212529;
+    --background-color-secondary: rgb(36, 29, 29);
+    --background-color: #f8f9fa;
+}
+
+h5,h6,button,.accordion,a,th{
+    font-family: 'Quicksand', sans-serif;
 }
