@@ -33,23 +33,31 @@
 
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <title>Testing</title>
-    <style> @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap'); </style>
+    <title>Patient</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+    </style>
 </head>
 
 <body>
+    <div class="row">
+    <nav class="navbar navbar-light" style="background-color:#009999;opacity: 0.5; height: 3rem;">
+    </nav>
+</div>
 
     <div class="container mt-3">
-        <div class="row row-cols-2">
-            <div class="col-sm-5" style="width: 40%">
-                <div class="card" style="width: 18rem;border-radius: 10%">
+        <div class="row row-cols-3">
+
+            <div class="col-sm-5 p-3" style="width: 40%">
+                <div class="card mt-3" style="width: 18rem;border-radius: 10%">
                     <div class="text-center mt-2">
                         <img src="images/sample.png" style="height: 10rem;width: 10rem;" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body text-center mb-4">
                         <h5>XYZ</h5>
-                        <h6 class="text-muted">Age: 36</h6>
-                        <button type="button" class="btn" style="background-color: #009999; color: white;">Update</button>
+                        <h6 class="text-muted">Age: 34</h6>
+                        <button type="button" class="btn"
+                            style="background-color: #009999; color: white;">Update</button>
                     </div>
                 </div>
 
@@ -108,155 +116,151 @@
             <div class="col p-4">
                 <!-- <div class="card" style="width:43rem; height: 320px;"> -->
                 <!-- <h4 style="color: #004d4d;">VITALS</h4> -->
-
-
-                <div class="accordion p-4" id="accordionExample" style="height: 40rem;">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #004d4d;">
-                                VITALS
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="row mx-4 p-3">
-                                    <!-- <div class="card" style="width:130px; height:130px; border-radius: 10%; text-align: center;"> -->
-                                    <div class="col-4">
-                                        <div class="card temp">
-                                            <i class="uil uil-heartbeat icon heart"></i>
-                                            <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Heart Rate
-                                            </h6>
-                                            <p class="readings fw-bold " style="color:#004d4d; font-size: 15px;">72 bpm
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- </div> -->
-
-                                    <div class="col-4">
-                                        <div class="card temp">
-                                            <i class="uil uil-heart-rate icon"></i>
-                                            <h6 class="fw-semibold" style="color:#004d4d; font-size: 15px;">Pulse</h6>
-                                            <p class="readings fw-bold" style="color:#004d4d; font-size: 15px;">80 bpm
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card temp" ">
-                                            <i class=" uil uil-stethoscope-alt icon"></i>
-                                            <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Blood
-                                                Pressure</h6>
-                                            <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">130/75mm
-                                                Hg</p>
-                                        </div>
-                                    </div>
+                <div class="container p-2" style="width: 45rem;">
+                    <div class="card">
+                        <div class="card-header fw-bold" style="color: #004d4d;">
+                            VITALS
+                        </div>
+                        <div class="row mx-4 p-3">
+                            <!-- <div class="card" style="width:130px; height:130px; border-radius: 10%; text-align: center;"> -->
+                            <div class="col-4">
+                                <div class="card temp">
+                                    <i class="uil uil-heartbeat icon heart"></i>
+                                    <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Heart Rate
+                                    </h6>
+                                    <p class="readings fw-bold " style="color:#004d4d; font-size: 15px;">72 bpm
+                                    </p>
                                 </div>
+                            </div>
+                            <!-- </div> -->
 
-                                <div class="row mx-4 p-3">
-                                    <div class="col-4">
-                                        <div class="card temp">
-                                            <i class="uil uil-tear icon"></i>
-                                            <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Glucose</h6>
-                                            <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">130mg/dL
-                                            </p>
-                                        </div>
-                                    </div>
+                            <div class="col-4">
+                                <div class="card temp">
+                                    <i class="uil uil-heart-rate icon"></i>
+                                    <h6 class="fw-semibold" style="color:#004d4d; font-size: 15px;">Pulse</h6>
+                                    <p class="readings fw-bold" style="color:#004d4d; font-size: 15px;">80 bpm
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card temp" ">
+                                <i class=" uil uil-stethoscope-alt icon"></i>
+                                    <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Blood
+                                        Pressure</h6>
+                                    <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">130/75mm
+                                        Hg</p>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="col-4">
-                                        <div class="card temp">
-                                            <i class="uil uil-medical-square-full icon"></i>
-                                            <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">SpO2</h6>
-                                            <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">90%</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card temp">
-                                            <i class="uil uil-temperature-half icon"></i>
-                                            <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Temperature
-                                            </h6>
-                                            <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">98.5°F
-                                            </p>
-                                        </div>
-                                    </div>
+                        <div class="row mx-4 p-3">
+                            <div class="col-4">
+                                <div class="card temp">
+                                    <i class="uil uil-tear icon"></i>
+                                    <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Glucose</h6>
+                                    <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">130mg/dL
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card temp">
+                                    <i class="uil uil-medical-square-full icon"></i>
+                                    <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">SpO2</h6>
+                                    <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">90%</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card temp">
+                                    <i class="uil uil-temperature-half icon"></i>
+                                    <h6 class="fw-semibold" style="color:#004d4d;font-size: 15px;">Temperature
+                                    </h6>
+                                    <p class="readings fw-bold" style="color:#004d4d;font-size: 15px;">98.5°F
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item" style="color: #004d4d;">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed btn" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                                style="color: #004d4d;">
+                </div>
+
+                <div class="container p-2" style="width: 45rem; height: 15rem;">
+                    <div class="accordion" id="accordionExample" style="height: 40rem;">
+
+                        <div class="accordion-item" style="color: #004d4d;">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: #004d4d;">
                                 PRESCRIPTIONS
                             </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="col">
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            21.12.22 (Wednesday)
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            15.12.22 (Thursday)
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            27.11.22 (Saturday)
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            20.11.22 (Saturday)
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            01.11.22 (Monday)
-                                        </a>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="One"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="col">
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                21.12.22 (Wednesday)
+                                            </a>
+                                        </div>
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                15.12.22 (Thursday)
+                                            </a>
+                                        </div>
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                27.11.22 (Saturday)
+                                            </a>
+                                        </div>
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                20.11.22 (Saturday)
+                                            </a>
+                                        </div>
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                01.11.22 (Monday)
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: #004d4d">
-                                PERSONAL DOCUMENTS
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="col">
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            Birth Certificate
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            Aadhar Card
-                                        </a>
-                                    </div>
-                                    <div class="row">
-                                        <a download="" href="" class="link" style="color: #004d4d;">
-                                            <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
-                                            Insurance Documents
-                                        </a>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                                    style="color: #004d4d">
+                                    PERSONAL DOCUMENTS
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="col">
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                Birth Certificate
+                                            </a>
+                                        </div>
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                Aadhar Card
+                                            </a>
+                                        </div>
+                                        <div class="row">
+                                            <a download="" href="" class="link" style="color: #004d4d;">
+                                                <i class="uil uil-file-download-alt icon" style="font-size: 20px;"></i>
+                                                Insurance Documents
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -274,16 +278,18 @@
 
             </div>
         </div>
-        <div class="container p-3">
+        <div class="container">
             <h5 class="fw-bold fs-2 p-2 text-center" style="color: #004d4d;">VISITS</h5>
             <section>
                 <div class=" card p-4" style="border-radius: 10%;">
 
-                    <div id="calendar" style="background-color:white; padding: 1rem; ">
+                    <div id="calendar" style="background-color:white; padding: 1rem;">
                     </div>
                 </div>
             </section>
         </div>
+    </div>
+    
 </body>
 
 </html>
