@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
       initialView: 'dayGridMonth',
       initialDate: '2022-12-07',
       // height: '300',
+      aspectRatio: 1.5,
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',

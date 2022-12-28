@@ -61,6 +61,7 @@ body{
 #calendar{
     color: #025d5d;
     border-radius: 10%;
+    width: 50rem;
 }
 
 .fc-daygrid-day-number{
@@ -98,4 +99,13 @@ i{
 
 h5,h6,button,.accordion,a,th{
     font-family: 'Quicksand', sans-serif;
+}
+
+
+.calendar-container{
+    /* width: 50rem; */
+    display: flex;
+    /* alight center */
+    justify-content: center;
+    align-items: center;
 }
