@@ -1,0 +1,170 @@
+
+@media (max-width: 600px) {
+
+    body{
+        padding: 0 0;
+        font-family: Montserrat, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        color: #444;
+        background : #DFDFDE;
+        font-size: small;
+        
+    }
+    h1 {
+      margin : 0 auto;
+    }
+
+    #prescription_table, #tests_table {
+        display: block;
+        overflow-x: scroll;
+        width : 100%;
+        border-spacing: 10px;
+        
+
+    }
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+    th, td:before {
+        color: grey;
+    }
+    a{
+        color: grey; 
+    }
+    a:hover{
+        color :#0b596d
+    }
+    
+  
+    #prescription_table, #tests_table{
+        background-color : whitesmoke;
+        color: grey;
+        border-radius: .6em;
+        box-shadow: 1px 1px 1px #999;
+        
+    
+        
+    }
+    
+
+      .tick{
+        text-align : center;
+    }
+      
+}
+@media (min-width: 1201px) {
+    /* styles for large devices */
+    body {
+        padding: 0 0em;
+        font-family: Montserrat, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        
+        background : #DFDFDE;
+      }
+    #heading{
+        background-color: rgb(211, 210, 210) !important;
+        color: black;
+        border-radius: .6em;
+        box-shadow: 1px 1px 1px #999;
+        height: 30px;
+        text-align: center;
+        padding-top: 1em;
+    }
+    #details{
+        color : white;
+        font-size: 20px;
+        margin-left : auto;
+        margin-right : auto;
+    }
+    #details tr{
+        height : 40%;
+    }
+    #input{
+        width : 100% !important;
+        height:100% !important;
+        background-color :rgb(211, 210, 210);
+        color: black;
+        border-radius: .2em;
+        box-shadow: 1px 1px 1px #999;
+        height: 30px;
+        text-align: center;
+        padding-top: 0em;
+    }
+    #back-link {
+        background-color: #0b596d;
+        color: #fff;
+        text-align: left;
+        padding: 0.5em;
+      }
+      
+      #back-link a {
+        color: #fff;
+        text-decoration: none;
+      }
+      
+    #prescription_table, #tests_table{
+        background-color : whitesmoke;
+        color: grey;
+        border-radius: .6em;
+        height:250px;
+        width:600px;
+        overflow:scroll;
+        box-shadow: 1px 1px 1px #999;
+    }
+    
+    .tick{
+        text-align : center;
+    }
+    h1{
+        margin-left :  2em;
+    }
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+    th, td:before {
+        color: grey;
+    }
+    a{
+        color: grey; 
+    }
+    a:hover{
+        color :#0b596d
+    }
+    
+    .container {
+        display : flex;
+        justify-content: space-between;
+        flex-wrap : wrap;
+        padding: 50px;
+        
+    }
+   
+
+.item3{
+    justify-content: space-between;
+    padding:0px;
+    margin-top: 20px;
+}
+.card{
+    height : 40%;
+    
+
+}
+.media{
+    height : 150px;
+}
+p{
+    height : 100px;
+}
+.main_contianer{
+    padding : 50px;
+}
+/* .media-body{
+    height : 50px;
+} */
+
+}
