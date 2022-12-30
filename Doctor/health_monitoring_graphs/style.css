@@ -1,0 +1,42 @@
+body{
+    background : whitesmoke;
+}
+#Heading{
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    color :#0b596d
+}
+#Heart_rate{
+    
+    border : 2px solid black;
+    
+}
+#SpO2{
+    
+    border : 2px solid black;
+}
+#Temperature{
+    border : 2px solid black;
+}
+    
+#BP{
+    border : 2px solid black;
+}
+#item1{
+    display : flex;
+    justify-content: space-evenly;
+    padding : 20px;
+    
+}
+
+#item2{
+    display : flex;
+    justify-content: space-evenly;
+    padding : 20px;
+    
+}
+.container{
+    padding: 20px;
+}
+
