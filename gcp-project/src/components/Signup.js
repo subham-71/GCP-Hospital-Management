@@ -1,8 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../contexts/AuthContext'
+import { Alert } from 'react-bootstrap'
+import { db } from '../firebase'
 import './Login.css'
 
 export default function Signup() {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const passwordConfirmRef = useRef()
+  const nameRef = useRef()
+  const {signup} = useAuth()
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+
+  async function handleSubmit(e) {
+      e.preventDefault()
+      const userType = document.querySelector('input[name="choice"]:checked').value 
+
+      if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+          return setError('Passwords do not match')
+      }
+      
+      try{
+          setError('')
+          setLoading(true)
+          let userCred = await signup(emailRef.current.value, passwordRef.current.value)
+          let user = userCred.user
+          await db.collection(userType).doc(user.uid).set({
+              name: nameRef.current.value,
+              email: emailRef.current.value,
+          })
+          navigate("/profile")
+      } catch {
+          setError('Failed to create an account')
+      }
+      setLoading(false)
+  }
+  
   return (
     <div>
         <div className="container mt-3">
@@ -25,21 +61,26 @@ export default function Signup() {
                         <h3 className="mb-4">Register</h3>
                       </div>
                     </div>
-                    <form action="#" className="signin-form">
+                    <form onSubmit={handleSubmit} action="#" className="signin-form">
+                      {error && <Alert variant="danger">{error}</Alert>}
                       <div className="form-group mb-3">
                         <label className="label" htmlFor="name">Username</label>
-                        <input type="text" className="form-control" placeholder="Username" required />
+                        <input ref={nameRef} type="text" className="form-control" placeholder="Username" required />
+                      </div>
+                      <div className="form-group mb-3">
+                        <label className="label" htmlFor="email">Email</label>
+                        <input ref={emailRef} type="email" className="form-control" placeholder="Username" required />
                       </div>
                       <div className="form-group mb-3">
                         <label className="label" htmlFor="password">Password</label>
-                        <input type="password" className="form-control" placeholder="Password" required />
+                        <input ref={passwordRef} type="password" className="form-control" placeholder="Password" required />
                       </div>
                       <div className="form-group mb-3">
                         <label className="label" htmlFor="password">Confirm Password</label>
-                        <input type="password" className="form-control" placeholder="Password" required />
+                        <input ref={passwordConfirmRef} type="password" className="form-control" placeholder="Password" required />
                       </div>
                       <div className="form-group">
-                        <button type="submit" id="register" className="form-control btn btn-primary submit px-3">Register</button>
+                        <button disabled={loading} type="submit" id="register" className="form-control btn btn-primary submit px-3">Register</button>
                       </div>
                       {/* choice for doctor,patient or hospital using radio button */}
                       <div className="form-group d-md-flex">

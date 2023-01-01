@@ -1,8 +1,31 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Alert } from 'react-bootstrap'
+import { useAuth } from '../contexts/AuthContext'
 import './Login.css'
 
 export default function Login() {
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const {login} = useAuth()
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+
+  async function handleSubmit(e) {
+      e.preventDefault()
+      
+      try{
+          setError('')
+          setLoading(true)
+          await login(emailRef.current.value, passwordRef.current.value)
+          navigate("/profile")
+      } catch {
+          setError('Wrong email or password')
+      }
+      setLoading(false)
+  }
+
   return (
     <section className="ftco-section">
         <div className="toast" id="toast">
@@ -37,21 +60,21 @@ export default function Login() {
                       <h3 className="mb-4">Sign In</h3>
                     </div>
                   </div>
-                  <form action="#" className="signin-form">
+                  <form onSubmit={handleSubmit} className="signin-form">
+                    {error && <Alert variant="danger">{error}</Alert>}
                     <div className="form-group mb-3">
-                      <label className="label" htmlFor="name">Username</label>
-                      <input type="text" className="form-control" placeholder="Username" required />
+                      <label className="label" htmlFor="name">Email</label>
+                      <input ref={emailRef} type="email" className="form-control" placeholder="Username" required />
                     </div>
                     <div className="form-group mb-3">
                       <label className="label" htmlFor="password">Password</label>
-                      <input type="password" className="form-control" placeholder="Password" required />
+                      <input ref={passwordRef} type="password" className="form-control" placeholder="Password" required />
                     </div>
                     <div className="form-group" id="submit">
-                      <button type="submit" className="form-control btn btn-primary submit px-3">Sign
-                        In</button>
+                      <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
                     </div>
                     {/* choice for doctor,patient or hospital using radio button */}
-                    <div className="form-group d-md-flex">
+                    {/* <div className="form-group d-md-flex">
                       <div className="w-50 text-left">
                         <label className="checkbox-wrap checkbox-primary mb-0">Doctor
                           <input type="radio" name="choice" defaultValue="doctor" defaultChecked />
@@ -70,7 +93,7 @@ export default function Login() {
                           <span className="checkmark" />
                         </label>
                       </div>
-                    </div>
+                    </div> */}
                   </form>
                 </div>
               </div>
