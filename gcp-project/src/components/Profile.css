@@ -14,15 +14,9 @@ body{
     background-color: rgb(241, 241, 241);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-}
-
 .container{
-    color: white;
+    color: black;
+    width: 100%;
 }
 
 .temp{
@@ -81,26 +75,6 @@ i{
     padding-left: 1px;
     padding-right: 1px;
 }
-
-:root{
-    /* just temporary values*/
-    --primary-color: rgb(145,191,118);
-    --secondary-color: rgb(250,155,78);
-    --success-color: #198754;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #0dcaf0;
-    --light-color: #f8f9fa;
-    --dark-color: #212529;
-    --body-color: #212529;
-    --background-color-secondary: rgb(36, 29, 29);
-    --background-color: #f8f9fa;
-}
-
-h5,h6,button,.accordion,a,th{
-    font-family: 'Quicksand', sans-serif;
-}
-
 
 .calendar-container{
     /* width: 50rem; */

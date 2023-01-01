@@ -1,5 +1,8 @@
 import React from 'react'
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
 import sample from '../images/sample.png'
+import events from "./events";
 import './Profile.css'
 
 export default function Profile() {
@@ -218,12 +221,12 @@ export default function Profile() {
           {/* calender */}
           <div className="container">
             <h5 className="fw-bold fs-2 p-2 text-center" style={{color: '#004d4d'}}>VISITS</h5>
-            <section>
-              <div className="calendar-container card p-4" style={{borderRadius: '10%'}}>
-                <div id="calendar" style={{backgroundColor: 'white', padding: '1rem'}}>
-                </div>
-              </div>
-            </section>
+            <FullCalendar
+                plugins={[dayGridPlugin]}
+                events={events}
+                displayEventEnd="true"
+                eventColor={"#" + Math.floor(Math.random() * 16777215).toString(16)}
+              />
           </div>
         </div>
       </div>
