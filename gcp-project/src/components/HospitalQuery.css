@@ -1,0 +1,102 @@
+ @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+  
+
+  .item1 {
+    
+    align-items : center;
+    
+    
+    
+}
+.item2{
+   
+    align-items : center;
+   
+    
+}
+.item1 h3 {
+    text-align: center;
+  
+    
+  }
+  
+
+th, td {
+    padding: 20px;
+    text-align: left;
+}
+
+    
+td:before {
+    color: grey;
+}
+#query_table{
+    background-color : whitesmoke;
+    color: grey;
+    border-radius: .6em;
+    width : 1000px;
+    height : 100px;
+    overflow:scroll;
+    box-shadow: 1px 1px 1px #999;
+    
+    
+}
+#details{
+    background-color : whitesmoke;
+    color: grey;
+    border-radius: .6em;
+    width : 1000px;
+    height : 100px;
+    overflow-y: scroll;
+    box-shadow: 1px 1px 1px #999;
+}
+
+#query_table thead{
+    
+    color : black;
+}
+#query_table tbody tr:hover{
+    background-color: white;
+    
+    color: black;
+      
+      
+}
+h3{
+    background-color: grey;
+    color : white;
+    border-radius: 0.3em;
+    text-align: center;
+}
+
+.item3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  button {
+    background-color: grey;
+    color : red;
+  }
+
+  .dataTables_paginate .paginate_button:hover,
+.dataTables_paginate .paginate_button:active {
+  color: red;
+}
+
+.dataTables_paginate .paginate_button.current,
+.dataTables_paginate .paginate_button.current:hover {
+  color: blue;
+}
+
+  .dataTables_paginate .paginate_button {
+    padding: 0 10px;
+  }
+
+  .dataTables_paginate .paginate_button {
+    color: red;
+  } 
+  
+   
