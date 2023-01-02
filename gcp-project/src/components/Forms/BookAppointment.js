@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import { useAuth } from '../contexts/AuthContext';
-import { db } from '../firebase';
+import { useAuth } from '../../contexts/AuthContext';
+import { db } from '../../firebase';
 import './BookAppointment.css'
 
 export default function BookAppointment() {

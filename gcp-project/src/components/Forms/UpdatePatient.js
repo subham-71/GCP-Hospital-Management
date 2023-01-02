@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import './UpdatePatientStyle.css'
 
 export default function UpdatePatient() {
   return (
