@@ -1,0 +1,196 @@
+body{
+    background-color: #a6cfd8;
+}
+
+#card:hover{
+    /* background-color: #b4d8e0; */
+    background-color:#6da1ad;
+    transition: 0.2s;
+    /* color: white; */
+    transform: scale(1.05);
+}
+
+.card-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-body{
+    padding-right: 0px;
+}
+
+#full{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lef{
+    text-align: center;
+}
+
+#para{
+    display: none;
+}
+
+.read{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#upd
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#upd1
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#upd2:hover{
+    transform: scale(1.05);
+}
+
+#drop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#pic{
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+
+}
+
+.picds{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#prof{
+    margin: 20px 0px;
+
+    padding: 0px;
+    margin-left: 0px;
+}
+
+#left{
+    margin-right: 30px;
+    padding: 0px;
+}
+#right{
+    margin: 30px;
+}
+
+#kkkl{
+    padding: 13px;
+}
+
+.table-fixed tbody {
+    height: 300px;
+    /* overflow-y: auto; */
+    width: 100%;
+    overflow-y: auto;
+    /* display: block; */
+    /* overflow-x: auto; */
+    white-space: wrap;
+}
+
+#ab{
+    height: 300px;
+    /* overflow-y: auto; */
+    /* width: 100%; */
+    overflow: auto;
+    display: block;
+    /* overflow-x: auto; */
+    white-space: wrap;
+    table-layout: fixed
+}
+#kb{
+    height: 200px;
+    /* overflow-y: auto; */
+    /* width: 100%; */
+    overflow: auto;
+    display: block;
+    /* overflow-x: auto; */
+    white-space: wrap;
+    table-layout: fixed
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+    display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed tbody th,
+.table-fixed thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSES
+* ==========================================
+*
+*/
+#docim{
+    width: 25px;
+    border-radius: 40px;
+}
+
+#tbb{
+    margin-top: 65px;
+}
+
+#th{
+    background-color: #0b596d;
+    font-weight:normal;
+    color : white;
+}
+#vh{
+    background-color: #0b596d;
+    font-weight: bold;
+    color : white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.resources_lended{
+    width : 50%;
+    /* border-radius: 100px; */
+    text-align: center;
+    margin : 0 auto;
+}
+/* table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+} */
