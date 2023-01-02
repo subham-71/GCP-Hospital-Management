@@ -9,7 +9,7 @@ export default function BookAppointment() {
   const symptomRef = useRef();
   const dateRef = useRef();
   const timeRef = useRef();
-
+  const doctorRef = useRef();
   async function addAppointment(e) {
     e.preventDefault();
 

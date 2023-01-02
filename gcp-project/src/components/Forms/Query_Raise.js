@@ -1,7 +1,7 @@
 import React from 'react'
 import './UpdatePatientStyle.css'
 
-export default function UpdatePatient() {
+export default function Query_Raise() {
   return (
     <div>
       <meta charSet="UTF-8" />
@@ -25,7 +25,14 @@ export default function UpdatePatient() {
                     </div>
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2">
-                        <input type="text" className="form-control" placeholder="Resource Required" aria-label="Resource Required" style={{backgroundColor: 'white'}} />
+                        <div className="input-group">
+                          <select className="custom-select text-muted form-control" id="inputGroupSelect02">
+                            <option selected>Select Resource Required</option>
+                            <option value={1}>Gloves</option>
+                            <option value={2}>Masks</option>
+                            <option value={3}>Beds</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
                     <div className="row p-2 justify-content-center">
