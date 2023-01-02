@@ -9,7 +9,7 @@ import TopNavbar from './components/TopNavbar';
 import AuthProvider, { useAuth } from './contexts/AuthContext';
 import {Routes, Route, Navigate} from 'react-router-dom'
 import PatientList from './components/PatientList';
-import Register_form_patient from './components/Register_form_patient';
+
 function App() {
 
   const PrivateRoute = ({ children }) => {
