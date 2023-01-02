@@ -1,0 +1,15 @@
+.carousel-indicators{
+    height: 8px;
+    padding-top: 2rem;
+    padding-bottom: 0.3rem;
+}
+
+.btn{
+    background-color: #227373;
+    color: white;
+}
+
+.btn:hover{
+    background-color: #005353;
+    color: white;
+}
