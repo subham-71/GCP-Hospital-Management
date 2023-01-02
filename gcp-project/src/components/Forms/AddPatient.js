@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Card() {
+
+export default function AddPatient() {
   return (
     <div>
         <div className="d-flex align-items-center justify-content-center mt-4">
