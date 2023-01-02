@@ -7,35 +7,68 @@ import HospitalQuery from './components/HospitalQuery';
 import Navbar from './components/Navbar';
 import TopNavbar from './components/TopNavbar';
 import AuthProvider, { useAuth } from './contexts/AuthContext';
-import {Routes, Route, Navigate} from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import PatientList from './components/PatientList';
 
 function App() {
 
   const PrivateRoute = ({ children }) => {
-    const {currentUser} = useAuth() 
-    return currentUser ? children : <Navigate to="/login" />;
+    const { currentUser, userRole } = useAuth()
+    const path = children.type.name
+    const patientAllow = ['Profile', 'BookAppointment']
+    const doctorAllow = ['Profile', 'PatientList']
+    const hospitalAllow = ['Profile', 'HospitalQuery']
+
+    if(!currentUser){
+      return <Navigate to="/login" />;
+    }
+
+    if(userRole === 'patient'){
+      if(!patientAllow.includes(path)){
+        return <Navigate to="/login" />
+      }
+      else{
+        return children
+      }
+    }
+    else if(userRole === 'doctor'){
+      if(!doctorAllow.includes(path)){
+        return <Navigate to="/login" />
+      }
+      else{
+        return children
+      }
+    }
+    else if(userRole === 'hospital'){
+      if(!hospitalAllow.includes(path)){
+        return <Navigate to="/login" />
+      }
+      else{
+        return children
+      }
+    }
+    return <Navigate to="/login" />;
   }
 
 
   return (
     <div className="App">
       <AuthProvider>
-      {/* <TopNavbar/>
+        {/* <TopNavbar/>
       <Navbar/> */}
         <Routes>
-          <Route path="/login" element={<Login/>} />
-          <Route path="/signup" element={<Signup/>} />
-          <Route path="/profile" element={<Profile/>} />
-          <Route path="/book-appointment" element={<BookAppointment/>} />
-          <Route path="/hospital-query" element={<HospitalQuery/>} />
-          <Route path="/patient-list" element={<PatientList/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/book-appointment" element={<BookAppointment />} />
+          <Route path="/hospital-query" element={<PrivateRoute><HospitalQuery /></PrivateRoute>}/>
+          <Route path="/patient-list" element={<PatientList />} />
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
-          <Route path="/forgot-password" element={<ForgotPassword/>} />
-          <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}
+            <Route path="/forgot-password" element={<ForgotPassword/>} />
+            <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}
         </Routes>
-      </AuthProvider>
-    </div>
+    </AuthProvider>
+    </div >
   );
 }
 

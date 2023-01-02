@@ -13,13 +13,14 @@ export default function BookAppointment() {
   async function addAppointment(e) {
     e.preventDefault();
 
-    db.collection("appointments").add({
+    const res = await db.collection('appointments').add({
       patientid: currentUser.uid,
-      doctorid: "some_id",
+      doctorid: "123",
       time: timeRef.current.value,
       date: dateRef.current.value,
     })
 
+    console.log(res);
   }
 
   return (
@@ -29,7 +30,7 @@ export default function BookAppointment() {
           <h2 className="text-center my-4">
             Book Appointment
           </h2>
-          <form>
+          <form onSubmit={addAppointment}>
             <div className="form-group row">
               <label className="col-sm-4 col-lg-4">
                 Patient Name
@@ -82,7 +83,7 @@ export default function BookAppointment() {
             <br />
             <div className="form-group row justify-content-end">
               <div className="col-sm-5">
-                <button type="submit" className="btn btn-form" onClick={addAppointment()}>
+                <button type="submit" className="btn btn-form">
                   Confirm
                 </button>
               </div>
