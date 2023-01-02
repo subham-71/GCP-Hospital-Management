@@ -1,41 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
   
-#back-link {
-    background-color: #0b596d;
-    color: #fff;
-    text-align: left;
-    padding: 0.5em;
-    display : fixed;
-  }
-  
-  #back-link a {
-    color: #fff;
-    text-decoration: none;
-  }
+
   .item1 {
-    display : flex;
+    
     align-items : center;
-    justify-content: space-evenly; 
-    flex-wrap : wrap;
+    
     
     
 }
 .item2{
-    display : flex;
+   
     align-items : center;
-    justify-content: space-evenly; 
-    flex-wrap : wrap;
-    
+   
     
 }
-.item1 h2 {
+.item1 h3 {
     text-align: center;
+  
+    
   }
   
 
 th, td {
-    padding: 10px;
+    padding: 20px;
     text-align: left;
 }
 
@@ -75,10 +63,11 @@ td:before {
       
       
 }
-h2{
+h3{
     background-color: grey;
     color : white;
     border-radius: 0.3em;
+    text-align: center;
 }
 
 .item3 {
@@ -108,6 +97,6 @@ h2{
 
   .dataTables_paginate .paginate_button {
     color: red;
-  }
+  } 
   
-  
+   

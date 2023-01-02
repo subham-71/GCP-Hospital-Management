@@ -1,5 +1,5 @@
 import React from 'react'
-//import './HospitalQuery.css'
+import './HospitalQuery.css'
 
 export default function HospitalQuery() {
   return (
