@@ -19,6 +19,18 @@ export default function Login() {
       setError('')
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
+      // if(userRole === "doctor"){
+      //   navigate("/patient-list")
+      // }
+      // else if(userRole === "patient"){
+      //   navigate("/profile")
+      // }
+      // else if(userRole === "hospital"){
+      //   navigate("/hospital-query")
+      // }
+      // else{
+      //   navigate("/card")
+      // }
       navigate("/profile")
     } catch {
       setError('Wrong email or password')

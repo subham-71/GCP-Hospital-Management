@@ -64,8 +64,8 @@ function App() {
           <Route path="/book-appointment" element={<BookAppointment />} />
           <Route path="/hospital-query" element={<PrivateRoute><HospitalQuery /></PrivateRoute>}/>
           <Route path="/patient-list" element={<PatientList />} />
-          <Route path="/UpdatePatient" element={<UpdatePatient/>} />
-          <Route path="/Query_Raise" element={<Query_Raise/>} />
+          <Route path="/update-patient" element={<UpdatePatient/>} />
+          <Route path="/query-raise" element={<Query_Raise/>} />
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}
