@@ -4,6 +4,8 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import HospitalQuery from './components/HospitalQuery';
+import Navbar from './components/Navbar';
+import TopNavbar from './components/TopNavbar';
 import AuthProvider, { useAuth } from './contexts/AuthContext';
 import {Routes, Route, Navigate} from 'react-router-dom'
 import PatientList from './components/PatientList';
@@ -19,7 +21,8 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-      {/* <Navbar/> */}
+      {/* <TopNavbar/>
+      <Navbar/> */}
         <Routes>
           <Route path="/login" element={<Login/>} />
           <Route path="/signup" element={<Signup/>} />
