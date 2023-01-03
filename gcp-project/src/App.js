@@ -11,6 +11,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import PatientList from './components/PatientList';
 import Query_Raise from './components/Forms/Query_Raise';
 import PatientForm from './components/Forms/PatientForm';
+import HospitalProfile from './components/HospitalProfile';
 
 function App() {
 
@@ -65,11 +66,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/book-appointment" element={<BookAppointment />} />
-          <Route path="/hospital-query" element={<PrivateRoute><HospitalQuery /></PrivateRoute>}/>
+          <Route path="/book-appointment/:docId" element={<BookAppointment />} />
+          <Route path="/hospital-query" element={<HospitalQuery />}/>
           <Route path="/patient-list" element={<PatientList />} />
           <Route path="/query-raise" element={<Query_Raise/>} />
           <Route path="/patient-form" element={<PatientForm />} />
+          <Route path="/hospital-profile" element={<HospitalProfile />} />
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}

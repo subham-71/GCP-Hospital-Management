@@ -1,9 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import '../../Styles/UpdatePatientStyle.css'
-import { updateDoc, doc } from "firebase/firestore";
-import { db } from '../../firebase';
+import { updateDoc, } from "firebase/firestore";
+import { db, storage } from '../../firebase';
+import { ref, uploadBytes } from 'firebase/storage'
 import { useAuth } from '../../contexts/AuthContext';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function PatientForm() {
@@ -16,23 +17,41 @@ export default function PatientForm() {
   const Gender = useRef();
   const navigate = useNavigate();
 
-  const { userRole, currentUser } = useAuth();
+  const { currentUser } = useAuth();
+
+  const [user, setUser] = useState([]);
+  const [upload, setUpload] = useState(null);
+  const userDoc = db.collection('patient').doc(currentUser.uid);
+
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const udoc = await userDoc.get();
+      setUser(udoc.data());
+    };
+    getUsers();
+  }, [])
 
   const updateUser = async () => {
-    const userDoc = doc(db, userRole, currentUser.uid);
-    const doc = await userDoc.get();
-    console.log(name);
+    uploadFiles()
     const newFields = {
-      name: name.current.value==null ? doc.data().name : name.current.value,
+      name: name.current.value == null ? user.name : name.current.value,
       age: age.current.value,
       weight: weight.current.value,
-      height: height.current.value
+      height: height.current.value,
+      files: [(currentUser.uid + "-" + upload.name)]
     };
     await updateDoc(userDoc, newFields)
     navigate('/profile')
   };
 
-
+  const uploadFiles = async () => {
+    console.log(upload)
+    if (upload == null) return;
+    const imageRef = ref(storage, `documents/${currentUser.uid + "-" + upload.name}`);
+    console.log(imageRef)
+    await uploadBytes(imageRef, upload);
+  }
 
   return (
     <div>
@@ -111,7 +130,7 @@ export default function PatientForm() {
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2 text-center">
                         <label htmlFor="formFileMultiple" className="form-label">Add Personal Documents</label>
-                        <input className="form-control" type="file" id="formFileMultiple" multiple />
+                        <input onChange={(event) => { setUpload(event.target.files[0]) }} className="form-control" type="file" id="formFileMultiple" multiple />
                       </div>
                     </div>
                     <div className="row p-2 justify-content-center">
@@ -124,7 +143,7 @@ export default function PatientForm() {
                 </div>
                 <div className="d-flex justify-content-center">
                   <div className="row mt-4">
-                    <button className="btn mb-4" type="submit" onClick={() => updateUser()}>Update</button>
+                    <button className="btn mb-4" type="submit" onClick={() => {updateUser()}}>Update</button>
                     {/* <a href="#" class="btn btn-primary">Update</a> */}
                   </div>
                 </div>

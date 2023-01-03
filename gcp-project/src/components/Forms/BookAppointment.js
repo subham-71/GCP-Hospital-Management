@@ -1,7 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useAuth } from '../../contexts/AuthContext';
 import { db } from '../../firebase';
-import '../../Styles/BookAppointment.css'
+import '../../Styles/BookAppointment.css';
+import { updateDoc } from "firebase/firestore";
+import { useParams } from 'react-router-dom';
 
 export default function BookAppointment() {
 
@@ -9,75 +11,86 @@ export default function BookAppointment() {
   const symptomRef = useRef();
   const dateRef = useRef();
   const timeRef = useRef();
-  const doctorRef = useRef();
-  async function addAppointment(e) {
-    e.preventDefault();
+  const [user, setUser] = useState([]);
+  const userDoc = db.collection('patient').doc(currentUser.uid);
+  const { docId } = useParams()
 
-    const res = await db.collection('appointments').add({
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const udoc = await userDoc.get();
+      setUser(udoc.data());
+    };
+    getUsers();
+  }, [])
+
+
+  const addAppointment = async (e) => {
+
+    e.preventDefault();
+    console.log(docId)
+    const appdocRef = await db.collection('appointments').add({
       patientid: currentUser.uid,
-      doctorid: "123",
+      doctorid: docId,
       time: timeRef.current.value,
       date: dateRef.current.value,
+      descripiton: symptomRef.current.value
     })
-
+    // console.log(user)
+    const appointment = user.appointment;
+    const newPFields = {
+      appointment: [...appointment, appdocRef]
+    };
+    await updateDoc(userDoc, newPFields)
   }
 
   return (
-    <div>
-      <meta charSet="UTF-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Add patient</title>
-      <link rel="stylesheet" href="style.css" />
-      <div className="d-flex align-items-center justify-content-center mt-4">
-        <div className="card" style={{ width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)' }}>
-          <div className="card-header" style={{ backgroundColor: 'rgba(0, 83, 83,0.5)' }}>
-            <h3 style={{ color: '#084545' }}>Book Appointment</h3>
-          </div>
-          <div id="carouselExampleIndicators" className="carousel slide" data-bs-interval="false">
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <div className="col p-2">
-                  <div className="row p-2 justify-content-center">
-                    <div className="col-8 p-2">
-                      <input type="text" className="form-control" placeholder="Patient Name" aria-label="Name" style={{ backgroundColor: 'white' }} />
-                    </div>
-                  </div>
-                  <div className="row p-2 justify-content-center">
-                    <div className="col-8 p-2">
-                      <input type="text" className="form-control" placeholder="Dr. Rajiv" aria-label="Doctor" style={{ backgroundColor: 'white' }} disabled="disabled" ref={doctorRef} />
-                    </div>
-                  </div>
-                  <div className="row p-2 justify-content-center">
-                    <div className="col-8 p-2">
-                      <input type="number" className="form-control" placeholder="Contact Number" aria-label="Contact" />
-                    </div>
-                  </div>
-                  <div className="row p-2 justify-content-center">
-                    <div className="col-8 p-2">
-                      <input type="date" className="form-control" placeholder="Date" aria-label="Date" ref={dateRef} />
-                    </div>
-                  </div>
-                  <div className="row p-2 justify-content-center">
-                    <div className="col-8 p-2 text-center">
-                      <input type="time" className="form-control" placeholder="Time" aria-label="Time" ref={timeRef} />
-                    </div>
-                  </div>
-                  <div className="row p-2 justify-content-center">
-                    <div className="col-8 p-2 text-center">
-                      <input type="text" className="form-control" placeholder="Reason of Visit" aria-label="Reason" />
-                    </div>
-                  </div>
-                </div>
-                {/* submit */}
-                <div className="row p-2 justify-content-center">
-                  <div className="col-8 p-2 text-center">
-                    <button type="button" className="btn btn-primary" onClick={addAppointment}>Submit</button>
-                  </div>
-                </div>
+    <div className="container mt-4 p-4">
+      <div className="row">
+        <div className="col-md-6">
+          <h2 className="text-center my-4">
+            Book Appointment
+          </h2>
+          <form onSubmit={addAppointment}>
+            <br />
+            <div className="form-group row">
+              <label className="col-sm-4 col-lg-4">
+                Date
+              </label>
+              <div className="col-sm-8 col-lg-8">
+                <input ref={dateRef} type="date" id="date" className="form-control" />
               </div>
             </div>
-          </div>
+            {/**/}
+            <br />
+            <div className="form-group row">
+              <label className="col-sm-4 col-lg-4">
+                Time
+              </label>
+              <div className="col-sm-8 col-lg-8">
+                <input ref={timeRef} type="time" id="time" className="form-control" />
+              </div>
+            </div>
+            {/**/}
+            <br />
+            <div className="form-group row">
+              <label className="col-sm-4 col-lg-4">
+                Reason of Visit
+              </label>
+              <div className="col-sm-8 col-lg-8">
+                <textarea ref={symptomRef} id="symptoms" className="form-control" required defaultValue={""} />
+              </div>
+            </div>
+            {/**/}
+            <br />
+            <div className="form-group row justify-content-end">
+              <div className="col-sm-5">
+                <button type="submit" className="btn btn-form">
+                  Confirm
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -4,14 +4,24 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import sample from '../images/sample.png'
 import events from "./events";
 import '../Styles/Profile.css'
-import { db } from '../firebase';
+import { db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
+import { ref, getDownloadURL } from 'firebase/storage';
 
 export default function Profile() {
   const [user, setUser] = useState([]);
+  const [links, setLinks] = useState([]);
   const { userRole, currentUser } = useAuth();
   const docRef = db.collection('patient').doc(currentUser.uid);
+
+  const getLinks = async () => {
+    user.files.forEach(async (file) => {
+      let url = await getDownloadURL(ref(storage, "documents/"+file));
+      setLinks([...links, url]);
+    })
+    console.log("Links: " + links)
+  }
 
   useEffect(() => {
     const getUsers = async () => {
@@ -19,12 +29,10 @@ export default function Profile() {
       console.log(doc.data())
       setUser(doc.data());
     };
-    getUsers();
+    getUsers().then(getLinks());
   }, [])
 
-  const navigate = useNavigate()
-
-
+  const navigate = useNavigate();
 
   return (
     <>
@@ -44,7 +52,7 @@ export default function Profile() {
                   <h5>{user.name}</h5>
                   <h6 className="text-muted">Age: {user.age}</h6>
                   <h5>{userRole}</h5>
-                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-update-form")}>Update</button>
+                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-form")}>Update</button>
                 </div>
               </div>
               <div className="card mt-4" style={{ width: '18rem', borderRadius: '10%' }}>
@@ -168,6 +176,18 @@ export default function Profile() {
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="One" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <div className="col">
+                          {
+                            links.map((link) => {
+                              return (
+                                <div className="row">
+                                  <a href = {link} download className="link" style={{ color: '#004d4d' }}>
+                                    <i className="uil uil-file-download-alt icon" style={{ fontSize: '20px' }} />
+                                    21.12.22 (Wednesday)
+                                  </a>
+                                </div>
+                              )
+                            })
+                          }
                           <div className="row">
                             <a download className="link" style={{ color: '#004d4d' }}>
                               <i className="uil uil-file-download-alt icon" style={{ fontSize: '20px' }} />

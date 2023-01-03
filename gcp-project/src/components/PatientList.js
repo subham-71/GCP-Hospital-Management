@@ -13,18 +13,22 @@ export default function PatientList() {
   }
   const patientArr = ["N9z4uPZxfNXPl098kpBpWcHDn152", "RQ8FNr3vgvefIFVZHcJR1WI4s693", "bDp6VO8MGycL4ndtmngFWLtarEd2"]
   const [patientDetail, setPatientDetail] = useState([])
+  const [loading, setLoading] = useState(false)
   
-  const getDetail = async() =>{
+  const getDetail = () =>{
     patientArr.forEach(async (elem)=>{
       const detail = await getDetails(elem);
-      console.log(detail)
       setPatientDetail((prev)=>[...prev, detail])
     })
-    console.log(patientDetail)
   }
+  
   useEffect(()=>{
-    getDetail();
-  },[]);
+      getDetail();
+  },[loading]);
+
+  useEffect(()=>{
+    setLoading(true)
+  })
   
   return (
     <div>
