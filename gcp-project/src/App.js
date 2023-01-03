@@ -11,6 +11,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import PatientList from './components/PatientList';
 import Query_Raise from './components/Forms/Query_Raise';
 import PatientForm from './components/Forms/PatientForm';
+import PatientGraphs from './components/PatientGraphs';
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
       <Navbar/> */}
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/patient-graphs" element={<PatientGraphs />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/book-appointment" element={<BookAppointment />} />

@@ -16,7 +16,7 @@ export default function Visit() {
             <div id="carouselExampleIndicators" className="carousel slide" data-bs-interval="false">
               <div className="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active " aria-current="true" style={{backgroundColor: '#005353'}} />
-                <button type="button" style={{backgroundColor: '#005353'}} data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label />
+                <button type="button" style={{backgroundColor: '#005353'}} data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
               </div>
               <div className="carousel-inner">
                 <div className="carousel-item active">
