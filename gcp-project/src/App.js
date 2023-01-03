@@ -9,9 +9,9 @@ import TopNavbar from './components/TopNavbar';
 import AuthProvider, { useAuth } from './contexts/AuthContext';
 import { Routes, Route, Navigate } from 'react-router-dom'
 import PatientList from './components/PatientList';
-import UpdatePatient from './components/Forms/UpdatePatient';
-import AddPatient from './components/Forms/AddPatient';
 import Query_Raise from './components/Forms/Query_Raise';
+import PatientForm from './components/Forms/PatientForm';
+
 function App() {
 
   const PrivateRoute = ({ children }) => {
@@ -21,13 +21,16 @@ function App() {
     const doctorAllow = ['Profile', 'PatientList']
     const hospitalAllow = ['Profile', 'HospitalQuery']
 
+    console.log(path)
+    console.log(userRole)
+
     if(!currentUser){
       return <Navigate to="/login" />;
     }
 
     if(userRole === 'patient'){
       if(!patientAllow.includes(path)){
-        return <Navigate to="/login" />
+        return <Navigate to="/profile" />
       }
       else{
         return children
@@ -65,10 +68,8 @@ function App() {
           <Route path="/book-appointment" element={<BookAppointment />} />
           <Route path="/hospital-query" element={<PrivateRoute><HospitalQuery /></PrivateRoute>}/>
           <Route path="/patient-list" element={<PatientList />} />
-          <Route path="/update-patient" element={<UpdatePatient/>} />
           <Route path="/query-raise" element={<Query_Raise/>} />
-          <Route path="/patient-update-form" element={<UpdatePatient />} />
-          <Route path="/patient-add-form" element={<AddPatient />} />
+          <Route path="/patient-form" element={<PatientForm />} />
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}

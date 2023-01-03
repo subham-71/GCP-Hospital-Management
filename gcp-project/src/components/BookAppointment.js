@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useAuth } from '../contexts/AuthContext';
 import { db } from '../firebase';
-import './BookAppointment.css'
+import '../Styles/BookAppointment.css'
 
 export default function BookAppointment() {
 
@@ -13,7 +13,7 @@ export default function BookAppointment() {
   async function addAppointment(e) {
     e.preventDefault();
 
-    const res = await db.collection('appointments').add({
+    const res = await db.collection('doctor').doc('').collection('appointments').add({
       patientid: currentUser.uid,
       doctorid: "123",
       time: timeRef.current.value,

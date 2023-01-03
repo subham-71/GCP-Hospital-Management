@@ -1,5 +1,5 @@
 import React from 'react'
-import './VisitStyle.css'
+import '../../Styles/VisitStyle.css'
 
 export default function Visit() {
   function showTable() {
@@ -11,7 +11,6 @@ export default function Visit() {
       <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossOrigin="anonymous" />
         <link rel="stylesheet" href="VisitStyle.css" />
         <title>Visit</title>
         <div className="d-flex align-items-center justify-content-center mt-4">

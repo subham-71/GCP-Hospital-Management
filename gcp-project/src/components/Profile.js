@@ -1,31 +1,31 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import sample from '../images/sample.png'
 import events from "./events";
-import './Profile.css'
+import '../Styles/Profile.css'
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Profile() {
-  const [user,setUser] = useState([]);
-  const {userRole,currentUser} = useAuth();
+  const [user, setUser] = useState([]);
+  const { userRole, currentUser } = useAuth();
   const docRef = db.collection('patient').doc(currentUser.uid);
-  
-  useEffect(() =>{
+
+  useEffect(() => {
     const getUsers = async () => {
-       const doc = await docRef.get();
-       console.log(doc.data())
-       setUser(doc.data());
+      const doc = await docRef.get();
+      console.log(doc.data())
+      setUser(doc.data());
     };
     getUsers();
- },[])
+  }, [])
 
- const navigate = useNavigate()
+  const navigate = useNavigate()
 
 
-  
+
   return (
     <>
       <div>
@@ -44,7 +44,7 @@ export default function Profile() {
                   <h5>{user.name}</h5>
                   <h6 className="text-muted">Age: {user.age}</h6>
                   <h5>{userRole}</h5>
-                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' } } onClick={()=>navigate("/patient-update-form")}>Update</button>
+                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-update-form")}>Update</button>
                 </div>
               </div>
               <div className="card mt-4" style={{ width: '18rem', borderRadius: '10%' }}>
@@ -125,7 +125,7 @@ export default function Profile() {
                         <h6 className="fw-semibold" style={{ color: '#004d4d', fontSize: '15px' }}>Blood
                           Pressure</h6>
                         <p className="readings fw-bold" style={{ color: '#004d4d', fontSize: '15px' }}>{user.bp}
-                          </p>
+                        </p>
                       </div>
                     </div>
                   </div>

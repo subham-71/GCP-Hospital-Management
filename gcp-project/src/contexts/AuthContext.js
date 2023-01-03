@@ -48,7 +48,7 @@ export default function AuthProvider({children}) {
                 const patientdoc = await patientRef.get()
                 const doctordoc = await doctorRef.get()
                 const hospitaldoc = await hospitalRef.get()
-
+                
                 if(patientdoc.exists){
                     setUserRole('patient')
                 }
@@ -61,10 +61,11 @@ export default function AuthProvider({children}) {
                 else{
                     setUserRole('none')
                 }
+                console.log(userRole)
             }
         })
         return unsubscribe
-    }, [])
+    }, [login, logout, signup, updateEmail, updatePassword])
 
     const value = {
         currentUser,

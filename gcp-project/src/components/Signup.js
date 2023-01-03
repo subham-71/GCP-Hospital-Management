@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { Alert } from 'react-bootstrap'
 import { db } from '../firebase'
-import './Login.css'
+import '../Styles/Login.css'
 
 export default function Signup() {
   const emailRef = useRef()
@@ -32,7 +32,18 @@ export default function Signup() {
         name: nameRef.current.value,
         email: emailRef.current.value,
       })
-      navigate("/profile")
+      if(userType === 'doctor'){
+        navigate('/doctor-form')
+      }
+      else if(userType === 'patient'){
+        navigate('/patient-form')
+      }
+      else if(userType === 'hospital'){
+        navigate('/hospital-form')
+      }
+      else{
+        navigate('/login')
+      }
     } catch {
       setError('Failed to create an account')
     }

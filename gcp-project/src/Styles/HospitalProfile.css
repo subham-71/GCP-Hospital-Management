@@ -1,0 +1,265 @@
+.avatar {
+    font-size: 1rem;
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #adb5bd;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.avatar-sm {
+    font-size: .875rem;
+    width: 36px;
+    height: 36px;
+}
+
+.avatar-group .avatar {
+    position: relative;
+    z-index: 2;
+    border: 2px solid #fff;
+}
+
+.avatar-group .avatar:hover {
+    z-index: 3;
+}
+
+.avatar-group .avatar + .avatar {
+    margin-left: -1rem;
+}
+
+.badge {
+    text-transform: uppercase;
+}
+
+.badge a {
+    color: #fff;
+}
+
+.btn .badge:not(:first-child) {
+    margin-left: .5rem;
+}
+
+.btn .badge:not(:last-child) {
+    margin-right: .5rem;
+}
+
+.badge-dot {
+    font-size: .875rem;
+    font-weight: 400;
+    padding-right: 0;
+    padding-left: 0;
+    text-transform: none;
+    background: transparent;
+}
+
+.badge-dot strong {
+    color: #32325d;
+}
+
+.badge-dot i {
+    display: inline-block;
+    width: .375rem;
+    height: .375rem;
+    margin-right: .375rem;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+body{
+    background-color: #a6cfd8;
+}
+
+#card:hover{
+    /* background-color: #b4d8e0; */
+    background-color:#6da1ad;
+    transition: 0.2s;
+    /* color: white; */
+    transform: scale(1.05);
+}
+
+.card-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-body{
+    padding-right: 0px;
+}
+
+#full{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lef{
+    text-align: center;
+}
+
+#para{
+    display: none;
+}
+
+.read{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#upd
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#upd1
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#upd2:hover{
+    transform: scale(1.05);
+}
+
+#drop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#pic{
+    width: 150px;
+    height: 200px;
+    border-radius: 20px;
+
+}
+
+.picds{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#prof{
+    margin: 20px 0px;
+
+    padding: 0px;
+    margin-left: 0px;
+}
+
+#left{
+    margin-right: 30px;
+    padding: 0px;
+}
+#right{
+    margin: 30px;
+}
+
+#kkkl{
+    padding: 13px;
+}
+
+.table-fixed tbody {
+    height: 300px;
+    /* overflow-y: auto; */
+    width: 100%;
+    overflow-y: auto;
+    /* display: block; */
+    /* overflow-x: auto; */
+    white-space: wrap;
+}
+
+#ab{
+    height: 300px;
+    /* overflow-y: auto; */
+    /* width: 100%; */
+    overflow: auto;
+    display: block;
+    /* overflow-x: auto; */
+    white-space: wrap;
+    table-layout: fixed
+}
+#kb{
+    height: 200px;
+    /* overflow-y: auto; */
+    /* width: 100%; */
+    overflow: auto;
+    display: block;
+    /* overflow-x: auto; */
+    white-space: wrap;
+    table-layout: fixed
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+    display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed tbody th,
+.table-fixed thead > tr > th {
+    float: left;
+    position: relative;
+
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+
+#docim{
+    width: 25px;
+    border-radius: 40px;
+}
+
+#tbb{
+    margin-top: 65px;
+}
+
+#th{
+    background-color: #0b596d;
+    font-weight:normal;
+    color : white;
+}
+#vh{
+    background-color: #0b596d;
+    font-weight: bold;
+    color : white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.resources_lended{
+    width : 50%;
+    /* border-radius: 100px; */
+    text-align: center;
+    margin : 0 auto;
+}
+/* table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+} */
