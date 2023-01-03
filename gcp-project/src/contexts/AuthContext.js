@@ -1,5 +1,6 @@
 import React, {useContext,useState,useEffect} from 'react'
-import {auth} from '../firebase'
+import {auth,db} from '../firebase'
+
 const AuthContext = React.createContext()
 
 export function useAuth() {
@@ -9,6 +10,7 @@ export function useAuth() {
 export default function AuthProvider({children}) {
     const [loading, setLoading] = useState(true)
     const [currentUser, setCurrentUser] = useState()
+    const [userRole, setUserRole] = useState()
 
     function signup(email, password) {
         return auth.createUserWithEmailAndPassword(email, password)
@@ -35,15 +37,38 @@ export default function AuthProvider({children}) {
     }
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
+        const unsubscribe = auth.onAuthStateChanged(async (user) => {
             setCurrentUser(user)
             setLoading(false)
+            if(user){
+                const patientRef = db.collection('patient').doc(user.uid)
+                const doctorRef = db.collection('doctor').doc(user.uid)
+                const hospitalRef = db.collection('hospital').doc(user.uid)
+                
+                const patientdoc = await patientRef.get()
+                const doctordoc = await doctorRef.get()
+                const hospitaldoc = await hospitalRef.get()
+
+                if(patientdoc.exists){
+                    setUserRole('patient')
+                }
+                else if(doctordoc.exists){
+                    setUserRole('doctor')
+                }
+                else if(hospitaldoc.exists){
+                    setUserRole('hospital')
+                }
+                else{
+                    setUserRole('none')
+                }
+            }
         })
         return unsubscribe
     }, [])
 
     const value = {
         currentUser,
+        userRole,
         signup,
         login,
         logout,

@@ -10,12 +10,16 @@ export default function BookAppointment() {
   const dateRef = useRef();
   const timeRef = useRef();
   const doctorRef = useRef();
+<<<<<<< HEAD
+=======
+
+>>>>>>> ab580c32f1770df1b031b7a9dfe99d6cad7c12f0
   async function addAppointment(e) {
     e.preventDefault();
 
-    db.collection("appointments").add({
+    const res = await db.collection('appointments').add({
       patientid: currentUser.uid,
-      doctorid: "some_id",
+      doctorid: "123",
       time: timeRef.current.value,
       date: dateRef.current.value,
     })
@@ -35,7 +39,7 @@ export default function BookAppointment() {
           <div className="card" style={{width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)'}}>
             <div className="card-header" style={{backgroundColor: 'rgba(0, 83, 83,0.5)'}}>
               <h3 style={{color: '#084545'}}>Book Appointment</h3>
-            </div>
+              </div>
             <div id="carouselExampleIndicators" className="carousel slide" data-bs-interval="false">
               <div className="carousel-inner">
                 <div className="carousel-item active">
@@ -43,34 +47,34 @@ export default function BookAppointment() {
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2">
                         <input type="text" className="form-control" placeholder="Patient Name" aria-label="Name" style={{backgroundColor: 'white'}} />
-                      </div>
-                    </div>
+            </div>
+              </div>
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2">
                       <input type="text" className="form-control" placeholder="Dr. Rajiv" aria-label="Doctor" style={{backgroundColor: 'white'}} disabled="disabled" ref={doctorRef} />
-                      </div>
-                    </div>
+            </div>
+              </div>
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2">
                         <input type="number" className="form-control" placeholder="Contact Number" aria-label="Contact" />
-                      </div>
+            </div>
                     </div>
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2">
                         <input type="date" className="form-control" placeholder="Date" aria-label="Date" ref={dateRef} />
-                      </div>
-                    </div>
+              </div>
+            </div>
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2 text-center">
                         <input type="time" className="form-control" placeholder="Time" aria-label="Time" ref={timeRef} />
-                      </div>
-                    </div>
+              </div>
+            </div>
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2 text-center">
                         <input type="text" className="form-control" placeholder="Reason of Visit" aria-label="Reason" />
-                      </div>
-                    </div>
-                  </div>
+              </div>
+            </div>
+        </div>
                   {/* submit */}
                   <div className="row p-2 justify-content-center">
                     <div className="col-8 p-2 text-center">
