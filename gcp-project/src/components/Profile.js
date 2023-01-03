@@ -5,13 +5,13 @@ import sample from '../images/sample.png'
 import events from "./events";
 import './Profile.css'
 import { db } from '../firebase';
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Profile() {
-  const {currentUser} = useAuth()
-  const docRef = db.collection('patient').doc(currentUser.uid);
   const [user,setUser] = useState([]);
-  const {userRole} = useAuth();
+  const {userRole,currentUser} = useAuth();
+  const docRef = db.collection('patient').doc(currentUser.uid);
   
   useEffect(() =>{
     const getUsers = async () => {
@@ -21,6 +21,8 @@ export default function Profile() {
     };
     getUsers();
  },[])
+
+ const navigate = useNavigate()
 
 
   
@@ -42,7 +44,7 @@ export default function Profile() {
                   <h5>{user.name}</h5>
                   <h6 className="text-muted">Age: {user.age}</h6>
                   <h5>{userRole}</h5>
-                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }}>Update</button>
+                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' } } onClick={()=>navigate("/patient-update-form")}>Update</button>
                 </div>
               </div>
               <div className="card mt-4" style={{ width: '18rem', borderRadius: '10%' }}>
