@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
-import doctorEvents from './doctorEvents'
+import Navbar from './Navbar'
 
 import "../Styles/DoctorProfile.css"
 import { db } from '../firebase'
@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 const DoctorProfile = () => {
     const {currentUser} = useAuth()
     const [doctorInfo, setDoctorInfo] = useState()
+    const [doctorEvents, setDoctorEvents] = useState([])
     const navigate = useNavigate()
     
     const getDoctorInfo = async () => {
@@ -23,6 +24,7 @@ const DoctorProfile = () => {
         } else {  
             console.log(doc.data())
             setDoctorInfo(doc.data())
+            setDoctorEvents(doc.data().events)
         }
     }
     
@@ -32,6 +34,8 @@ const DoctorProfile = () => {
 
 
     return (
+      <>
+        <Navbar />
     <div className="container">
       <div className="row" id>
         <div className="col-md-5 my-5">
@@ -40,11 +44,10 @@ const DoctorProfile = () => {
             <div className="card-header" id="ch">
               <b>INFORMATION</b>
             </div>
-            <div className="card-body">
+            <div className="card-body text-center">
               <div id="flexwala">
-                <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                  <img id="propic" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-3" />
-                </a>
+                <img id="propic" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-3" />
+                
               </div><table className="table">
                 {/* <thead>
                                   <tr>
@@ -75,11 +78,12 @@ const DoctorProfile = () => {
                   </tr>
                 </tbody>
               </table>
+              <button type="button" className="btn mt-2" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/doctor-signup")}>Update</button>
             </div>
           </div>
           {/* card(INFORMATION) end  */}
         </div>
-        <div className="col-md-6 my-5 offset-md-1">
+        <div className="col-6 my-5 offset-md-1">
           <div className="card text-center">
             <div className="card-header" id="ch">
               <b>TODAY'S PATIENTS</b>
@@ -195,6 +199,7 @@ const DoctorProfile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

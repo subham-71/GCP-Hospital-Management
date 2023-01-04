@@ -4,6 +4,8 @@ import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
+import Navbar from './Navbar';
+
 const HospitalProfile = () => {
 
   const [hospitalInfo, setHospitalInfo] = useState();
@@ -33,10 +35,11 @@ const HospitalProfile = () => {
   }, [])
 
   return (
-
-    <div className="container">
+    <>
+    <Navbar />
+      <div className="container">
       <div className="row">
-        <div className="col-md-5">
+        <div className="col-5">
           <div className="row mt-5" id="kkkl">
             <div className="card card-deck h-90 m-lg-1" id="prof">
               <div className="card-body text-center">
@@ -67,12 +70,12 @@ const HospitalProfile = () => {
                   </tbody>
                 </table>
                 <p />
-                <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/doctor-form")}>Update</button>
+                <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/hospital-signup")}>Update</button>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-md-6 offset-md-1 text-center text-white" id="tbb">
+        <div className="col-6 offset-1 text-center text-white" id="tbb">
           <div className="card shadow">
             <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
               <h3 className="mb-0">DOCTORS AVAILABLE</h3>
@@ -506,7 +509,7 @@ const HospitalProfile = () => {
         </div>
       </div> */}
       <div className="row">
-        <div className="col-md-5">
+        <div className="col-5">
           <div className="row">
           <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                 {/* modal */}
@@ -533,16 +536,15 @@ const HospitalProfile = () => {
                 <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
                   <h3 className="mb-0">RESOURCES LENDED</h3>
                 </div>
-                <div className="table-responsive ">
-                  <table className="table align-items-center table-flush" id="kb">
+                <div className="table-responsive">
+                  <table className="table" id="kb">
                     <thead className="thead-light" style={{ width: '100%' }}>
                       <tr style={{ width: '100%' }}>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Name</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Address</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Requirement</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Quantity</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Date of issue</th>
-                        <th scope="col" />
+                        <th scope="col-4" style={{ width: '20%' }}>Name</th>
+                        <th scope="col" style={{ width: '20%' }}>Address</th>
+                        <th scope="col" style={{ width: '20%' }}>Requirement</th>
+                        <th scope="col" style={{ width: '20%' }}>Quantity</th>
+                        <th scope="col" style={{ width: '20%' }}>Date of issue</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -604,7 +606,7 @@ const HospitalProfile = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-6 offset-md-1" style={{ minHeight: '500px' }} id="tbb">
+        <div className="col-6 offset-1" style={{ minHeight: '500px' }} id="tbb">
           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1COz-HejK3DR1ZW6mh_y-3451YCzOQHk&ehbc=2E312F" width="100%" height="100%" />
         </div>
       </div>
@@ -613,7 +615,7 @@ const HospitalProfile = () => {
                               <h1>RESOURCES AVAILABLE</h1>
                           </div> */}
         <div className="row mt-5">
-          <div className="col-md-6 offset-md-3 my-2 pl-0">
+          <div className="col-6 offset-3 my-2 pl-0">
             {/* Card */}
             <div className="card shadow rounded pl-0 my-2 " id="card">
               {/* Card image */}
@@ -634,7 +636,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide1()">Show/
+                  <button id="btn" className="btn" style={{ backgroundColor:"#f6c9de" }} onclick="toggleHide1()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -673,7 +675,7 @@ const HospitalProfile = () => {
             </div>
             {/* Card */}
           </div>
-          <div className="col-md-6 offset-md-3 my-2 pl-0" id="iiu">
+          <div className="col-6 offset-3 my-2 pl-0" id="iiu">
             {/* Card */}
             <div className="card shadow rounded pl-0 my-2" id="card">
               {/* Card image */}
@@ -694,7 +696,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide2()">Show/
+                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide2()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -732,7 +734,7 @@ const HospitalProfile = () => {
             </div>
             {/* Card */}
           </div>
-          <div className="col-md-6 offset-md-3 mr-2 my-2 pl-0">
+          <div className="col-6 offset-3 mr-2 my-2 pl-0">
             {/* Card */}
             <div className="card shadow rounded mr-2 pl-0 my-2" id="card">
               {/* Card image */}
@@ -753,7 +755,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide3()">Show/
+                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide3()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -793,13 +795,9 @@ const HospitalProfile = () => {
             {/* Card */}
           </div>
         </div>
-        <div className="row mt-4" id="upd">
-          <div className="col-4" id="upd1">
-            <button className="btn btn-primary" id="upd2">Update your profile</button>
-          </div>
-        </div>
       </div>
     </div>
+    </>
   );
 }
 

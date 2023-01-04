@@ -10,6 +10,7 @@ export default function ForgotPassword() {
     const [error, setError] = useState('')
     const [message, setMessage] = useState('')
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
     
 
   async function handleSubmit(e) {
@@ -18,21 +19,8 @@ export default function ForgotPassword() {
     try {
       setError('')
       setLoading(true)
-    //   await login(emailRef.current.value, passwordRef.current.value)
-      // if(userRole === "doctor"){
-      //   navigate("/patient-list")
-      // }
-      // else if(userRole === "patient"){
-      //   navigate("/profile")
-      // }
-      // else if(userRole === "hospital"){
-      //   navigate("/hospital-query")
-      // }
-      // else{
-      //   navigate("/card")
-      // }
-    //   navigate("/profile")   
-    console.log(emailRef.current.value)
+      await resetPassword(emailRef.current.value)
+      navigate("/login")
     } catch {
       setError('Wrong email or password')
     }
@@ -82,27 +70,6 @@ export default function ForgotPassword() {
                   <div className="form-group" id="submit">
                     <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">Send Email</button>
                   </div>
-                  {/* choice for doctor,patient or hospital using radio button */}
-                  {/* <div className="form-group d-md-flex">
-                      <div className="w-50 text-left">
-                        <label className="checkbox-wrap checkbox-primary mb-0">Doctor
-                          <input type="radio" name="choice" defaultValue="doctor" defaultChecked />
-                          <span className="checkmark" />
-                        </label>
-                      </div>
-                      <div className="w-50 text-left">
-                        <label className="checkbox-wrap checkbox-primary mb-0">Patient
-                          <input type="radio" name="choice" defaultValue="patient" />
-                          <span className="checkmark" />
-                        </label>
-                      </div>
-                      <div className="w-50 text-left">
-                        <label className="checkbox-wrap checkbox-primary mb-0">Hospital
-                          <input type="radio" name="choice" defaultValue="hospital" />
-                          <span className="checkmark" />
-                        </label>
-                      </div>
-                    </div> */}
                 </form>
               </div>
             </div>

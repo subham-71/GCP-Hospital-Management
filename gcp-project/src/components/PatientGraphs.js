@@ -2,6 +2,8 @@ import React from "react";
 import Plot from "react-plotly.js";
 import "../Styles/PatientGraph.css";
 
+import Navbar from "./Navbar";
+
 const PatientGraphs = () => {
     var xArray = [
         "20/9/22",
@@ -100,7 +102,9 @@ const PatientGraphs = () => {
         title: "Body Temperature History",
     };
     return (
-        <div>
+        <>
+        <Navbar />
+            <div className="main-content2">
             <div id="Heading">Health History</div>
             <div id="container">
                 <div id="item1">
@@ -141,6 +145,7 @@ const PatientGraphs = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

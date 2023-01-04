@@ -2,16 +2,20 @@ import React, { useState, useEffect } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import sample from '../images/sample.png'
-import events from "./events";
+//import events from "./events";
 import '../Styles/Profile.css'
 import { db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 import { ref, getDownloadURL } from 'firebase/storage';
 
+import Navbar from './Navbar';
+
 export default function Profile() {
+  const [events, setEvents] = useState([])
   const [user, setUser] = useState([]);
   const [links, setLinks] = useState([]);
+  const [pfpSrc, setPfpSrc] = useState(null);
   const { userRole, currentUser } = useAuth();
   const docRef = db.collection('patient').doc(currentUser.uid);
 
@@ -19,6 +23,7 @@ export default function Profile() {
     const doc = await docRef.get();
     const data = doc.data()
     setUser(data);
+    setEvents(data.events)
     const files = data.files;
     const link = [];
     for (let i = 0; i < files.length; i++) {
@@ -29,25 +34,29 @@ export default function Profile() {
     }
   };
 
+  const getPfp = async () => {
+    const storageRef = ref(storage, `pictures/${currentUser.uid}--pfp.png`);
+    const url = await getDownloadURL(storageRef);
+    setPfpSrc(url);
+  }
+
   useEffect(() => {
     getUsers();
+    getPfp();
   }, [])
 
   const navigate = useNavigate();
 
   return (
     <>
-      <div>
-        <div className="row">
-          <nav className="navbar navbar-light" style={{background : 'linear-gradient(135deg, #f75959 0%, #f35587 100%)', opacity: '0.5', height: '3rem' }}>
-          </nav>
-        </div>
+      <Navbar />
+      <div class="main-content2">
         <div className="container mt-3">
           <div className="row row-cols-3">
             <div className="col-sm-5 p-3" style={{ width: '40%' }}>
               <div className="card mt-3" style={{ width: '18rem', borderRadius: '10%' }}>
                 <div className="text-center mt-2">
-                  <img src={sample} style={{ height: '10rem', width: '10rem' }} className="card-img-top" alt="..." />
+                  <img src={pfpSrc?pfpSrc:sample} style={{ height: '10rem', width: '10rem' }} className="card-img-top" alt="..." />
                 </div>
                 <div className="card-body text-center mb-4">
                   <h5>{user.name}</h5>
@@ -226,7 +235,7 @@ export default function Profile() {
                                 <div className="row">
                                   <a href={link} download className="link" style={{ color: '#004d4d' }}>
                                     <i className="uil uil-file-download-alt icon" style={{ fontSize: '20px' }} />
-                                    user.files[index].split('-')[1]
+                                    {user.files[index].split('--')[1]}
                                   </a>
                                 </div>
                               )

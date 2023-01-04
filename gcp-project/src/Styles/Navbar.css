@@ -8,7 +8,7 @@
 }
 #navbar{
     position: fixed;
-    z-index: 2;
+    z-index: 20;
     height: 100%;
     width: 5rem;
     background-color: white;
@@ -20,14 +20,14 @@
     /* add box shadow */
     box-shadow: 10px 15px 30px 1px rgba(0,0,0,.1);
 }
-#top-nav-ul{
+/* #top-nav-ul{
     margin-left: 12rem;
-}
+} */
 #topbar{
     background-color: #1170fd;
     color: white;
     position: fixed;
-    z-index:1;
+    z-index:10;
     /* gheight in pixels */
     height: 60px;
     width: 100%;
@@ -42,8 +42,11 @@
 } */
 
 .main-content{
-    margin-left: 250px;
-    padding: 20px;
+    margin-left: 5rem;
+    padding-top: 60px;
+}
+.main-content2{
+    margin-left: 5rem;
 }
 
 /* .nav-item{

@@ -21,7 +21,7 @@
   
 }
 
-  table {
+  .table_pat {
     width: 80% !important; /* Override the default width */
     margin: auto auto !important; /* Override the default margin */
     text-align : center;

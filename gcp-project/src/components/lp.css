@@ -117,6 +117,15 @@ h3{
 a{
     color: #0b596d;
 }
+
+.lp-b{
+    text-decoration: none;
+    color: white;
+    padding: 15px 10px;
+    display: block;
+    background-color: transparent;
+    border: none;
+}
 #about{
     margin-right: 0;
     width: 100%;
