@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/PatientList.css';
-import {db} from "../firebase";
+import { db } from "../firebase";
 import { useAuth } from '../contexts/AuthContext';
 
 import Navbar from './Navbar';
 
 export default function PatientList() {
 
-  const {currentUser} = useAuth();
-  
+  const { currentUser } = useAuth();
+  const [doctor, setDoctor] = useState();
+
   async function getDetails(patientId) {
     const doc = db.collection("patient").doc(patientId);
     const docData = await doc.get()
-    if (docData.exists) return docData.data(); 
+    if (docData.exists) return docData.data();
   }
   const [patientArr, setPatientArr] = useState([])
   const [patientDetail, setPatientDetail] = useState([])
-  
-  const getDetail = () =>{
+
+  const getDetail = () => {
     let patientList = [];
-      patientArr.forEach(async (elem)=>{
-        const detail = await getDetails(elem);
-        patientList = [...patientList, detail]
-        setPatientDetail(patientList)
-      })
-    }
+    if(patientArr==undefined || patientArr.length === 0) return;
+    patientArr.forEach(async (elem) => {
+      const detail = await getDetails(elem);
+      patientList = [...patientList, detail]
+      setPatientDetail(patientList)
+    })
+  }
 
   const getPatientArr = async () => {
     const doc = db.collection("doctor").doc(currentUser.uid);
@@ -32,17 +34,18 @@ export default function PatientList() {
     if (docData.exists) {
       console.log(docData.data().patients)
       setPatientArr(docData.data().patients)
+      setDoctor(docData.data())
     }
   }
 
-  useEffect(()=>{
-      getDetail();
-  },[patientArr]);
+  useEffect(() => {
+    getDetail();
+  }, [patientArr]);
 
-  useEffect(()=>{
+  useEffect(() => {
     getPatientArr()
-  },[])
-  
+  }, [])
+
   return (
     <>
     <Navbar />
@@ -65,16 +68,16 @@ export default function PatientList() {
           <tbody>
             {patientDetail && patientDetail.map((entry) => {
               return (
-              <tr>
-                <td className="editable" data-type="text">{entry && entry.name}</td>
-                <td className="editable" data-type="number">{entry && entry.number}</td>
-                <td className="editable" data-type="date">{entry && entry.date}</td>
-                <td className="editable" data-type="text">Completed</td>
-                <td>
-                  <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
-                  <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
-                </td>
-              </tr>)
+                <tr>
+                  <td className="editable" data-type="text">{entry && entry.name}</td>
+                  <td className="editable" data-type="number">{entry && entry.number}</td>
+                  <td className="editable" data-type="date">{entry && entry.date}</td>
+                  <td className="editable" data-type="text">Completed</td>
+                  <td>
+                    <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
+                    <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
+                  </td>
+                </tr>)
             })}
           </tbody>
         </table>
@@ -82,7 +85,7 @@ export default function PatientList() {
         <div className="container2">
           <div className="row">
             <div className="col-md-4">
-              </div></div></div>
+            </div></div></div>
       </div>
     </div>
     </>

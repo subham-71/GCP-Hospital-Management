@@ -540,12 +540,11 @@ const HospitalProfile = () => {
                   <table className="table" id="kb">
                     <thead className="thead-light" style={{ width: '100%' }}>
                       <tr style={{ width: '100%' }}>
-                        <th scope="col-4" style={{ width: '100%' }}>Name</th>
-                        <th scope="col" style={{ width: '100%' }}>Address</th>
-                        <th scope="col" style={{ width: '100%' }}>Requirement</th>
-                        <th scope="col" style={{ width: '100%' }}>Quantity</th>
-                        <th scope="col" style={{ width: '100%' }}>Date of issue</th>
-                        <th scope="col" />
+                        <th scope="col-4" style={{ width: '20%' }}>Name</th>
+                        <th scope="col" style={{ width: '20%' }}>Address</th>
+                        <th scope="col" style={{ width: '20%' }}>Requirement</th>
+                        <th scope="col" style={{ width: '20%' }}>Quantity</th>
+                        <th scope="col" style={{ width: '20%' }}>Date of issue</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -637,7 +636,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide1()">Show/
+                  <button id="btn" className="btn" style={{ backgroundColor:"#f6c9de" }} onclick="toggleHide1()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -697,7 +696,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide2()">Show/
+                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide2()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -756,7 +755,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide3()">Show/
+                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide3()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -794,11 +793,6 @@ const HospitalProfile = () => {
               </div>
             </div>
             {/* Card */}
-          </div>
-        </div>
-        <div className="row mt-4" id="upd">
-          <div className="col-4" id="upd1">
-            <button className="btn btn-primary" id="upd2">Update your profile</button>
           </div>
         </div>
       </div>

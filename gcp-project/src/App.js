@@ -19,6 +19,7 @@ import DoctorProfile from './components/DoctorProfile';
 import Lp from './components/Lp';
 
 import HospitalProfile from './components/HospitalProfile';
+import Visit from './components/Forms/Visit';
 
 function App() {
 
@@ -85,6 +86,8 @@ function App() {
           <Route path="/" element={<Lp />} />
           <Route path="/hospital-profile" element={<HospitalProfile />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/visit" element={<Visit />} />
+        
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}
