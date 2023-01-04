@@ -16,19 +16,17 @@ export default function PatientList() {
   const [loading, setLoading] = useState(false)
   
   const getDetail = () =>{
+    let patientList = [];
     patientArr.forEach(async (elem)=>{
       const detail = await getDetails(elem);
-      setPatientDetail((prev)=>[...prev, detail])
+      patientList = [...patientList, detail]
+      setPatientDetail(patientList)
     })
   }
-  
-  useEffect(()=>{
-      getDetail();
-  },[loading]);
 
   useEffect(()=>{
-    setLoading(true)
-  })
+      getDetail();
+  },[]);
   
   return (
     <div>
