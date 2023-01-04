@@ -3,7 +3,7 @@ import '../Styles/PatientList.css';
 import { db } from "../firebase";
 import { useAuth } from '../contexts/AuthContext';
 
-
+import Navbar from './Navbar';
 
 export default function PatientList() {
 
@@ -47,7 +47,9 @@ export default function PatientList() {
   }, [])
 
   return (
-    <div>
+    <>
+    <Navbar />
+    <div className='main-content2'>
       <div id="fixed-div">
         <div id="left-div">Name :<div id="name">{doctor && doctor.name}</div></div>
         <div id="right-div">Hospital :<div id="hospital">{doctor && doctor.hospital}</div></div>
@@ -64,7 +66,7 @@ export default function PatientList() {
             </tr>
           </thead>
           <tbody>
-            {patientDetail.map((entry) => {
+            {patientDetail && patientDetail.map((entry) => {
               return (
                 <tr>
                   <td className="editable" data-type="text">{entry && entry.name}</td>
@@ -86,5 +88,6 @@ export default function PatientList() {
             </div></div></div>
       </div>
     </div>
+    </>
   )
 }

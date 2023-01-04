@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 import { ref, getDownloadURL } from 'firebase/storage';
 
+import Navbar from './Navbar';
+
 export default function Profile() {
   const [events, setEvents] = useState([])
   const [user, setUser] = useState([]);
@@ -47,11 +49,8 @@ export default function Profile() {
 
   return (
     <>
-      <div>
-        <div className="row">
-          <nav className="navbar navbar-light" style={{background : 'linear-gradient(135deg, #f75959 0%, #f35587 100%)', opacity: '0.5', height: '3rem' }}>
-          </nav>
-        </div>
+      <Navbar />
+      <div class="main-content2">
         <div className="container mt-3">
           <div className="row row-cols-3">
             <div className="col-sm-5 p-3" style={{ width: '40%' }}>

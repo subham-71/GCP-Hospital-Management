@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import "../Styles/HospitalProfile.css"
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom'
-import { useAuth} from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
+
+import Navbar from './Navbar';
 
 const HospitalProfile = () => {
 
@@ -33,8 +35,9 @@ const HospitalProfile = () => {
   }, [])
 
   return (
-   <div className="body-hospital-profile">
-    <div className="container">
+   <div className="body-hospital-profile">    <>
+    <Navbar />
+      <div className="container">
       <div className="row">
         <div className="col-5">
           <div className="row mt-5" id="kkkl">
@@ -406,6 +409,7 @@ const HospitalProfile = () => {
       </div>
     </div>
   </div>
+    </>
   );
 }
 

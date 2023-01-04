@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
+import Navbar from './Navbar'
+
 import "../Styles/DoctorProfile.css"
 import { db } from '../firebase'
 import { useAuth } from '../contexts/AuthContext'
@@ -32,6 +34,8 @@ const DoctorProfile = () => {
 
 
     return (
+      <>
+        <Navbar />
     <div className="container">
       <div className="row" id>
         <div className="col-md-5 my-5">
@@ -195,6 +199,7 @@ const DoctorProfile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
