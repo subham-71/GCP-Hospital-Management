@@ -53,11 +53,7 @@ export default function Profile() {
                   <h5>{user.name}</h5>
                   <h6 className="text-muted">Age: {user.age}</h6>
                   <h5>{userRole}</h5>
-<<<<<<< HEAD
-                  <button id="update" type="button" className="btn" style={{ color: 'white' }} onClick={() => navigate("/patient-form")}>Update</button>
-=======
-                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-signup")}>Update</button>
->>>>>>> f8215af0bafadb5ba513f5b92f584eec2f71f9f8
+                  <button id="update" type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-signup")}>Update</button>
                 </div>
               </div>
               <div className="card mt-4" style={{ width: '18rem', borderRadius: '10%' }}>
