@@ -75,11 +75,11 @@ export default function PatientSignup() {
             <h3 style={{ color: '#084545' }}>UPDATE PROFILE</h3>
           </div>
           <div id="carouselExampleIndicators" className="carousel slide" data-bs-interval="false">
-            <div className="carousel-indicators">
+            {/* <div className="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active " aria-current="true" style={{ backgroundColor: '#005353' }} />
               <button type="button" style={{ backgroundColor: '#005353' }} data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label />
-            </div>
-            <div className="carousel-inner">
+            </div> */}
+            <div className="carousel-inner" >
               <div className="carousel-item active">
                 <div className="col p-2 h-50">
                   <div className="row p-2 justify-content-center">
