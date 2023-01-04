@@ -42,9 +42,8 @@ const DoctorProfile = () => {
             </div>
             <div className="card-body">
               <div id="flexwala">
-                <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                  <img id="propic" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-3" />
-                </a>
+                <img id="propic" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-3" />
+                
               </div><table className="table">
                 {/* <thead>
                                   <tr>
@@ -79,7 +78,7 @@ const DoctorProfile = () => {
           </div>
           {/* card(INFORMATION) end  */}
         </div>
-        <div className="col-md-6 my-5 offset-md-1">
+        <div className="col-6 my-5 offset-md-1">
           <div className="card text-center">
             <div className="card-header" id="ch">
               <b>TODAY'S PATIENTS</b>

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../Styles/VisitStyle.css'
+import '../../Styles/UpdatePatientStyle.css'
 
 export default function Visit() {
   function showTable() {

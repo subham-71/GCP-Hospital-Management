@@ -36,7 +36,7 @@ const HospitalProfile = () => {
 
     <div className="container">
       <div className="row">
-        <div className="col-md-5">
+        <div className="col-5">
           <div className="row mt-5" id="kkkl">
             <div className="card card-deck h-90 m-lg-1" id="prof">
               <div className="card-body text-center">
@@ -72,7 +72,7 @@ const HospitalProfile = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-6 offset-md-1 text-center text-white" id="tbb">
+        <div className="col-6 offset-1 text-center text-white" id="tbb">
           <div className="card shadow">
             <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
               <h3 className="mb-0">DOCTORS AVAILABLE</h3>
@@ -506,7 +506,7 @@ const HospitalProfile = () => {
         </div>
       </div> */}
       <div className="row">
-        <div className="col-md-5">
+        <div className="col-5">
           <div className="row">
           <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                 {/* modal */}
@@ -533,15 +533,15 @@ const HospitalProfile = () => {
                 <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
                   <h3 className="mb-0">RESOURCES LENDED</h3>
                 </div>
-                <div className="table-responsive ">
-                  <table className="table align-items-center table-flush" id="kb">
+                <div className="table-responsive">
+                  <table className="table" id="kb">
                     <thead className="thead-light" style={{ width: '100%' }}>
                       <tr style={{ width: '100%' }}>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Name</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Address</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Requirement</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Quantity</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Date of issue</th>
+                        <th scope="col-4" style={{ width: '100%' }}>Name</th>
+                        <th scope="col" style={{ width: '100%' }}>Address</th>
+                        <th scope="col" style={{ width: '100%' }}>Requirement</th>
+                        <th scope="col" style={{ width: '100%' }}>Quantity</th>
+                        <th scope="col" style={{ width: '100%' }}>Date of issue</th>
                         <th scope="col" />
                       </tr>
                     </thead>
@@ -604,7 +604,7 @@ const HospitalProfile = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-6 offset-md-1" style={{ minHeight: '500px' }} id="tbb">
+        <div className="col-6 offset-1" style={{ minHeight: '500px' }} id="tbb">
           <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1COz-HejK3DR1ZW6mh_y-3451YCzOQHk&ehbc=2E312F" width="100%" height="100%" />
         </div>
       </div>
@@ -613,7 +613,7 @@ const HospitalProfile = () => {
                               <h1>RESOURCES AVAILABLE</h1>
                           </div> */}
         <div className="row mt-5">
-          <div className="col-md-6 offset-md-3 my-2 pl-0">
+          <div className="col-6 offset-3 my-2 pl-0">
             {/* Card */}
             <div className="card shadow rounded pl-0 my-2 " id="card">
               {/* Card image */}
@@ -673,7 +673,7 @@ const HospitalProfile = () => {
             </div>
             {/* Card */}
           </div>
-          <div className="col-md-6 offset-md-3 my-2 pl-0" id="iiu">
+          <div className="col-6 offset-3 my-2 pl-0" id="iiu">
             {/* Card */}
             <div className="card shadow rounded pl-0 my-2" id="card">
               {/* Card image */}
@@ -732,7 +732,7 @@ const HospitalProfile = () => {
             </div>
             {/* Card */}
           </div>
-          <div className="col-md-6 offset-md-3 mr-2 my-2 pl-0">
+          <div className="col-6 offset-3 mr-2 my-2 pl-0">
             {/* Card */}
             <div className="card shadow rounded mr-2 pl-0 my-2" id="card">
               {/* Card image */}
