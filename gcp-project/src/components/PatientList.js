@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/PatientList.css';
-import {db} from "../firebase";
+import { db } from "../firebase";
 import { useAuth } from '../contexts/AuthContext';
 
 
 
 export default function PatientList() {
 
-  const {currentUser} = useAuth();
+  const { currentUser } = useAuth();
   const [doctor, setDoctor] = useState();
-  
+
   async function getDetails(patientId) {
     const doc = db.collection("patient").doc(patientId);
     const docData = await doc.get()
-    if (docData.exists) return docData.data(); 
+    if (docData.exists) return docData.data();
   }
   const [patientArr, setPatientArr] = useState([])
   const [patientDetail, setPatientDetail] = useState([])
-  
-  const getDetail = () =>{
+
+  const getDetail = () => {
     let patientList = [];
-    patientArr.forEach(async (elem)=>{
+    if(patientArr==undefined || patientArr.length === 0) return;
+    patientArr.forEach(async (elem) => {
       const detail = await getDetails(elem);
       patientList = [...patientList, detail]
       setPatientDetail(patientList)
@@ -37,14 +38,14 @@ export default function PatientList() {
     }
   }
 
-  useEffect(()=>{
-      getDetail();
-  },[patientArr]);
+  useEffect(() => {
+    getDetail();
+  }, [patientArr]);
 
-  useEffect(()=>{
+  useEffect(() => {
     getPatientArr()
-  },[])
-  
+  }, [])
+
   return (
     <div>
       <div id="fixed-div">
@@ -52,7 +53,7 @@ export default function PatientList() {
         <div id="right-div">Hospital :<div id="hospital">{doctor && doctor.hospital}</div></div>
       </div>
       <div className="container1">
-        <table className="table">
+        <table className="table_pat">
           <thead>
             <tr>
               <th scope="col">Patient Name</th>
@@ -65,16 +66,16 @@ export default function PatientList() {
           <tbody>
             {patientDetail.map((entry) => {
               return (
-              <tr>
-                <td className="editable" data-type="text">{entry && entry.name}</td>
-                <td className="editable" data-type="number">{entry && entry.number}</td>
-                <td className="editable" data-type="date">{entry && entry.date}</td>
-                <td className="editable" data-type="text">Completed</td>
-                <td>
-                  <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
-                  <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
-                </td>
-              </tr>)
+                <tr>
+                  <td className="editable" data-type="text">{entry && entry.name}</td>
+                  <td className="editable" data-type="number">{entry && entry.number}</td>
+                  <td className="editable" data-type="date">{entry && entry.date}</td>
+                  <td className="editable" data-type="text">Completed</td>
+                  <td>
+                    <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
+                    <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
+                  </td>
+                </tr>)
             })}
           </tbody>
         </table>
@@ -82,7 +83,7 @@ export default function PatientList() {
         <div className="container2">
           <div className="row">
             <div className="col-md-4">
-              </div></div></div>
+            </div></div></div>
       </div>
     </div>
   )

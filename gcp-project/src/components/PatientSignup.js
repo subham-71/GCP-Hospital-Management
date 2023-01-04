@@ -166,7 +166,6 @@ export default function PatientSignup() {
                 <div className="d-flex justify-content-center">
                   <div className="row mt-4">
                     <button className="btn mb-4" type="submit" onClick={() => {updateUser()}}>Update</button>
-                    {/* <a href="#" class="btn btn-primary">Update</a> */}
                   </div>
                 </div>
               </div>

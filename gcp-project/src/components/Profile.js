@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import sample from '../images/sample.png'
-import events from "./events";
+//import events from "./events";
 import '../Styles/Profile.css'
 import { db, storage } from '../firebase';
 import { useNavigate } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { ref, getDownloadURL } from 'firebase/storage';
 
 export default function Profile() {
+  const [events, setEvents] = useState([])
   const [user, setUser] = useState([]);
   const [links, setLinks] = useState([]);
   const [pfpSrc, setPfpSrc] = useState(null);
@@ -20,6 +21,7 @@ export default function Profile() {
     const doc = await docRef.get();
     const data = doc.data()
     setUser(data);
+    setEvents(data.events)
     const files = data.files;
     const link = [];
     for (let i = 0; i < files.length; i++) {

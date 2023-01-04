@@ -85,6 +85,15 @@ a{
     color: #0b596d;
 }
 
+.lp-b{
+    text-decoration: none;
+    color: white;
+    padding: 15px 10px;
+    display: block;
+    background-color: transparent;
+    border: none;
+}
+
 body {
     font-family: 'Noto Sans', sans-serif;
     /* padding: 40px 0; */

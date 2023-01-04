@@ -537,12 +537,11 @@ const HospitalProfile = () => {
                   <table className="table" id="kb">
                     <thead className="thead-light" style={{ width: '100%' }}>
                       <tr style={{ width: '100%' }}>
-                        <th scope="col-4" style={{ width: '100%' }}>Name</th>
-                        <th scope="col" style={{ width: '100%' }}>Address</th>
-                        <th scope="col" style={{ width: '100%' }}>Requirement</th>
-                        <th scope="col" style={{ width: '100%' }}>Quantity</th>
-                        <th scope="col" style={{ width: '100%' }}>Date of issue</th>
-                        <th scope="col" />
+                        <th scope="col-4" style={{ width: '20%' }}>Name</th>
+                        <th scope="col" style={{ width: '20%' }}>Address</th>
+                        <th scope="col" style={{ width: '20%' }}>Requirement</th>
+                        <th scope="col" style={{ width: '20%' }}>Quantity</th>
+                        <th scope="col" style={{ width: '20%' }}>Date of issue</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -791,11 +790,6 @@ const HospitalProfile = () => {
               </div>
             </div>
             {/* Card */}
-          </div>
-        </div>
-        <div className="row mt-4" id="upd">
-          <div className="col-4" id="upd1">
-            <button className="btn btn-primary" id="upd2">Update your profile</button>
           </div>
         </div>
       </div>

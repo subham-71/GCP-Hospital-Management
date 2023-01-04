@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
-import doctorEvents from './doctorEvents'
-
 import "../Styles/DoctorProfile.css"
 import { db } from '../firebase'
 import { useAuth } from '../contexts/AuthContext'
@@ -12,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 const DoctorProfile = () => {
     const {currentUser} = useAuth()
     const [doctorInfo, setDoctorInfo] = useState()
+    const [doctorEvents, setDoctorEvents] = useState([])
     const navigate = useNavigate()
     
     const getDoctorInfo = async () => {
@@ -23,6 +22,7 @@ const DoctorProfile = () => {
         } else {  
             console.log(doc.data())
             setDoctorInfo(doc.data())
+            setDoctorEvents(doc.data().events)
         }
     }
     
@@ -40,7 +40,7 @@ const DoctorProfile = () => {
             <div className="card-header" id="ch">
               <b>INFORMATION</b>
             </div>
-            <div className="card-body">
+            <div className="card-body text-center">
               <div id="flexwala">
                 <img id="propic" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-3" />
                 
@@ -74,6 +74,7 @@ const DoctorProfile = () => {
                   </tr>
                 </tbody>
               </table>
+              <button type="button" className="btn mt-2" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/doctor-signup")}>Update</button>
             </div>
           </div>
           {/* card(INFORMATION) end  */}

@@ -12,7 +12,9 @@ export default function BookAppointment() {
   const dateRef = useRef();
   const timeRef = useRef();
   const [user, setUser] = useState([]);
+  const [doctor, setDoctor] = useState([]);
   const userDoc = db.collection('patient').doc(currentUser.uid);
+  const doctorDoc = db.collection('doctor').doc(docId);
   const { docId } = useParams()
 
 
@@ -21,7 +23,12 @@ export default function BookAppointment() {
       const udoc = await userDoc.get();
       setUser(udoc.data());
     };
+    const getDoctor = async () => {
+      const udoc = await doctorDoc.get();
+      setDoctor(udoc.data());
+    };
     getUsers();
+    getDoctor();
   }, [])
 
 
@@ -37,11 +44,27 @@ export default function BookAppointment() {
       descripiton: symptomRef.current.value
     })
     // console.log(user)
-    const appointment = user.appointment;
-    const newPFields = {
-      appointment: [...appointment, appdocRef]
+    const userAppointment = user.appointment;
+    const userEvents = user.events;
+    const newUserPFields = {
+      appointment: [...userAppointment, appdocRef],
+      events:[...userEvents, {
+        title: "Appointment with " + doctor.name,
+        start: dateRef.current.value
+      }]
     };
-    await updateDoc(userDoc, newPFields)
+
+    const doctorAppointment = user.appointment;
+    const doctorEvents = user.events;
+    const newDoctorPFields = {
+      appointment: [...doctorAppointment, appdocRef],
+      events:[...doctorEvents, {
+        title: "Appointment with " + user.name,
+        start: dateRef.current.value
+      }]
+    };
+    await updateDoc(userDoc, newUserPFields)
+    await updateDoc(doctorDoc, newDoctorPFields)
   }
 
   return (

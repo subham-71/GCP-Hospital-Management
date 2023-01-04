@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import './lp.css'
 
 export default function Lp() {
+  const navigate = useNavigate()
   return (
     <div>
         <div id="header">
@@ -16,8 +18,8 @@ export default function Lp() {
                     <li> <a href="#banner">Home</a></li>
                     <li> <a href="#aboutus">About Us</a></li>
                     <li> <a href="#testimonials">Testimonials</a></li>
-                    <li><a href>Login</a></li>
-                    <li> <a href>Sign up</a></li>
+                    <li><button className="lp-b" onClick={()=>navigate("/login")}>Login</button></li>
+                    <li> <button className="lp-b" onClick={()=>navigate("/signup")}>Signup</button></li>
                   </ul>
                 </div>
               </div>
