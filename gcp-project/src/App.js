@@ -10,7 +10,7 @@ import AuthProvider, { useAuth } from './contexts/AuthContext';
 import { Routes, Route, Navigate } from 'react-router-dom'
 import PatientList from './components/PatientList';
 import Query_Raise from './components/Forms/Query_Raise';
-import PatientForm from './components/Forms/PatientForm';
+import PatientSignup from './components/PatientSignup';
 import DoctorSignup from './components/DoctorSignup';
 import HospitalSignup from './components/HospitalSignup';
 import PatientGraphs from './components/PatientGraphs';
@@ -73,7 +73,7 @@ function App() {
           <Route path="/hospital-query" element={<HospitalQuery />}/>
           <Route path="/patient-list" element={<PatientList />} />
           <Route path="/query-raise" element={<Query_Raise/>} />
-          <Route path="/patient-form" element={<PatientForm />} />
+          <Route path="/patient-signup" element={<PatientSignup />} />
           <Route path="/patient-graphs" element={<PatientGraphs />} />
           <Route path="/doctor-profile" element={<DoctorProfile />} />
           <Route path="/doctor-signup" element={<DoctorSignup />} />

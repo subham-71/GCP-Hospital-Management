@@ -33,13 +33,13 @@ export default function Signup() {
         email: emailRef.current.value,
       })
       if(userType === 'doctor'){
-        navigate('/doctor-form')
+        navigate('/doctor-signup')
       }
       else if(userType === 'patient'){
-        navigate('/patient-form')
+        navigate('/patient-signup')
       }
       else if(userType === 'hospital'){
-        navigate('/hospital-form')
+        navigate('/hospital-signup')
       }
       else{
         navigate('/login')

@@ -33,7 +33,7 @@ const HospitalSignup = () => {
                       </div>
                       <div className="col-8 p-2">
                         <label htmlFor="mail">Email Address</label>
-                        <input type="text" className="form-control" id="mail" placeholder="Contact number" aria-label="Email" />
+                        <input type="email" className="form-control" id="mail" placeholder="Contact number" aria-label="Email" />
                       </div>
                       {/* TO-DO: fETCH HOSPITAL NAMES FROM DATABASE AND SHOW IN DROPDOWN */}
                       <div className="col-8 p-2">

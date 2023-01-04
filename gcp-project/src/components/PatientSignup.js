@@ -1,13 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react'
-import '../../Styles/UpdatePatientStyle.css'
+import '../Styles/UpdatePatientStyle.css'
 import { updateDoc, } from "firebase/firestore";
-import { db, storage } from '../../firebase';
+import { db, storage } from '../firebase';
 import { ref, uploadBytes } from 'firebase/storage'
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function PatientForm() {
+export default function PatientSignup() {
 
   const name = useRef();
   const age = useRef();
