@@ -15,6 +15,8 @@ import DoctorSignup from './components/DoctorSignup';
 import HospitalSignup from './components/HospitalSignup';
 import PatientGraphs from './components/PatientGraphs';
 import DoctorProfile from './components/DoctorProfile';
+import Lp from './components/Lp';
+
 
 function App() {
 
@@ -78,6 +80,7 @@ function App() {
           <Route path="/doctor-profile" element={<DoctorProfile />} />
           <Route path="/doctor-signup" element={<DoctorSignup />} />
           <Route path="/hospital-signup" element={<HospitalSignup />} />
+          <Route path="/Lp" element={<Lp />} />
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}
