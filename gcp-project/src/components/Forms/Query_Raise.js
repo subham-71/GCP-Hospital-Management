@@ -39,8 +39,8 @@ export default function Query_Raise() {
     <div>
         <div className="d-flex align-items-center justify-content-center">
           <div className="card" style={{width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)'}}>
-            <div className="card-header" style={{backgroundColor: 'rgba(0, 83, 83,0.5)'}}>
-              <h3 style={{color: '#084545'}}>Raise a Query</h3>
+            <div className="card-header" style={{background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%)', color : 'white'}}>
+              <h3 id="raise" style={{color: 'white'}}>Raise a Query</h3>
             </div>
             
                   <div className="col p-2">
@@ -107,7 +107,7 @@ export default function Query_Raise() {
 
             <div className="d-flex justify-content-center">
               <div className="row mt-4">
-                <button className="btn mb-4" style={{ backgroundColor: '#227373' }} onClick={() => updateQuery()}>Send Query</button>
+                <button className="btn mb-4" style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%) ' , color : 'white'}} onClick={() => updateQuery()}>Send Query</button>
 
                 {/* <a href="#" class="btn btn-primary">Update</a> */}
               </div>

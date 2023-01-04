@@ -39,7 +39,7 @@ export default function Profile() {
     <>
       <div>
         <div className="row">
-          <nav className="navbar navbar-light" style={{ backgroundColor: '#009999', opacity: '0.5', height: '3rem' }}>
+          <nav className="navbar navbar-light" style={{background : 'linear-gradient(135deg, #f75959 0%, #f35587 100%)', opacity: '0.5', height: '3rem' }}>
           </nav>
         </div>
         <div className="container mt-3">
@@ -53,7 +53,7 @@ export default function Profile() {
                   <h5>{user.name}</h5>
                   <h6 className="text-muted">Age: {user.age}</h6>
                   <h5>{userRole}</h5>
-                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-form")}>Update</button>
+                  <button id="update" type="button" className="btn" style={{ color: 'white' }} onClick={() => navigate("/patient-form")}>Update</button>
                 </div>
               </div>
               <div className="card mt-4" style={{ width: '18rem', borderRadius: '10%' }}>
