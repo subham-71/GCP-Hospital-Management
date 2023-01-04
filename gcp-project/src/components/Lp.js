@@ -5,7 +5,7 @@ export default function Lp() {
   return (
     <div>
         <div id="header">
-          <div className="container">
+          <div id="tophead" className="container">
             <div className="row">
               <div className="col-md-4">
                 <h1 id="logo" className="mt-md-1">Company Name</h1>
@@ -36,9 +36,9 @@ export default function Lp() {
             </div>
           </div>
         </div>
-        <div className="container section" id="aboutus">
+        <div className="container-fluid mx-auto" id="aboutus" style={{background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%) '}}>
           <div className="row" id="about">
-            <div className="col-md-12">
+            <div className="col-12">
               <h2 className="section-head">About us</h2>
             </div>
             <div className="col-md-4">
@@ -134,7 +134,7 @@ export default function Lp() {
         <div className="container section">
           <div className="row text-center d-flex justify-content-center">
             <div className="col-md-6">
-              <h2 className="section-head">Contact us</h2>
+              <h2 id="contact"className="section-head">Contact us</h2>
               <form>
                 {/* Name input */}
                 <div className="form-outline mb-4">
@@ -177,9 +177,9 @@ export default function Lp() {
               <tbody>
                 <tr>
                   <td scope="row">Parth Jain</td>
-                  <td><a href className="fa fa-envelope fa-lg mx-2" />
-                    <a href className="fa fa-linkedin-square fa-lg mx-2" />
-                    <a href className="fa fa-github fa-lg mx-2" />
+                  <td><a href className="fa fa-envelope fa-lg mx-2 social" />
+                    <a href className="fa fa-linkedin-square fa-lg mx-2 social" />
+                    <a href className="fa fa-github fa-lg mx-2 social" />
                   </td>
                 </tr>
                 <tr>

@@ -72,6 +72,7 @@ export default function PatientList() {
                   <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
                   <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
                 </td>
+                
               </tr>)
             })}
             <tr>
@@ -80,9 +81,10 @@ export default function PatientList() {
               <td className="editable" data-type="date">2022-02-01</td>
               <td className="editable" data-type="text">In progress</td>
               <td>
-                <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
-                <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
+                <button id="remove" className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
+                <button id="edit"className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
               </td>
+            <td><i class="uil uil-arrow-right icon"></i></td>
             </tr>
           </tbody>
         </table>

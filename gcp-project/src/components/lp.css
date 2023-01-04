@@ -8,13 +8,16 @@
     padding-bottom: 70px;
 }
 
+
+
 .section-head{
     text-align: center;
     margin-bottom: 40px;
+    color : white;
 }
 
 .section-head::after{
-    background-color: #0b596d;
+    background-color: white;
     content: "";
     height: 3px;
     display: block;
@@ -22,7 +25,23 @@
     margin: 20px auto;
 
 }
-
+#aboutus{
+    padding-top: 20px;
+}
+#contact::after{
+    color : black;
+}
+/* .service-box i.fa {
+    color : white !important;
+    font-size: 70px;
+    margin-bottom: 15px;
+} */
+h3{
+    color : white;
+}
+.col-md-4{
+    color : white;
+}
 #logo{
     font-size: 2rem;
 }
@@ -46,19 +65,31 @@
 }
 
 #menu li a:hover{
-    background-color: #0b4e5f;
+    opacity: 60%;
 }
 
-#banner{
+/* #banner{
     background: url('https://images.pexels.com/photos/5967943/pexels-photo-5967943.jpeg') no-repeat 0 0;
     background-size: cover;
+} */
+#tophead{
+    background : linear-gradient(135deg, #f75959 0%, #f35587 100%);
+    color : white;
 }
-
 .banner-title{
     margin: 50px;
     padding: 7px;
 }
+#header{
+    background : linear-gradient(135deg, hsl(0, 91%, 66%) 0%, #f35587 100%) ;
+    
+    color : white;
+}
 
+#logo{
+    color : white;
+    font-weight: bold;
+}
 .banner-title h1{
     background: rgba(255,255,255, 0.2);
     margin: 0;
@@ -74,9 +105,11 @@
 .service-box{
     text-align: center;
 }
-
-.service-box i.fa{
-    color: #0b596d;
+/* .fa{
+    background : linear-gradient(135deg, hsl(0, 91%, 66%) 0%, #f35587 100%) ;
+} */
+.col-md-4 .service-box i.fa{
+    color: white;
     font-size: 70px;
     margin-bottom: 15px;
 }
@@ -84,7 +117,22 @@
 a{
     color: #0b596d;
 }
-
+#about{
+    margin-right: 0;
+    width: 100%;
+}
+#aboutus{
+    margin-left: 0;
+    margin-right: 0;
+    
+    width : 100%;
+}
+#contact{
+    color : black;
+}
+#banner{
+    background-color: whitesmoke;
+}
 body {
     font-family: 'Noto Sans', sans-serif;
     /* padding: 40px 0; */
@@ -172,6 +220,12 @@ h2 {
 	height: 10px;
 	margin: 1px 3px;
 	border-radius: 50%;
+}
+#forme4Eample4{
+    background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+}
+#social{
+    background-color: white;
 }
 .carousel-indicators li {	
 	background: #999;
