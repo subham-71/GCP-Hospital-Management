@@ -80,7 +80,7 @@ function App() {
           <Route path="/doctor-profile" element={<DoctorProfile />} />
           <Route path="/doctor-signup" element={<DoctorSignup />} />
           <Route path="/hospital-signup" element={<HospitalSignup />} />
-          <Route path="/Lp" element={<Lp />} />
+          <Route path="/home-page" element={<Lp />} />
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}
