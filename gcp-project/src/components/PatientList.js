@@ -8,6 +8,7 @@ import { useAuth } from '../contexts/AuthContext';
 export default function PatientList() {
 
   const {currentUser} = useAuth();
+  const [doctor, setDoctor] = useState();
   
   async function getDetails(patientId) {
     const doc = db.collection("patient").doc(patientId);
@@ -32,6 +33,7 @@ export default function PatientList() {
     if (docData.exists) {
       console.log(docData.data().patients)
       setPatientArr(docData.data().patients)
+      setDoctor(docData.data())
     }
   }
 
@@ -46,8 +48,8 @@ export default function PatientList() {
   return (
     <div>
       <div id="fixed-div">
-        <div id="left-div">Name :<div id="name">Dr. Ashima Goyal </div></div>
-        <div id="right-div">Hospital :<div id="hospital">Fortis</div></div>
+        <div id="left-div">Name :<div id="name">{doctor && doctor.name}</div></div>
+        <div id="right-div">Hospital :<div id="hospital">{doctor && doctor.hospital}</div></div>
       </div>
       <div className="container1">
         <table className="table">
@@ -74,16 +76,6 @@ export default function PatientList() {
                 </td>
               </tr>)
             })}
-            <tr>
-              <td className="editable" data-type="text">Jane Doe</td>
-              <td className="editable" data-type="number">987654</td>
-              <td className="editable" data-type="date">2022-02-01</td>
-              <td className="editable" data-type="text">In progress</td>
-              <td>
-                <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
-                <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
-              </td>
-            </tr>
           </tbody>
         </table>
         <br />

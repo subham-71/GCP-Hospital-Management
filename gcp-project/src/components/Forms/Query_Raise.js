@@ -1,34 +1,43 @@
-import React, {useRef, useState} from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import '../../Styles/UpdatePatientStyle.css';
 import { db } from '../../firebase';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Query_Raise() {
 
   const name = useRef();
   const address = useRef();
-  const button1 = useRef();
   const email = useRef();
-
+  const Urgency = useRef();
   const quantity = useRef();
   const requirement = useRef();
-  const [priority,setPriority] = useState("");
+
+  useEffect(() => {
+    let e1 = document.getElementById("inputGroupSelect03");
+    const onChangeOption = () => {
+      Urgency.current = e1.options[e1.selectedIndex].text;
+      // console.log(BloodGroup,Gender);
+    }
+    e1.onchange = onChangeOption;
+    onChangeOption();
+  }, [])
+
 
   const navigate = useNavigate();
 
   const updateQuery = async () => {
-    
+
     console.log(name);
-    
+
     await db.collection('hospitalQuery').add(
-     {
-      name: name.current.value,
-      urgency: document.querySelector('input[name="urgency"]:checked').value,
-      quantity: quantity.current.value,
-      requirement: requirement.current.value,
-      address: address.current.value,
-      email: email.current.value
-    })
+      {
+        name: name.current.value,
+        urgency: Urgency.current == "Select Urgency" ? "Low" : Urgency.current,
+        quantity: quantity.current.value,
+        requirement: requirement.current.value,
+        address: address.current.value,
+        email: email.current.value
+      })
     //await addDoc(userDoc, newFields)
     navigate('/hospital-query')
   };
@@ -37,62 +46,56 @@ export default function Query_Raise() {
 
   return (
     <div>
-        <div className="d-flex align-items-center justify-content-center">
-          <div className="card" style={{width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)'}}>
-            <div className="card-header" style={{backgroundColor: 'rgba(0, 83, 83,0.5)'}}>
-              <h3 style={{color: '#084545'}}>Raise a Query</h3>
-            </div>
-            
-                  <div className="col p-2">
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <input ref={name} type="text" className="form-control" placeholder="Name of Hospital" aria-label="Name of Hospital" style={{backgroundColor: 'white'}} />
-                      </div>
-                    </div>
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <div className="input-group">
-                        <input ref={requirement} type="text" className="form-control" placeholder="Resource required" aria-label="Resource required" style={{backgroundColor: 'white'}} />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <input ref={quantity} type="number" className="form-control" placeholder="Quantity(Units)" aria-label="Quantity(Units)" />
-                      </div>
-                    </div>
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <input ref={address} type="text" className="form-control" placeholder="Address" aria-label="Address" />
-                      </div>
-                    </div>
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <input ref={email} type="email" className="form-control" placeholder="Email Address" aria-label="Email Address" />
-                      </div>
-                    </div>
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <input type="radio" name='urgency' defaultValue="Low"/>
-                        <label for="low">Low</label>
-                      </div>
-                    </div>
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <input type="radio" name='urgency' defaultValue="Medium"/>
-                        <label for="medium">Medium</label>
-                      </div>
-                    </div>
-                    <div className="row p-2 justify-content-center">
-                      <div className="col-8 p-2">
-                        <input type="radio" name='urgency' defaultValue="High"/>
-                        <label for="high">High</label>
-                      </div>
-                    </div>
-                    
-                    
+      <div className="d-flex align-items-center justify-content-center">
+        <div className="card" style={{ width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)' }}>
+          <div className="card-header" style={{ backgroundColor: 'rgba(0, 83, 83,0.5)' }}>
+            <h3 style={{ color: '#084545' }}>Raise a Query</h3>
+          </div>
 
-              {/* <div className="row p-2 justify-content-center">
+          <div className="col p-2">
+            <div className="row p-2 justify-content-center">
+              <div className="col-8 p-2">
+                <input ref={name} type="text" className="form-control" placeholder="Name of Hospital" aria-label="Name of Hospital" style={{ backgroundColor: 'white' }} />
+              </div>
+            </div>
+            <div className="row p-2 justify-content-center">
+              <div className="col-8 p-2">
+                <div className="input-group">
+                  <input ref={requirement} type="text" className="form-control" placeholder="Resource required" aria-label="Resource required" style={{ backgroundColor: 'white' }} />
+                </div>
+              </div>
+            </div>
+            <div className="row p-2 justify-content-center">
+              <div className="col-8 p-2">
+                <input ref={quantity} type="number" className="form-control" placeholder="Quantity(Units)" aria-label="Quantity(Units)" />
+              </div>
+            </div>
+            <div className="row p-2 justify-content-center">
+              <div className="col-8 p-2">
+                <input ref={address} type="text" className="form-control" placeholder="Address" aria-label="Address" />
+              </div>
+            </div>
+            <div className="row p-2 justify-content-center">
+              <div className="col-8 p-2">
+                <input ref={email} type="email" className="form-control" placeholder="Email Address" aria-label="Email Address" />
+              </div>
+            </div>
+            <div className="row p-2 justify-content-center">
+              <div className="col-8 p-2">
+                <div className="input-group">
+                  <select className="custom-select text-muted form-control" id="inputGroupSelect03">
+                    <option selected>Select Urgency</option>
+                    <option value={"Low"}>Low</option>
+                    <option value={"Medium"}>Medium</option>
+                    <option value={"High"}>High</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+
+            {/* <div className="row p-2 justify-content-center">
                 <div className="col-8 p-2">
                   <div className="input-group">
                     <select className="custom-select text-muted form-control" id="inputGroupSelect02">

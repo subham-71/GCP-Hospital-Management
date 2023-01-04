@@ -67,7 +67,7 @@ const HospitalProfile = () => {
                   </tbody>
                 </table>
                 <p />
-                <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/doctor-form")}>Update</button>
+                <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/hospital-signup")}>Update</button>
               </div>
             </div>
           </div>

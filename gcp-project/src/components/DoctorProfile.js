@@ -42,9 +42,7 @@ const DoctorProfile = () => {
             </div>
             <div className="card-body">
               <div id="flexwala">
-                <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
                   <img id="propic" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-3" />
-                </a>
               </div><table className="table">
                 {/* <thead>
                                   <tr>

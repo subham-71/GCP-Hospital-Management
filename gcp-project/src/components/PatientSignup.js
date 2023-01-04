@@ -8,6 +8,23 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function PatientSignup() {
+
+  const BloodGroup = useRef();
+  const Gender = useRef();
+  useEffect(() => {
+    let e1 = document.getElementById("inputGroupSelect03");
+    let e2 = document.getElementById("inputGroupSelect02");
+    const onChangeOption = () => {
+      BloodGroup.current = e1.options[e1.selectedIndex].text;
+      Gender.current = e2.options[e2.selectedIndex].text;
+      // console.log(BloodGroup,Gender);
+    }
+    e1.onchange = onChangeOption;
+    e2.onchange = onChangeOption;
+    onChangeOption();
+  }, [])
+
+
   const { currentUser } = useAuth();
 
   const [user, setUser] = useState([]);
@@ -19,8 +36,6 @@ export default function PatientSignup() {
   const age = useRef();
   const height = useRef();
   const weight = useRef();
-  const bloodGroup = useRef();
-  const gender = useRef();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,8 +46,6 @@ export default function PatientSignup() {
       age.current.value = udoc.data().age;
       height.current.value = udoc.data().height;
       weight.current.value = udoc.data().weight;
-      gender.current.selected = udoc.data().gender;
-      bloodGroup.current.selected = udoc.data().bloodGroup;
     };
     getUsers()
   }, [])
@@ -45,9 +58,9 @@ export default function PatientSignup() {
       age: age.current.value,
       weight: weight.current.value,
       height: height.current.value,
-      gender: gender.current.value,
-      bloodGroup: bloodGroup.current.value,
-      files: upload?[(currentUser.uid + "-" + upload.name)]:[]
+      bloodGroup : BloodGroup.current == "Select Blood Group" ? user.bloodGroup : BloodGroup.current,
+      gender: Gender.current == "Select Gender" ? user.gender : Gender.current,
+      // files: upload? [(currentUser.uid + "--" + upload.name)]:[user.files]
     };
     await updateDoc(userDoc, newFields)
     navigate('/profile')
@@ -56,15 +69,15 @@ export default function PatientSignup() {
   const uploadFiles = async () => {
     console.log(upload)
     if (upload == null) return;
-    const docRef = ref(storage, `documents/${currentUser.uid + "-" + upload.name}`);
+    const docRef = ref(storage, `documents/${currentUser.uid + "--" + upload.name}`);
     await uploadBytes(docRef, upload);
   }
   
   const uploadPic = async () => {
     console.log(pfp)
     if (pfp == null) return;
-    const iamgeRef = ref(storage, `documents/${currentUser.uid + "-" + upload.name}`);
-    await uploadBytes(iamgeRef, upload);
+    const iamgeRef = ref(storage, `documents/${currentUser.uid + "--" + "pfp.png"}`);
+    await uploadBytes(iamgeRef, pfp);
   }
 
   return (
@@ -84,36 +97,37 @@ export default function PatientSignup() {
                 <div className="col p-2 h-50">
                   <div className="row p-2 justify-content-center">
                     <div className="col-8 p-2">
-                      <input ref={name} type="text" className="form-control" placeholder="Name" aria-label="Name" style={{ backgroundColor: 'white' }} required/>
+                      <input ref={name} type="text" className="form-control" placeholder="Name" aria-label="Name" style={{ backgroundColor: 'white' }} />
                     </div>
                   </div>
                   <div className="row p-2 justify-content-center">
                     <div className="col-8 p-2">
-                      <input ref={age} type="number" className="form-control" placeholder="Age" aria-label="Age" required/>
+                      <input ref={age} type="number" className="form-control" placeholder="Age" aria-label="Age" />
                     </div>
                   </div>
                   <div className="row p-2 justify-content-center">
                     <div className="col-8 p-2">
-                      <input ref={height} type="number" className="form-control" placeholder="Height (cm)" aria-label="Height" required/>
+                      <input ref={height} type="number" className="form-control" placeholder="Height (cm)" aria-label="Height" />
                     </div>
                   </div>
                   <div className="row p-2 justify-content-center">
                     <div className="col-8 p-2 text-center">
-                      <input ref={weight} type="number" className="form-control" placeholder="Weight (kgs)" aria-label="Weight" required/>
+                      <input ref={weight} type="number" className="form-control" placeholder="Weight (kgs)" aria-label="Weight"/>
                     </div>
                   </div>
                   <div className="row p-2 justify-content-center">
                     <div className="col-8 p-2">
                       <div className="input-group">
-                        <select ref = {bloodGroup} className="custom-select text-muted form-control" id="inputGroupSelect03" value={user.bloodGroup} required>
-                          <option value={"A+"}>A+</option>
-                          <option value={"A-"}>A-</option>
-                          <option value={"B+"}>B+</option>
-                          <option value={"B-"}>B-</option>
-                          <option value={"O+"}>O+</option>
-                          <option value={"O-"}>O-</option>
-                          <option value={"AB+"}>AB+</option>
-                          <option value={"AB-"}>AB-</option>
+                        <select className="custom-select text-muted form-control" id="inputGroupSelect03">
+                          <option selected>Select Blood Group</option>
+                          <option value={1}>A+</option>
+                          <option value={2}>A-</option>
+                          <option value={3}>B+</option>
+                          <option value={4}>B-</option>
+                          <option value={5}>O+</option>
+                          <option value={6}>O-</option>
+                          <option value={7}>AB+</option>
+                          <option value={8}>AB-</option>
                         </select>
                       </div>
                     </div>
@@ -121,10 +135,11 @@ export default function PatientSignup() {
                   <div className="row p-2 justify-content-center">
                     <div className="col-8 p-2">
                       <div className="input-group">
-                        <select ref = {gender} className="custom-select text-muted form-control" id="inputGroupSelect02" value={user.gender} required>
-                          <option value={"Male"}>Male</option>
-                          <option value={"Female"}>Female</option>
-                          <option value={"Others"}>Others</option>
+                        <select className="custom-select text-muted form-control" id="inputGroupSelect02">
+                          <option selected>Select Gender</option>
+                          <option value={1}>Male</option>
+                          <option value={2}>Female</option>
+                          <option value={3}>Others</option>
                         </select>
                       </div>
                     </div>
