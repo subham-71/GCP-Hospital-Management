@@ -16,7 +16,6 @@ export default function PatientList() {
   }
   const [patientArr, setPatientArr] = useState([])
   const [patientDetail, setPatientDetail] = useState([])
-  const [loading, setLoading] = useState(false)
   
   const getDetail = () =>{
     let patientList = [];
@@ -28,9 +27,10 @@ export default function PatientList() {
   }
 
   const getPatientArr = async () => {
-    const doc = db.collection("doctor").doc("vcISeGpZesT8oKPnd3yNkjUcCuo2");
+    const doc = db.collection("doctor").doc(currentUser.uid);
     const docData = await doc.get()
     if (docData.exists) {
+      console.log(docData.data().patients)
       setPatientArr(docData.data().patients)
     }
   }
@@ -64,9 +64,9 @@ export default function PatientList() {
             {patientDetail.map((entry) => {
               return (
               <tr>
-                <td className="editable" data-type="text">{entry.name}</td>
-                <td className="editable" data-type="number">{entry.number}</td>
-                <td className="editable" data-type="date">2022-01-01</td>
+                <td className="editable" data-type="text">{entry && entry.name}</td>
+                <td className="editable" data-type="number">{entry && entry.number}</td>
+                <td className="editable" data-type="date">{entry && entry.date}</td>
                 <td className="editable" data-type="text">Completed</td>
                 <td>
                   <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}

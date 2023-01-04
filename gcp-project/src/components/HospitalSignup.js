@@ -1,6 +1,50 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { updateDoc, } from "firebase/firestore";
+import { db} from '../firebase';
+import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const HospitalSignup = () => {
+  const { currentUser } = useAuth();
+  const [user, setUser] = useState([]);
+  const userDoc = db.collection('hospital').doc(currentUser.uid);
+  
+  const name = useRef();
+  const age = useRef();
+  const height = useRef();
+  const weight = useRef();
+  const bloodGroup = useRef();
+  const gender = useRef();
+  const navigate = useNavigate();
+  
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const udoc = await userDoc.get();
+      setUser(udoc.data());
+      name.current.value = udoc.data().name;
+      age.current.value = udoc.data().age;
+      height.current.value = udoc.data().height;
+      weight.current.value = udoc.data().weight;
+    };
+    getUsers()
+  }, [])
+
+  const updateUser = async () => {
+    const newFields = {
+      name: name.current.value == null ? user.name : name.current.value,
+      age: age.current.value,
+      weight: weight.current.value,
+      height: height.current.value,
+      gender: gender.current.value,
+      bloodGroup: bloodGroup.current.value,
+    };
+    await updateDoc(userDoc, newFields)
+    navigate('/hospital-profile')
+  };
+
     return (
 
         <div className="d-flex align-items-center justify-content-center mt-4">

@@ -53,7 +53,7 @@ export default function Profile() {
                   <h5>{user.name}</h5>
                   <h6 className="text-muted">Age: {user.age}</h6>
                   <h5>{userRole}</h5>
-                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-form")}>Update</button>
+                  <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/patient-signup")}>Update</button>
                 </div>
               </div>
               <div className="card mt-4" style={{ width: '18rem', borderRadius: '10%' }}>
@@ -63,35 +63,35 @@ export default function Profile() {
                     <tbody>
                       <tr>
                         <th scope="row" style={{ fontFamily: '"Quicksand", sans-serif' }}>Name</th>
-                        <td>{user.name}</td>
+                        <td>{user && user.name}</td>
                       </tr>
                       <tr>
                         <th scope="row">Age</th>
-                        <td>{user.age}</td>
+                        <td>{user && user.age}</td>
                       </tr>
                       <tr>
                         <th scope="row">Gender</th>
-                        <td>{user.gender}</td>
+                        <td>{user && user.gender}</td>
                       </tr>
                       <tr>
                         <th scope="row">Patient ID</th>
-                        <td>{user.id}</td>
+                        <td>{user && user.id}</td>
                       </tr>
                       <tr>
                         <th scope="row">Blood Group</th>
-                        <td>{user["blood group"]}</td>
+                        <td>{user && user.bloodGroup}</td>
                       </tr>
                       <tr>
                         <th scope="row">Height</th>
-                        <td>{user.height}</td>
+                        <td>{user && user.height}</td>
                       </tr>
                       <tr>
                         <th scope="row">Weight</th>
-                        <td>{user.weight}</td>
+                        <td>{user && user.weight}</td>
                       </tr>
                       <tr>
                         <th scope="row">Last visit</th>
-                        <td>{user["last visit"]}</td>
+                        <td>{user && user["last visit"]}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -177,18 +177,6 @@ export default function Profile() {
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="One" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <div className="col">
-                          {
-                            links.map((link) => {
-                              return (
-                                <div className="row">
-                                  <a href = {link} download className="link" style={{ color: '#004d4d' }}>
-                                    <i className="uil uil-file-download-alt icon" style={{ fontSize: '20px' }} />
-                                    21.12.22 (Wednesday)
-                                  </a>
-                                </div>
-                              )
-                            })
-                          }
                           <div className="row">
                             <a download className="link" style={{ color: '#004d4d' }}>
                               <i className="uil uil-file-download-alt icon" style={{ fontSize: '20px' }} />
@@ -232,6 +220,18 @@ export default function Profile() {
                     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <div className="col">
+                          {
+                            links.map((link, index) => {
+                              return (
+                                <div className="row">
+                                  <a href={link} download className="link" style={{ color: '#004d4d' }}>
+                                    <i className="uil uil-file-download-alt icon" style={{ fontSize: '20px' }} />
+                                    user.files[index].split('-')[1]
+                                  </a>
+                                </div>
+                              )
+                            })
+                          }
                           <div className="row">
                             <a download className="link" style={{ color: '#004d4d' }}>
                               <i className="uil uil-file-download-alt icon" style={{ fontSize: '20px' }} />

@@ -7,7 +7,7 @@ import '../Styles/Login.css'
 export default function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { login,userRole } = useAuth()
+  const { login} = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -19,19 +19,21 @@ export default function Login() {
       setError('')
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      // if(userRole === "doctor"){
-      //   navigate("/patient-list")
-      // }
-      // else if(userRole === "patient"){
-      //   navigate("/profile")
-      // }
-      // else if(userRole === "hospital"){
-      //   navigate("/hospital-query")
-      // }
-      // else{
-      //   navigate("/card")
-      // }
-      navigate("/profile")
+      const userType = document.querySelector('input[name="choice"]:checked').value
+
+      // Todo : Later do it on basis of user role
+      if(userType === "doctor"){
+        navigate("/doctor-profile")
+      }
+      else if(userType === "patient"){
+        navigate("/profile")
+      }
+      else if(userType === "hospital"){
+        navigate("/hospital-profile")
+      }
+      else{
+        navigate("/login")
+      }
     } catch {
       setError('Wrong email or password')
     }
@@ -86,7 +88,7 @@ export default function Login() {
                     <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
                   </div>
                   {/* choice for doctor,patient or hospital using radio button */}
-                  {/* <div className="form-group d-md-flex">
+                  <div className="form-group d-md-flex">
                       <div className="w-50 text-left">
                         <label className="checkbox-wrap checkbox-primary mb-0">Doctor
                           <input type="radio" name="choice" defaultValue="doctor" defaultChecked />
@@ -105,7 +107,7 @@ export default function Login() {
                           <span className="checkmark" />
                         </label>
                       </div>
-                    </div> */}
+                    </div>
                 </form>
               </div>
             </div>
