@@ -110,7 +110,7 @@ export default function Query_Raise() {
 
             <div className="d-flex justify-content-center">
               <div className="row mt-4">
-                <button className="btn mb-4" style={{ backgroundColor: '#227373' }} onClick={() => updateQuery()}>Send Query</button>
+                <button className="btn mb-4" style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%) ' , color : 'white'}} onClick={() => updateQuery()}>Send Query</button>
 
                 {/* <a href="#" class="btn btn-primary">Update</a> */}
               </div>

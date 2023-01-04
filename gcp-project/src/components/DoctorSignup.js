@@ -40,8 +40,8 @@ const DoctorSignup = () => {
                         <label htmlFor="hosp">Hospital</label>
                         <input type="text" className="form-control" id="hosp" placeholder="Name of Hospital" aria-label="Date" />
                       </div>
-                        <div className="col-8 p-2">
-                            <button type="submit" className="btn btn-primary">Submit</button>
+                        <div className="col-8 p-2 text-center">
+                            <button type="submit" className="btn" style={{backgroundColor:'#227373', color:'white'}}>Submit</button>
                         </div>
                     </div>
                   </div>

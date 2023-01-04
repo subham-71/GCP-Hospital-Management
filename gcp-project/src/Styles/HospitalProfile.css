@@ -205,7 +205,9 @@ body{
     display: block;
     /* overflow-x: auto; */
     white-space: wrap;
-    table-layout: fixed
+    table-layout: fixed;
+    padding: 0;
+
 }
 
 .table-fixed thead,
