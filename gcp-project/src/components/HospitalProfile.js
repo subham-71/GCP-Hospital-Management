@@ -634,7 +634,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide1()">Show/
+                  <button id="btn" className="btn" style={{ backgroundColor:"#f6c9de" }} onclick="toggleHide1()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -694,7 +694,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide2()">Show/
+                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide2()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -753,7 +753,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn btn-secondary" onclick="toggleHide3()">Show/
+                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide3()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
