@@ -30,7 +30,7 @@ export default function HospitalQuery() {
   return (
     <div className="container">
       <div className="item1">
-        <h3>Active Queries</h3>
+        <h3 className='hospital-query-h3'>Active Queries</h3>
         <table id="query_table" data-paginate="true">
           <thead>
             <tr>
