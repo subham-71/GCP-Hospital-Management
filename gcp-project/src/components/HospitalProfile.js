@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../Styles/HospitalProfile.css"
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth} from '../contexts/AuthContext';
 
 const HospitalProfile = () => {
 
@@ -33,7 +33,7 @@ const HospitalProfile = () => {
   }, [])
 
   return (
-
+   <div className="body-hospital-profile">
     <div className="container">
       <div className="row">
         <div className="col-5">
@@ -45,53 +45,53 @@ const HospitalProfile = () => {
                 </p><table className="table" id="lef">
                   <tbody>
                     <tr>
-                      <th scope="row">Name</th>
+                      <th className="th-hospital-profile"scope="row">Name</th>
                       <td>{hospitalInfo && hospitalInfo.name}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Address</th>
+                      <th className="th-hospital-profile"scope="row">Address</th>
                       <td>{hospitalInfo && hospitalInfo.address}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Contact number (Primary)</th>
+                      <th className="th-hospital-profile"scope="row">Contact number (Primary)</th>
                       <td>{hospitalInfo && hospitalInfo.contactPrimary}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Contact number (Secondary)</th>
+                      <th className="th-hospital-profile"scope="row">Contact number (Secondary)</th>
                       <td>{hospitalInfo && hospitalInfo.contactSecondary}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Email</th>
+                      <th className="th-hospital-profile"scope="row">Email</th>
                       <td>{hospitalInfo && hospitalInfo.email}</td>
                     </tr>
                   </tbody>
                 </table>
                 <p />
-                <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/hospital-signup")}>Update</button>
+                <button type="button" className="btn" style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%)'}} onClick={() => navigate("/hospital-signup")}>Update</button>
               </div>
             </div>
           </div>
         </div>
         <div className="col-6 offset-1 text-center text-white" id="tbb">
           <div className="card shadow">
-            <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
+            <div className="card-header border-0" style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%)'}}>
               <h3 className="mb-0">DOCTORS AVAILABLE</h3>
             </div>
             <div className="table-responsive ">
               <table className="table align-items-center table-flush" id="ab">
                 <thead className="thead-light" style={{ width: '100%' }}>
                   <tr style={{ width: '100%' }}>
-                    <th scope="col" style={{ width: 'calc(100%/3)' }} />
-                    <th scope="col" style={{ width: 'calc(100%/3)' }} />
-                    <th scope="col" style={{ width: 'calc(100%/3)' }} />
-                    <th scope="col" style={{ width: 'calc(100%/3)' }} />
+                    <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/3)' }} />
+                    <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/3)' }} />
+                    <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/3)' }} />
+                    <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/3)' }} />
                   </tr>
                 </thead>
                 <tbody>
                   {doctors.map((doctor) => {
                     return (
                       <tr>
-                        <th scope="row">
+                        <th className="th-hospital-profile"scope="row">
                           <div className="avatar-group">
                             <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
                               <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
@@ -116,395 +116,6 @@ const HospitalProfile = () => {
           </div>
         </div>
       </div>
-      {/* <div className="row">
-        <div className="col text-center text-white" id="tbb">
-          <div className="card shadow">
-            <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
-              <h3 className="mb-0">RECENT APPOINTMENTS</h3>
-            </div>
-            <div className="table-responsive ">
-              <table className="table align-items-center table-flush" id="ab">
-                <thead className="thead-light" style={{ width: '100%' }}>
-                  <tr style={{ width: '100%' }}>
-                    <th scope="col" style={{ width: 'calc(100%/6)' }}>Doctor</th>
-                    <th scope="col" style={{ width: 'calc(100%/6)' }}>Patients</th>
-                    <th scope="col" style={{ width: 'calc(100%/6)' }}>Speciality</th>
-                    <th scope="col" style={{ width: 'calc(100%/5)' }}>Timings</th>
-                    <th scope="col" style={{ width: 'calc(100%/5)' }}>Days</th>
-                    <th scope="col" style={{ width: 'calc(100%/5)' }}>Amount</th>
-                    <th scope="col" />
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      Jane Andre
-                    </th>
-                    <td>
-                      <div className="avatar-group">
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Romina Hadid">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-2.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Alexander Smith">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-3.jpg" className="rounded-circle" />
-                        </a>
-                        <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Jessica Doe">
-                          <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" className="rounded-circle" />
-                        </a>
-                      </div>
-                    </td>
-                    <td>
-                      Dentist
-                    </td>
-                    <td>
-                      8:00 A.M.- 12:00P.M.
-                    </td>
-                    <td>
-                      Monday, Thursday, Saturday
-                    </td>
-                    <td>
-                      $1200.00
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="row">
         <div className="col-5">
           <div className="row">
@@ -530,18 +141,18 @@ const HospitalProfile = () => {
   </div>
             <div className="col text-center text-white" id="tbb">
               <div className="card shadow">
-                <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
+                <div className="card-header border-0" style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%)'}}>
                   <h3 className="mb-0">RESOURCES LENDED</h3>
                 </div>
                 <div className="table-responsive">
                   <table className="table" id="kb">
                     <thead className="thead-light" style={{ width: '100%' }}>
                       <tr style={{ width: '100%' }}>
-                        <th scope="col-4" style={{ width: '20%' }}>Name</th>
-                        <th scope="col" style={{ width: '20%' }}>Address</th>
-                        <th scope="col" style={{ width: '20%' }}>Requirement</th>
-                        <th scope="col" style={{ width: '20%' }}>Quantity</th>
-                        <th scope="col" style={{ width: '20%' }}>Date of issue</th>
+                        <th className="th-hospital-profile"scope="col-4" style={{ width: '20%' }}>Name</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: '20%' }}>Address</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: '20%' }}>Requirement</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: '20%' }}>Quantity</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: '20%' }}>Date of issue</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -567,19 +178,19 @@ const HospitalProfile = () => {
           <div className="row">
             <div className="col text-center text-white" id="tbb">
               <div className="card shadow">
-                <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
+                <div className="card-header border-0" style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%)'}}>
                   <h3 className="mb-0">RESOURCES BORROWED</h3>
                 </div>
                 <div className="table-responsive ">
                   <table className="table align-items-center table-flush" id="kb">
                     <thead className="thead-light" style={{ width: '100%' }}>
                       <tr style={{ width: '100%' }}>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Name</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Address</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Requirement</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Quantity</th>
-                        <th scope="col" style={{ width: 'calc(100%/5)' }}>Date of issue</th>
-                        <th scope="col" />
+                        <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/5)' }}>Name</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/5)' }}>Address</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/5)' }}>Requirement</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/5)' }}>Quantity</th>
+                        <th className="th-hospital-profile"scope="col" style={{ width: 'calc(100%/5)' }}>Date of issue</th>
+                        <th className="th-hospital-profile"scope="col" />
                       </tr>
                     </thead>
                     <tbody>
@@ -794,6 +405,7 @@ const HospitalProfile = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 }
 

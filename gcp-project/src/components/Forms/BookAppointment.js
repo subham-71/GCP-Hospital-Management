@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 
 export default function BookAppointment() {
 
+  const { docId } = useParams()
   const { currentUser } = useAuth();
   const symptomRef = useRef();
   const dateRef = useRef();
@@ -15,7 +16,6 @@ export default function BookAppointment() {
   const [doctor, setDoctor] = useState([]);
   const userDoc = db.collection('patient').doc(currentUser.uid);
   const doctorDoc = db.collection('doctor').doc(docId);
-  const { docId } = useParams()
 
 
   useEffect(() => {
@@ -44,13 +44,14 @@ export default function BookAppointment() {
       descripiton: symptomRef.current.value
     })
     // console.log(user)
+    const dateEv = new Date(`${dateRef.current.value} ${timeRef.current.value}`);
     const userAppointment = user.appointment;
     const userEvents = user.events;
     const newUserPFields = {
       appointment: [...userAppointment, appdocRef],
       events:[...userEvents, {
         title: "Appointment with " + doctor.name,
-        start: dateRef.current.value
+        start: dateEv.toISOString()
       }]
     };
 
@@ -60,7 +61,7 @@ export default function BookAppointment() {
       appointment: [...doctorAppointment, appdocRef],
       events:[...doctorEvents, {
         title: "Appointment with " + user.name,
-        start: dateRef.current.value
+        start: dateEv.toISOString()
       }]
     };
     await updateDoc(userDoc, newUserPFields)

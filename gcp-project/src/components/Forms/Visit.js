@@ -1,12 +1,11 @@
-import React from 'react'
+import React , {useRef}from 'react'
 import '../../Styles/VisitStyle.css'
 import '../../Styles/UpdatePatientStyle.css'
 
 export default function Visit() {
-  function showTable() {
-    var table = document.getElementById("table");
-    table.style.display="flex";
-  }
+
+  const medicine = useRef();
+
   return (
     <div>
         <div className="d-flex align-items-center justify-content-center">
@@ -34,15 +33,8 @@ export default function Visit() {
                     </div>
                     <div className="row p-2 justify-content-center">
                       <div className="col-8 p-2">
-                        <div className="input-group">
-                          <select className="custom-select text-muted form-control" id="medicine" onchange={showTable}>
-                            <option selected>Select Medicines</option>
-                            <option>Dolo 500mg</option>
-                            <option>Dolo 500mg</option>
-                            <option>Dolo 500mg</option>
-                            <option>Dolo 500mg</option>
-                          </select>
-                        </div>
+                        <label htmlFor="visit_time">Enter Medicine</label>
+                        <input type="text" className="form-control" placeholder="Medicine" aria-label="Medicine" style={{ backgroundColor: 'white' }}/>
                       </div>
                     </div>
                     <div className="row p-2 justify-content-center">
@@ -52,7 +44,7 @@ export default function Visit() {
                     </div>
                     <div className="row p-2 justify-content-center">
                       <div className="d-flex align-items-center">
-                        <table className="table text-center" id="table" style={{display: 'none', justifyContent: 'space-around'}}>
+                        <table className="table text-center" id="table" style={{display: 'flex', justifyContent: 'space-around'}}>
                           <tbody><tr>
                               <th>
                                 <div className="form-check form-check-inline">
