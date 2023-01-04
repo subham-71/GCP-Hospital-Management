@@ -13,7 +13,9 @@
     background-color: #005353;
     color: white;
 }
-
+#raise{
+    background  : linear-gradient(135deg, #f75959 0%, #f35587 100%);
+}
 #carouselExampleIndicators{
     margin: 0;
 }

@@ -65,7 +65,7 @@ td:before {
 }
 
 .hospital-query-h3{
-    background-color: grey;
+    background : linear-gradient(135deg, #f75959 0%, #f35587 100%);
     color : white;
     border-radius: 0.3em;
     text-align: center;
