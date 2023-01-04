@@ -15,21 +15,22 @@ export default function Profile() {
   const { userRole, currentUser } = useAuth();
   const docRef = db.collection('patient').doc(currentUser.uid);
 
-  const getLinks = async () => {
-    user.files.forEach(async (file) => {
-      let url = await getDownloadURL(ref(storage, "documents/"+file));
-      setLinks([...links, url]);
-    })
-    console.log("Links: " + links)
-  }
+  const getUsers = async () => {
+    const doc = await docRef.get();
+    const data = doc.data()
+    setUser(data);
+    const files = data.files;
+    const link = [];
+    for (let i = 0; i < files.length; i++) {
+      const storageRef = ref(storage, `documents/${files[i]}`);
+      const url = await getDownloadURL(storageRef);
+      link.push(url);
+      setLinks(link);
+    }
+  };
 
   useEffect(() => {
-    const getUsers = async () => {
-      const doc = await docRef.get();
-      console.log(doc.data())
-      setUser(doc.data());
-    };
-    getUsers().then(getLinks());
+    getUsers();
   }, [])
 
   const navigate = useNavigate();
