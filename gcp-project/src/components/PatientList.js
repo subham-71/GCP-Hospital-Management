@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/PatientList.css';
 import {db} from "../firebase";
+import { useAuth } from '../contexts/AuthContext';
 
 
 
 export default function PatientList() {
+
+  const {currentUser} = useAuth();
   
   async function getDetails(patientId) {
     const doc = db.collection("patient").doc(patientId);
     const docData = await doc.get()
     if (docData.exists) return docData.data(); 
   }
-  const patientArr = ["N9z4uPZxfNXPl098kpBpWcHDn152", "RQ8FNr3vgvefIFVZHcJR1WI4s693", "bDp6VO8MGycL4ndtmngFWLtarEd2"]
+  const [patientArr, setPatientArr] = useState([])
   const [patientDetail, setPatientDetail] = useState([])
   const [loading, setLoading] = useState(false)
   
@@ -24,9 +27,21 @@ export default function PatientList() {
     })
   }
 
+  const getPatientArr = async () => {
+    const doc = db.collection("doctor").doc("vcISeGpZesT8oKPnd3yNkjUcCuo2");
+    const docData = await doc.get()
+    if (docData.exists) {
+      setPatientArr(docData.data().patients)
+    }
+  }
+
   useEffect(()=>{
       getDetail();
-  },[]);
+  },[patientArr]);
+
+  useEffect(()=>{
+    getPatientArr()
+  },[])
   
   return (
     <div>
