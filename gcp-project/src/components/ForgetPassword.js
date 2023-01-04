@@ -4,13 +4,13 @@ import { Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import '../Styles/Login.css'
 
-export default function Login() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const { login} = useAuth()
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+export default function ForgotPassword() {
+    const emailRef = useRef()
+    const { resetPassword } = useAuth()
+    const [error, setError] = useState('')
+    const [message, setMessage] = useState('')
+    const [loading, setLoading] = useState(false)
+    
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -18,22 +18,21 @@ export default function Login() {
     try {
       setError('')
       setLoading(true)
-      await login(emailRef.current.value, passwordRef.current.value)
-      const userType = document.querySelector('input[name="choice"]:checked').value
-
-      // Todo : Later do it on basis of user role
-      if(userType === "doctor"){
-        navigate("/doctor-profile")
-      }
-      else if(userType === "patient"){
-        navigate("/profile")
-      }
-      else if(userType === "hospital"){
-        navigate("/hospital-profile")
-      }
-      else{
-        navigate("/login")
-      }
+    //   await login(emailRef.current.value, passwordRef.current.value)
+      // if(userRole === "doctor"){
+      //   navigate("/patient-list")
+      // }
+      // else if(userRole === "patient"){
+      //   navigate("/profile")
+      // }
+      // else if(userRole === "hospital"){
+      //   navigate("/hospital-query")
+      // }
+      // else{
+      //   navigate("/card")
+      // }
+    //   navigate("/profile")   
+    console.log(emailRef.current.value)
     } catch {
       setError('Wrong email or password')
     }
@@ -63,32 +62,28 @@ export default function Login() {
             <div className="wrap d-md-flex">
               <div className="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
                 <div className="text w-100">
-                  <h2>Welcome to login</h2>
-                  <p>Don't have an account?</p>
-                  <Link className="btn btn-white btn-outline-white" to="/signup">Sign Up</Link>
+                  <h2>Forget Password</h2>
+                  <p>Know your password</p>
+                  <Link className="btn btn-white btn-outline-white" to="/login">Log In</Link>
                 </div>
               </div>
               <div className="login-wrap p-4 p-lg-5">
                 <div className="d-flex">
                   <div className="w-100">
-                    <h3 className="mb-4">Sign In</h3>
+                    <h3 className="mb-4">Forget Password</h3>
                   </div>
                 </div>
                 <form onSubmit={handleSubmit} className="signin-form">
                   {error && <Alert variant="danger">{error}</Alert>}
                   <div className="form-group mb-3">
                     <label className="label" htmlFor="name">Email</label>
-                    <input ref={emailRef} type="email" className="form-control" placeholder="Username" required />
-                  </div>
-                  <div className="form-group mb-3">
-                    <label className="label" htmlFor="password">Password</label>
-                    <input ref={passwordRef} type="password" className="form-control" placeholder="Password" required />
+                    <input ref={emailRef} type="email" className="form-control" placeholder="Email" required />
                   </div>
                   <div className="form-group" id="submit">
-                    <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
+                    <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">Send Email</button>
                   </div>
                   {/* choice for doctor,patient or hospital using radio button */}
-                  <div className="form-group d-md-flex">
+                  {/* <div className="form-group d-md-flex">
                       <div className="w-50 text-left">
                         <label className="checkbox-wrap checkbox-primary mb-0">Doctor
                           <input type="radio" name="choice" defaultValue="doctor" defaultChecked />
@@ -107,7 +102,7 @@ export default function Login() {
                           <span className="checkmark" />
                         </label>
                       </div>
-                    </div>
+                    </div> */}
                 </form>
               </div>
             </div>

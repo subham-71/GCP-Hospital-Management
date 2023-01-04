@@ -29,10 +29,8 @@ export default function Lp() {
             <div className="row">
               <div className="col-xl-6 col-md-8">
                 <div className="banner-title">
-                  <h1 className="title">Some heading goes here</h1>
-                  <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat alias, nostrum
-                    mollitia repellendus ex atque, laudantium quam reiciendis deleniti maxime optio dicta
-                    blanditiis necessitatibus.</p>
+                  <h1 className="title">Welcome aboard !!</h1>
+                  <p className="lead">Implementing telehealth to provide access to health care services remotely and manage your healthcare in a better way. Here's a platform to provide dedicated healthcare under one roof.</p>
                 </div>
               </div>
             </div>
@@ -41,36 +39,63 @@ export default function Lp() {
         <div className="container section" id="aboutus">
           <div className="row" id="about">
             <div className="col-md-12">
-              <h2 className="section-head">Some Heading Goes Here</h2>
+              <h2 className="section-head">About us</h2>
             </div>
             <div className="col-md-4">
               <div className="service-box">
-                <i className="fa fa-anchor" />
-                <h3>Some Heading</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis sint eos recusandae et beatae!
-                  Porro eveniet cumque hic qui dolorum?</p>
+                <i className="fa fa-ambulance" />
+                <h3>Sign-up as Hospital</h3>
+                <p>This portal allows all hospitals to raise a query(incase they need some resource) and to reply to a query(if they have surplus resources and can share/sell). Along with this, they will have to update the amount of resources available to them at regular intervals</p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="service-box">
-                <i className="fa fa-diamond" />
-                <h3>Some Heading</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis sint eos recusandae et beatae!
-                  Porro eveniet cumque hic qui dolorum?</p>
+                <i className="fa fa-user-md" />
+                <h3>Sign-up as Doctor</h3>
+                <p>After signing up as a doctor, you will get your daily appointments at a single click. Also, you will be able to view all your patients' past records along with their health monitoring graphs. </p>
               </div>
             </div>
             <div className="col-md-4">
               <div className="service-box">
-                <i className="fa fa-wifi" />
-                <h3>Some Heading</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis sint eos recusandae et beatae!
-                  Porro eveniet cumque hic qui dolorum?</p>
+                <i className="fa fa-hotel" />
+                <h3>Sign-up as patient</h3>
+                <p>A patient can book online appointment at any hospital of their choice and also access the past prescriptions and medicines recommended by their doctors, all at one place</p>
               </div>
             </div>
           </div>
         </div>
         <div className="container section" id="testimonials">
-
+          {/* <div class="row">
+            <div class="col-md-12">
+                <h2 class="section-head">Testimonials</h2>
+            </div>
+            <div class="col-md-6">
+                <div class="testimonial">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis sint eos recusandae et beatae!
+                        Porro eveniet cumque hic qui dolorum?</p>
+                    <img src="" alt="" srcset="">
+                    <div class="author">Bill Gates</div>
+                    <div class="company">Microsoft</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="testimonial">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis sint eos recusandae et beatae!
+                        Porro eveniet cumque hic qui dolorum?</p>
+                    <img src="" alt="" srcset="">
+                    <div class="author">Bill Gates</div>
+                    <div class="company">Microsoft</div>
+                </div>
+            </div>
+        </div> */}
+          <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>Bootstrap Testimonial Carousel</title>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="style.css" />
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-center m-auto">
@@ -80,26 +105,17 @@ export default function Lp() {
                   <div className="carousel-inner">
                     <div className="item carousel-item active">
                       <div className="img-box"><img src="https://i.ibb.co/d5DY64w/img1.jpg" alt="" /></div>
-                      <p className="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                        eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec
-                        turpis vel, semper malesuada ante. Idac bibendum scelerisque non non purus.
-                        Suspendisse varius nibh non aliquet.</p>
+                      <p className="testimonial">It is a great help to book any preferred doctor instantly.</p>
                       <p className="overview"><b>Jennifer Smith</b>, Office Worker</p>
                     </div>
                     <div className="item carousel-item">
                       <div className="img-box"><img src="https://i.ibb.co/5FF1vqz/img2.jpg" alt="" /></div>
-                      <p className="testimonial">Vestibulum quis quam ut magna consequat faucibus.
-                        Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus.
-                        Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit
-                        amet gravida nibh, facilisis gravida odio.</p>
+                      <p className="testimonial">Amazing website! Makes our work much easier and organized as doctors</p>
                       <p className="overview"><b>Dauglas McNun</b>, Financial Advisor</p>
                     </div>
                     <div className="item carousel-item">
                       <div className="img-box"><img src="https://i.ibb.co/Trv7hDv/img3.jpg" alt="" /></div>
-                      <p className="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante
-                        id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at
-                        accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
-                        fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
+                      <p className="testimonial">Being a diabetic patient, it helped me keep a track of my glucose level</p>
                       <p className="overview"><b>Hellen Wright</b>, Athelete</p>
                     </div>
                   </div>
@@ -198,6 +214,6 @@ export default function Lp() {
             </table>
           </div>
         </div>
-    </div>
+      </div>
   )
 }

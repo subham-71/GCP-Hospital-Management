@@ -36,10 +36,10 @@ export default function Visit() {
                         <div className="input-group">
                           <select className="custom-select text-muted form-control" id="medicine" onchange={showTable}>
                             <option selected>Select Medicines</option>
-                            <option value={1}>Dolo 500mg</option>
-                            <option value={2}>Dolo 500mg</option>
-                            <option value={3}>Dolo 500mg</option>
-                            <option value={4}>Dolo 500mg</option>
+                            <option>Dolo 500mg</option>
+                            <option>Dolo 500mg</option>
+                            <option>Dolo 500mg</option>
+                            <option>Dolo 500mg</option>
                           </select>
                         </div>
                       </div>
@@ -80,9 +80,9 @@ export default function Visit() {
                         <div className="input-group ">
                           <select className="custom-select text-muted form-control" id="test">
                             <option selected>Select Tests</option>
-                            <option value={4}>Blood Test</option>
-                            <option value={5}>X-Ray</option>
-                            <option value={6}>many more</option>
+                            <option>Blood Test</option>
+                            <option>X-Ray</option>
+                            <option>many more</option>
                           </select>
                         </div>
                       </div>

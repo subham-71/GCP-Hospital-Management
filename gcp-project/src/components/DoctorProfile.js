@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
 import doctorEvents from './doctorEvents'
 
 import "../Styles/DoctorProfile.css"
+import { db } from '../firebase'
+import { useAuth } from '../contexts/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 const DoctorProfile = () => {
+    const {currentUser} = useAuth()
+    const [doctorInfo, setDoctorInfo] = useState()
+    const navigate = useNavigate()
+    
+    const getDoctorInfo = async () => {
+        console.log(currentUser.uid)
+        const docRef = db.collection("doctor").doc(currentUser.uid);
+        const doc = await docRef.get();
+        if (!doc.exists) {
+            console.log('No such document!');
+        } else {  
+            console.log(doc.data())
+            setDoctorInfo(doc.data())
+        }
+    }
+    
+    useEffect(() => {
+        getDoctorInfo()
+    }, [currentUser])
+
+
     return (
     <div className="container">
       <div className="row" id>
@@ -31,27 +55,23 @@ const DoctorProfile = () => {
                 <tbody>
                   <tr>
                     <th scope="row">Name</th>
-                    <td>Dr. Manvi Sehgal</td>
+                    <td>{doctorInfo && doctorInfo.name}</td>
                   </tr>
                   <tr>
                     <th scope="row">Specialization</th>
-                    <td>Dentist</td>
+                    <td>{doctorInfo && doctorInfo.specialization}</td>
                   </tr>
                   <tr>
                     <th scope="row">Education</th>
-                    <td>MD Honours, AIMS Delhi</td>
+                    <td>{doctorInfo && doctorInfo.education}</td>
                   </tr>
                   <tr>
                     <th scope="row">Contact number</th>
-                    <td>888888888</td>
+                    <td>{doctorInfo && doctorInfo.contactNumber}</td>
                   </tr>
                   <tr>
                     <th scope="row">E-mail address</th>
-                    <td>Dffgbcrt@abc.com</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Name</th>
-                    <td>Dr. Manvi Sehgal</td>
+                    <td>{doctorInfo && doctorInfo.email}</td>
                   </tr>
                 </tbody>
               </table>
@@ -157,7 +177,7 @@ const DoctorProfile = () => {
               </table>
             </div>
             <div className="card-footer text-center" id="ch">
-              <a className="btn btn-primary">View past patients</a>
+              <button className="btn btn-primary" onClick={()=>{navigate("/patient-list")}}>View past patients</button>
             </div>
           </div>
         </div>

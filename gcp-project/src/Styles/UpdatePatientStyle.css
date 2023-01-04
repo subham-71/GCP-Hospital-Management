@@ -13,6 +13,12 @@
     background-color: #005353;
     color: white;
 }
+<<<<<<< HEAD
 #raise{
     background  : linear-gradient(135deg, #f75959 0%, #f35587 100%);
+=======
+
+#carouselExampleIndicators{
+    margin: 0;
+>>>>>>> f8215af0bafadb5ba513f5b92f584eec2f71f9f8
 }

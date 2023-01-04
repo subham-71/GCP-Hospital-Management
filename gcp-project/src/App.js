@@ -3,6 +3,7 @@ import BookAppointment from './components/Forms/BookAppointment';
 import Profile from './components/Profile';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import ForgotPassword from './components/ForgetPassword';
 import HospitalQuery from './components/HospitalQuery';
 import Navbar from './components/Navbar';
 import TopNavbar from './components/TopNavbar';
@@ -17,6 +18,7 @@ import PatientGraphs from './components/PatientGraphs';
 import DoctorProfile from './components/DoctorProfile';
 import Lp from './components/Lp';
 
+import HospitalProfile from './components/HospitalProfile';
 
 function App() {
 
@@ -80,7 +82,9 @@ function App() {
           <Route path="/doctor-profile" element={<DoctorProfile />} />
           <Route path="/doctor-signup" element={<DoctorSignup />} />
           <Route path="/hospital-signup" element={<HospitalSignup />} />
-          <Route path="/home-page" element={<Lp />} />
+          <Route path="/" element={<Lp />} />
+          <Route path="/hospital-profile" element={<HospitalProfile />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           {/* <Route exact path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
             <Route path="/forgot-password" element={<ForgotPassword/>} />
             <Route path="/update-profile" element={<PrivateRoute><UpdateProfile/></PrivateRoute>} /> */}

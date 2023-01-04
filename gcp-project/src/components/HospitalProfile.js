@@ -4,7 +4,7 @@ import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
-const Hospital = () => {
+const HospitalProfile = () => {
 
   const [hospitalInfo, setHospitalInfo] = useState();
   const [doctors, setDoctors] = useState([])
@@ -46,23 +46,23 @@ const Hospital = () => {
                   <tbody>
                     <tr>
                       <th scope="row">Name</th>
-                      <td>{hospitalInfo.name}</td>
+                      <td>{hospitalInfo && hospitalInfo.name}</td>
                     </tr>
                     <tr>
                       <th scope="row">Address</th>
-                      <td>{hospitalInfo.address}</td>
+                      <td>{hospitalInfo && hospitalInfo.address}</td>
                     </tr>
                     <tr>
                       <th scope="row">Contact number (Primary)</th>
-                      <td>{hospitalInfo.contactPrimary}</td>
+                      <td>{hospitalInfo && hospitalInfo.contactPrimary}</td>
                     </tr>
                     <tr>
                       <th scope="row">Contact number (Secondary)</th>
-                      <td>{hospitalInfo.contactSecondary}</td>
+                      <td>{hospitalInfo && hospitalInfo.contactSecondary}</td>
                     </tr>
                     <tr>
                       <th scope="row">Email</th>
-                      <td>{hospitalInfo.email}</td>
+                      <td>{hospitalInfo && hospitalInfo.email}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -508,6 +508,26 @@ const Hospital = () => {
       <div className="row">
         <div className="col-md-5">
           <div className="row">
+          <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                {/* modal */}
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel">Edit Details</h5>
+          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+        </div>
+        <div className="modal-body">
+        <div class="mb-3">
+        <input type="text" className="form-control" id="blood" aria-label="volume" />
+          </div>
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" className="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
             <div className="col text-center text-white" id="tbb">
               <div className="card shadow">
                 <div className="card-header border-0" style={{ backgroundColor: '#0b596d' }}>
@@ -634,7 +654,11 @@ const Hospital = () => {
                             <tr className="lef">
                               <td>{index+1}. </td>
                               <td>{blood.bloodGroup}</td>
-                              <td>{blood.quantity}</td>
+                              <td>{blood.quantity}
+                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa fa-pencil"></i>
+                              </button>
+                              </td>
                             </tr>
                           )
                         })
@@ -690,7 +714,11 @@ const Hospital = () => {
                             <tr className="lef">
                               <td>{index+1}. </td>
                               <td>{organ.name}</td>
-                              <td>{organ.quantity}</td>
+                              <td>{organ.quantity}
+                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa fa-pencil"></i>
+                              </button>
+                              </td>
                             </tr>
                           )
                         })
@@ -745,7 +773,11 @@ const Hospital = () => {
                             <tr className="lef">
                               <td>{index+1}. </td>
                               <td>{equip.name}</td>
-                              <td>{equip.quantity}</td>
+                              <td>{equip.quantity}
+                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="fa fa-pencil"></i>
+                              </button>
+                              </td>
                             </tr>
                           )
                         })
@@ -771,4 +803,4 @@ const Hospital = () => {
   );
 }
 
-export default Hospital
+export default HospitalProfile
