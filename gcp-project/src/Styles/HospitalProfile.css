@@ -74,15 +74,18 @@
 }
 
 body{
-    background-color: #a6cfd8;
+    background-color: whitesmoke;
 }
+
+
 
 #card:hover{
     /* background-color: #b4d8e0; */
-    background-color:#6da1ad;
+    background:linear-gradient(135deg, #f75959 0%, #f35587 100%);
     transition: 0.2s;
     /* color: white; */
     transform: scale(1.05);
+    /* color: white; */
 }
 
 .card-title{
@@ -242,12 +245,12 @@ body{
 }
 
 #th{
-    background-color: #0b596d;
+    background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
     font-weight:normal;
     color : white;
 }
 #vh{
-    background-color: #0b596d;
+    background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
     font-weight: bold;
     color : white;
     font-size: 20px;
