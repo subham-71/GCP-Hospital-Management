@@ -4,6 +4,8 @@ import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
+import Navbar from './Navbar';
+
 const HospitalProfile = () => {
 
   const [hospitalInfo, setHospitalInfo] = useState();
@@ -33,8 +35,9 @@ const HospitalProfile = () => {
   }, [])
 
   return (
-
-    <div className="container">
+    <>
+    <Navbar />
+      <div className="container">
       <div className="row">
         <div className="col-5">
           <div className="row mt-5" id="kkkl">
@@ -67,7 +70,7 @@ const HospitalProfile = () => {
                   </tbody>
                 </table>
                 <p />
-                <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/doctor-form")}>Update</button>
+                <button type="button" className="btn" style={{ backgroundColor: '#009999', color: 'white' }} onClick={() => navigate("/hospital-signup")}>Update</button>
               </div>
             </div>
           </div>
@@ -800,6 +803,7 @@ const HospitalProfile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

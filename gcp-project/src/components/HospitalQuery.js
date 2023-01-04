@@ -3,6 +3,7 @@ import '../Styles/HospitalQuery.css'
 import { db } from '../firebase';
 import {getDocs} from "firebase/firestore"
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 export default function HospitalQuery() {
 
@@ -28,6 +29,9 @@ export default function HospitalQuery() {
  },[])
 
   return (
+    <>
+    <Navbar />
+    <div className="main-content">
     <div className="container">
       <div className="item1">
         <h3 className='hospital-query-h3 text-center mx-auto' style={{width:'1035px'}} >Active Queries</h3>
@@ -68,5 +72,7 @@ export default function HospitalQuery() {
         <button type="button" className="btn btn-primary" onClick={() => navigate("/query-raise")}>Raise a Query</button>
       </div>
     </div>
+    </div>
+    </>
   )
 }

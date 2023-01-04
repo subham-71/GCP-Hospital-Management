@@ -3,7 +3,7 @@ import '../Styles/PatientList.css';
 import {db} from "../firebase";
 import { useAuth } from '../contexts/AuthContext';
 
-
+import Navbar from './Navbar';
 
 export default function PatientList() {
 
@@ -19,12 +19,12 @@ export default function PatientList() {
   
   const getDetail = () =>{
     let patientList = [];
-    patientArr.forEach(async (elem)=>{
-      const detail = await getDetails(elem);
-      patientList = [...patientList, detail]
-      setPatientDetail(patientList)
-    })
-  }
+      patientArr.forEach(async (elem)=>{
+        const detail = await getDetails(elem);
+        patientList = [...patientList, detail]
+        setPatientDetail(patientList)
+      })
+    }
 
   const getPatientArr = async () => {
     const doc = db.collection("doctor").doc(currentUser.uid);
@@ -44,13 +44,15 @@ export default function PatientList() {
   },[])
   
   return (
-    <div>
+    <>
+    <Navbar />
+    <div className='main-content2'>
       <div id="fixed-div">
-        <div id="left-div">Name :<div id="name">Dr. Someone </div></div>
-        <div id="right-div">Hospital :<div id="hospital">Fortis</div></div>
+        <div id="left-div">Name :<div id="name">{doctor && doctor.name}</div></div>
+        <div id="right-div">Hospital :<div id="hospital">{doctor && doctor.hospital}</div></div>
       </div>
       <div className="container1">
-        <table className="table">
+        <table className="table_pat">
           <thead>
             <tr>
               <th scope="col">Patient Name</th>
@@ -61,7 +63,7 @@ export default function PatientList() {
             </tr>
           </thead>
           <tbody>
-            {patientDetail.map((entry) => {
+            {patientDetail && patientDetail.map((entry) => {
               return (
               <tr>
                 <td className="editable" data-type="text">{entry && entry.name}</td>
@@ -74,16 +76,6 @@ export default function PatientList() {
                 </td>
               </tr>)
             })}
-            <tr>
-              <td className="editable" data-type="text">Jane Doe</td>
-              <td className="editable" data-type="number">987654</td>
-              <td className="editable" data-type="date">2022-02-01</td>
-              <td className="editable" data-type="text">In progress</td>
-              <td>
-                <button className="btn btn-danger btn-xs btn-delete">Remove</button> {/* replaced link with button */}
-                <button className="btn btn-info btn-xs btn-edit">Edit</button> {/* replaced link with button */}
-              </td>
-            </tr>
           </tbody>
         </table>
         <br />
@@ -93,5 +85,6 @@ export default function PatientList() {
               </div></div></div>
       </div>
     </div>
+    </>
   )
 }

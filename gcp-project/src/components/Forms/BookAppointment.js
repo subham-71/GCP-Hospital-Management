@@ -5,6 +5,8 @@ import '../../Styles/BookAppointment.css';
 import { updateDoc } from "firebase/firestore";
 import { useParams } from 'react-router-dom';
 
+import Navbar from '../Navbar';
+
 export default function BookAppointment() {
 
   const { currentUser } = useAuth();
@@ -45,7 +47,9 @@ export default function BookAppointment() {
   }
 
   return (
-    <div className="container mt-4 p-4">
+    <>
+      <Navbar />
+    <div className="container p-4">
       <div className="row">
         <div className="col-md-6">
           <h2 className="text-center my-4">
@@ -94,5 +98,6 @@ export default function BookAppointment() {
         </div>
       </div>
     </div>
+    </>
   )
 }
