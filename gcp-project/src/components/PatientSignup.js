@@ -93,14 +93,14 @@ export default function PatientSignup() {
                       <div className="input-group">
                         <select className="custom-select text-muted form-control" id="inputGroupSelect03">
                           <option selected>Select Blood Group</option>
-                          <option value={4}>A+</option>
-                          <option value={5}>A-</option>
-                          <option value={6}>B+</option>
-                          <option value={7}>B-</option>
-                          <option value={8}>O+</option>
-                          <option value={9}>O-</option>
-                          <option value={10}>AB+</option>
-                          <option value={11}>AB-</option>
+                          <option>A+</option>
+                          <option>A-</option>
+                          <option>B+</option>
+                          <option>B-</option>
+                          <option>O+</option>
+                          <option>O-</option>
+                          <option>AB+</option>
+                          <option>AB-</option>
                         </select>
                       </div>
                     </div>
@@ -110,9 +110,9 @@ export default function PatientSignup() {
                       <div className="input-group">
                         <select className="custom-select text-muted form-control" id="inputGroupSelect02">
                           <option selected>Select Gender</option>
-                          <option value={1}>Male</option>
-                          <option value={2}>Female</option>
-                          <option value={3}>Others</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                          <option>Others</option>
                         </select>
                       </div>
                     </div>
