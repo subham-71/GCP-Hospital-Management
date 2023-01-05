@@ -67,7 +67,7 @@ const HospitalProfile = () => {
 
   useEffect(() => {
     getHospitalInfo()
-  }, [])
+  }, [addGroup])
 
   const nav_links = [
     {
@@ -179,7 +179,7 @@ const HospitalProfile = () => {
         </div>
         <div className="modal-footer">
           <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }}>Close</button>
-          <button type="button" className="btn btn-primary" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }} onClick={()=>{addGroup(document.getElementById("blood-input").value)}}>Save changes</button>
+          <button type="button" className="btn btn-primary" data-bs-dismiss="modal" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }} onClick={()=>{addGroup(document.getElementById("blood-input").value)}}>Save changes</button>
         </div>
       </div>
     </div>
