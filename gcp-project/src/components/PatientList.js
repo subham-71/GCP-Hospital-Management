@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../Styles/PatientList.css';
-import { db } from "../firebase";
+import { db, storage } from "../firebase";
+import { ref, getDownloadURL } from 'firebase/storage';
 import { useAuth } from '../contexts/AuthContext';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +12,18 @@ export default function PatientList() {
   const { currentUser } = useAuth();
   const [doctor, setDoctor] = useState();
   const navigate = useNavigate();
+
+  
+  const [pfpSrc, setPfpSrc] = useState(null);
+  const getPfp = async () => {
+    try {
+      const storageRef = ref(storage, `pictures/${currentUser.uid}--pfp.png`);
+      const url = await getDownloadURL(storageRef);
+      setPfpSrc(url);
+    } catch(err) {
+      return;
+    }
+  }
 
   async function getDetails(patientId) {
     const doc = db.collection("patient").doc(patientId);
@@ -76,15 +89,11 @@ export default function PatientList() {
     {
       name: 'Profile',
       link: '/doctor-profile'
-    },
-    {
-      name: 'Patient List',
-      link: '/patient-list'
     }
   ]
   return (
     <>
-    <Navbar Link={nav_links} />
+    <Navbar Link={nav_links} pfpLink = {pfpSrc} />
     <div className='main-content2'>
     <div className="modal fade" id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
@@ -129,8 +138,8 @@ export default function PatientList() {
                   <td className="editable" data-type="text">Completed</td>
                   <td>
                     {/* Todo: Remove function button */}
-                    <button className="btn btn-danger btn-xs btn-delete" onClick={()=>deletePatientArr(entry.id)}>Remove</button> {/* replaced link with button */}
-                    <button className="btn btn-info btn-xs btn-edit" onClick={()=>navigate(`/visit/${entry.id}`)}>Add Prescription</button> {/* replaced link with button */}
+                    <button id="remove"className="btn btn-danger btn-xs btn-delete" onClick={()=>deletePatientArr(entry.id)}>Remove</button> {/* replaced link with button */}
+                    <button id="edit" className="btn btn-info btn-xs btn-edit" onClick={()=>navigate(`/visit/${entry.id}`)}>Add Prescription</button> {/* replaced link with button */}
                   </td>
                 </tr>)
                 

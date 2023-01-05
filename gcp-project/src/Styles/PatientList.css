@@ -34,7 +34,7 @@
   color : black;
 }
 #edit:hover{
-  background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+  background: paleturquoise;
 }
 #remove:hover{
   background : white;

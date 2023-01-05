@@ -7,7 +7,7 @@ import '../Styles/Login.css'
 export default function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { login} = useAuth()
+  const { login } = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -22,16 +22,16 @@ export default function Login() {
       const userType = document.querySelector('input[name="choice"]:checked').value
 
       // Todo : Later do it on basis of user role
-      if(userType === "doctor"){
+      if (userType === "doctor") {
         navigate("/doctor-profile")
       }
-      else if(userType === "patient"){
+      else if (userType === "patient") {
         navigate("/profile")
       }
-      else if(userType === "hospital"){
+      else if (userType === "hospital") {
         navigate("/hospital-profile")
       }
-      else{
+      else {
         navigate("/login")
       }
     } catch {
@@ -71,7 +71,7 @@ export default function Login() {
               <div className="login-wrap p-4 p-lg-5">
                 <div className="d-flex">
                   <div className="w-100">
-                    <h3 className="mb-4">Sign In</h3>
+                    <h3 className="mb-4" style={{ color: "black" }}>Sign In</h3>
                   </div>
                 </div>
                 <form onSubmit={handleSubmit} className="signin-form">
@@ -88,26 +88,31 @@ export default function Login() {
                     <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
                   </div>
                   {/* choice for doctor,patient or hospital using radio button */}
-                  <div className="form-group d-md-flex">
-                      <div className="w-50 text-left">
-                        <label className="checkbox-wrap checkbox-primary mb-0">Doctor
-                          <input type="radio" name="choice" defaultValue="doctor" defaultChecked />
-                          <span className="checkmark" />
-                        </label>
-                      </div>
-                      <div className="w-50 text-left">
-                        <label className="checkbox-wrap checkbox-primary mb-0">Patient
-                          <input type="radio" name="choice" defaultValue="patient" />
-                          <span className="checkmark" />
-                        </label>
-                      </div>
-                      <div className="w-50 text-left">
-                        <label className="checkbox-wrap checkbox-primary mb-0">Hospital
-                          <input type="radio" name="choice" defaultValue="hospital" />
-                          <span className="checkmark" />
-                        </label>
-                      </div>
+                  <div className="form-group d-md-flex mt-3">
+                    <div className="w-50 text-left">
+                      <label className="checkbox-wrap checkbox-primary mb-0">Doctor
+                        <input type="radio" name="choice" defaultValue="doctor" defaultChecked />
+                        <span className="checkmark" />
+                      </label>
                     </div>
+                    <div className="w-50 text-left">
+                      <label className="checkbox-wrap checkbox-primary mb-0">Patient
+                        <input type="radio" name="choice" defaultValue="patient" />
+                        <span className="checkmark" />
+                      </label>
+                    </div>
+                    <div className="w-50 text-left">
+                      <label className="checkbox-wrap checkbox-primary mb-0">Hospital
+                        <input type="radio" name="choice" defaultValue="hospital" />
+                        <span className="checkmark" />
+                      </label>
+                    </div>
+                  </div>
+                  <div className="form-group d-md-flex float-left">
+                    <div className="text-md-right">
+                      <a href="/forgot-password">Forgot Password?</a>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>

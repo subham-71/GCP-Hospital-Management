@@ -15,23 +15,10 @@ import { useNavigate } from 'react-router-dom'
 const DoctorProfile = () => {
   const { currentUser } = useAuth()
   const [doctorInfo, setDoctorInfo] = useState()
-  const [pfpSrc, setPfpSrc] = useState(null);
   const [doctorEvents, setDoctorEvents] = useState([])
   const navigate = useNavigate()
-
-  const getDoctorInfo = async () => {
-    console.log(currentUser.uid)
-    const docRef = db.collection("doctor").doc(currentUser.uid);
-    const doc = await docRef.get();
-    if (!doc.exists) {
-      console.log('No such document!');
-    } else {
-      console.log(doc.data())
-      setDoctorInfo(doc.data())
-      setDoctorEvents(doc.data().events)
-    }
-  }
-
+  
+  const [pfpSrc, setPfpSrc] = useState(null);
   const getPfp = async () => {
     try {
       const storageRef = ref(storage, `pictures/${currentUser.uid}--pfp.png`);
@@ -42,6 +29,21 @@ const DoctorProfile = () => {
     }
   }
 
+  const getDoctorInfo = async () => {
+    console.log(currentUser.uid)
+    const docRef = db.collection("doctor").doc(currentUser.uid);
+    const doc = await docRef.get();
+    if (!doc.exists) {
+      console.log('No such document!');
+    } else {
+      console.log(doc.data())
+      setDoctorInfo(doc.data())
+      if(doc.data().events){
+      setDoctorEvents(doc.data().events)
+      }
+    }
+  }
+
   useEffect(() => {
     getDoctorInfo()
     getPfp()
@@ -49,10 +51,6 @@ const DoctorProfile = () => {
 
 
   const nav_links = [
-    {
-      name: 'Profile',
-      link: '/doctor-profile'
-    },
     {
       name: 'Patient List',
       link: '/patient-list'
@@ -72,7 +70,7 @@ const DoctorProfile = () => {
                 </div>
                 <div className="card-body text-center">
                   <div id="flexwala">
-                    <img id="propic" alt="Image placeholder" src={pfpSrc ? pfpSrc:sample} className="rounded-3"/>
+                    <img id="propic" alt="profile picture" src={pfpSrc ? pfpSrc:sample} className="rounded-3"/>
 
                   </div><table className="table">
                     {/* <thead>
@@ -96,7 +94,7 @@ const DoctorProfile = () => {
                       </tr>
                       <tr>
                         <th scope="row">Contact number</th>
-                        <td>{doctorInfo && doctorInfo.contactNumber}</td>
+                        <td>{doctorInfo && doctorInfo.contact}</td>
                       </tr>
                       <tr>
                         <th scope="row">E-mail address</th>

@@ -15,6 +15,7 @@ export default function HospitalQuery() {
   const sendEmail = ()=>{
     // console.log(selected);
     const emailId = selected.email;
+    if(emailId === undefined) return;
     // Todo: body of email
     window.location = `mailto:${emailId}`;
   }

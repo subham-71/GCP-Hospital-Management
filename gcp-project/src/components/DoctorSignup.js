@@ -67,7 +67,7 @@ const DoctorSignup = () => {
       specialization: specialization.current.value,
       education: education.current.value,
       contact: contact.current.value,
-      hospital: Hospital.current,
+      hospital: Hospital.current=="Select Hospital"? "":Hospital.current,
       hospitalId: HospitalId.current
     };
     await updateDoc(userDoc, newFields)

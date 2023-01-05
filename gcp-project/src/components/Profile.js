@@ -53,12 +53,12 @@ export default function Profile() {
 
   const nav_links = [
     {
-      name: 'Profile',
-      link: '/doctor-profile'
+      name: 'Hospital List',
+      link: '/hospital-list'
     },
     {
-      name: 'Patient List',
-      link: '/patient-list'
+      name:"Patient Graph",
+      link:"/patient-graphs"
     }
   ]
   return (
@@ -138,7 +138,7 @@ export default function Profile() {
                         <i className="uil uil-heartbeat icon heart" />
                         <h6 className="fw-semibold" style={{ color: '#004d4d', fontSize: '15px' }}>Heart Rate
                         </h6>
-                        <p className="readings fw-bold " style={{ color: '#004d4d', fontSize: '15px' }}>{["heart rate"]}
+                        <p className="readings fw-bold " style={{ color: '#004d4d', fontSize: '15px' }}>{user["heart rate"]}
                         </p>
                       </div>
                     </div>

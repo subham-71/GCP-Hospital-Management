@@ -69,7 +69,7 @@ export default function Signup() {
                 <div className="login-wrap p-4 p-lg-5">
                   <div className="d-flex">
                     <div className="w-100">
-                      <h3 className="mb-4">Register</h3>
+                      <h3 className="mb-4 text-dark">Register</h3>
                     </div>
                   </div>
                   <form onSubmit={handleSubmit} action="#" className="signin-form">
@@ -94,7 +94,7 @@ export default function Signup() {
                       <button disabled={loading} type="submit" id="register" className="form-control btn btn-primary submit px-3">Register</button>
                     </div>
                     {/* choice for doctor,patient or hospital using radio button */}
-                    <div className="form-group d-md-flex">
+                    <div className="form-group d-md-flex mt-3">
                       <div className="w-50 text-left">
                         <label className="checkbox-wrap checkbox-primary mb-0">Doctor
                           <input type="radio" name="choice" defaultValue="doctor" defaultChecked />

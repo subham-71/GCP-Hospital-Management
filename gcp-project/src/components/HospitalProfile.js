@@ -57,12 +57,18 @@ const HospitalProfile = () => {
     const docRef = await db.collection('hospital').doc(currentUser.uid).get()
     const data = docRef.data()
     setHospitalInfo(data)
-    setDoctors(data.doctors)
-    setResourcesLended(data.resourcesLended)
-    setResourcesBorrowed(data.resourcesBorrowed)
-    setBloodData(data.bloodData)
-    setOrganData(data.organData)
-    setEquipment(data.equipmentData)
+    if(data.doctors)
+    {setDoctors(data.doctors)}
+    if(data.resourcesLended)
+    {setResourcesLended(data.resourcesLended)}
+    if(data.resourcesBorrowed)
+    {setResourcesBorrowed(data.resourcesBorrowed)}
+    if(data.bloodData)
+    {setBloodData(data.bloodData)}
+    if(data.organData)
+    {setOrganData(data.organData)}
+    if(data.equipmentData)
+    {setEquipment(data.equipmentData)}
   }
 
   useEffect(() => {
@@ -75,10 +81,11 @@ const HospitalProfile = () => {
       link: '/doctor-profile'
     },
     {
-      name: 'Patient List',
-      link: '/patient-list'
+      name: 'Hospital Query',
+      link: '/hospital-query'
     }
   ]
+
   return (
     <>
    <div className="body-hospital-profile">    
