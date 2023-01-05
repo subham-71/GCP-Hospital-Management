@@ -13,12 +13,16 @@
     width: 5rem;
     background-color: white;
     color: white;
-    /* opacity: 0.9; */
+    /* opacity: 0 */
     /* background-color: #0b596d; */
     border-radius: 0px 0px 3px 0px;
     /* top: 8%; */
     /* add box shadow */
-    box-shadow: 10px 15px 30px 1px rgba(0,0,0,.1);
+    /* box-shadow: 10px 15px 30px 1px rgba(0,0,0,.1); */
+}
+#nav_layout{
+    bottom: 0;
+    padding-left: 10px;
 }
 /* #top-nav-ul{
     margin-left: 12rem;

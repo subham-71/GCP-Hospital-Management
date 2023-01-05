@@ -17,7 +17,7 @@
 }
 .item1 h3 {
     text-align: center;
-  
+  margin-left: 230px;
     
   }
   
@@ -35,10 +35,11 @@ td:before {
     background-color : whitesmoke;
     color: grey;
     border-radius: .6em;
-    width : 1000px;
-    height : 100px;
+    /* width : 1000px;
+    height : 100px; */
     overflow:scroll;
     box-shadow: 1px 1px 1px #999;
+    margin: auto;
     
     
 }
@@ -55,6 +56,8 @@ td:before {
 #query_table thead{
     
     color : black;
+    text-align: center;
+  
 }
 #query_table tbody tr:hover{
     background-color: white;

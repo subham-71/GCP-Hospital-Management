@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 #fixed-div {
-  background-color:#0b596d;
+  background : linear-gradient(135deg, #f75959 0%, #f35587 100%);
   color: white;
   
   display : flex;
@@ -26,8 +26,27 @@
     margin: auto auto !important; /* Override the default margin */
     text-align : center;
   }
+.icon{
+  color : #C24A83;
+}
+#edit{
+  background : white;
+  color : black;
+}
+#edit:hover{
+  background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+}
+#remove:hover{
+  background : white;
+  color : black;
   
-
+}
+#remove{
+  background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+}
+td{
+  text-align: center;
+}
 tr {
   border-radius: 8px;
 }
