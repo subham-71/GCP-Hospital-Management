@@ -46,7 +46,7 @@ export default function Query_Raise() {
 
   return (
     <div>
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="d-flex align-items-center justify-content-center vh-100">
         <div className="card" style={{ width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)' }}>
           <div className="card-header" style={{ backgroundColor: 'rgba(0, 83, 83,0.5)' }}>
             <h3 style={{ color: '#084545' }}>Raise a Query</h3>

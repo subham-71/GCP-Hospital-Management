@@ -16,10 +16,9 @@ import DoctorSignup from './components/DoctorSignup';
 import HospitalSignup from './components/HospitalSignup';
 import PatientGraphs from './components/PatientGraphs';
 import DoctorProfile from './components/DoctorProfile';
-import Lp from './components/Lp';
-
-import HospitalProfile from './components/HospitalProfile';
 import Visit from './components/Forms/Visit';
+import Lp from './components/Lp';
+import HospitalProfile from './components/HospitalProfile';
 
 function App() {
 
@@ -85,6 +84,7 @@ function App() {
           <Route path="/hospital-signup" element={<HospitalSignup />} />
           <Route path="/" element={<Lp />} />
           <Route path="/hospital-profile" element={<HospitalProfile />} />
+          <Route path="/visit" element={<Visit />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/visit" element={<Visit />} />
         

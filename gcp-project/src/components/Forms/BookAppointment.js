@@ -51,7 +51,7 @@ export default function BookAppointment() {
     const userEvents = user.events;
     const newUserPFields = {
       appointment: [...userAppointment, appdocRef],
-      events:[...userEvents, {
+      events: [...userEvents, {
         title: "Appointment with " + doctor.name,
         start: dateEv.toISOString()
       }]
@@ -61,7 +61,7 @@ export default function BookAppointment() {
     const doctorEvents = user.events;
     const newDoctorPFields = {
       appointment: [...doctorAppointment, appdocRef],
-      events:[...doctorEvents, {
+      events: [...doctorEvents, {
         title: "Appointment with " + user.name,
         start: dateEv.toISOString()
       }]
@@ -73,55 +73,53 @@ export default function BookAppointment() {
   return (
     <>
       <Navbar />
-    <div className="container p-4">
-      <div className="row">
-        <div className="col-md-6">
-          <h2 className="text-center my-4">
-            Book Appointment
-          </h2>
-          <form onSubmit={addAppointment}>
-            <br />
-            <div className="form-group row">
-              <label className="col-sm-4 col-lg-4">
-                Date
-              </label>
-              <div className="col-sm-8 col-lg-8">
-                <input ref={dateRef} type="date" id="date" className="form-control" />
+      <div className="container p-4">
+        <div className="row">
+          <div className="col-md-6">
+            <h2 className="text-center my-4">
+              Book Appointment
+            </h2>
+            <form onSubmit={addAppointment}>
+              <br />
+              <div className="form-group row">
+                <label className="h4 col-sm-4 col-lg-4">
+                  Date
+                </label>
+                <div className="col-sm-8 col-lg-8">
+                  <input ref={dateRef} type="date" id="date" className="form-control" />
+                </div>
               </div>
-            </div>
-            {/**/}
-            <br />
-            <div className="form-group row">
-              <label className="col-sm-4 col-lg-4">
-                Time
-              </label>
-              <div className="col-sm-8 col-lg-8">
-                <input ref={timeRef} type="time" id="time" className="form-control" />
+              {/**/}
+              <br />
+              <div className="form-group row">
+                <label className="h4 col-sm-4 col-lg-4">
+                  Time
+                </label>
+                <div className="col-sm-8 col-lg-8">
+                  <input ref={timeRef} type="time" id="time" className="form-control" />
+                </div>
               </div>
-            </div>
-            {/**/}
-            <br />
-            <div className="form-group row">
-              <label className="col-sm-4 col-lg-4">
-                Reason of Visit
-              </label>
-              <div className="col-sm-8 col-lg-8">
-                <textarea ref={symptomRef} id="symptoms" className="form-control" required defaultValue={""} />
+              {/**/}
+              <br />
+              <div className="form-group row">
+                <label className="h4 col-sm-4 col-lg-4">
+                  Reason of Visit
+                </label>
+                <div className="col-sm-8 col-lg-8">
+                  <textarea ref={symptomRef} id="symptoms" className="form-control" required defaultValue={""} />
+                </div>
               </div>
-            </div>
-            {/**/}
-            <br />
-            <div className="form-group row justify-content-end">
-              <div className="col-sm-5">
+              {/**/}
+              <br />
+              <div className="align-items-center">
                 <button type="submit" className="btn btn-form">
                   Confirm
                 </button>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
   )
 }

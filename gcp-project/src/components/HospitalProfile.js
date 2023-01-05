@@ -35,7 +35,8 @@ const HospitalProfile = () => {
   }, [])
 
   return (
-   <div className="body-hospital-profile">    <>
+    <>
+   <div className="body-hospital-profile">    
     <Navbar />
       <div className="container">
       <div className="row">

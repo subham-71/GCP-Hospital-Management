@@ -81,7 +81,7 @@ export default function PatientSignup() {
   }
 
   return (
-    <div>
+    <div className="d-flex align-items-center justify-content-center vh-100">
       <div className="d-flex align-items-center justify-content-center">
         <div className="card" style={{ width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)' }}>
           <div className="card-header" style={{ backgroundColor: 'rgba(0, 83, 83,0.5)' }}>
@@ -120,14 +120,14 @@ export default function PatientSignup() {
                       <div className="input-group">
                         <select className="custom-select text-muted form-control" id="inputGroupSelect03">
                           <option selected>Select Blood Group</option>
-                          <option value={1}>A+</option>
-                          <option value={2}>A-</option>
-                          <option value={3}>B+</option>
-                          <option value={4}>B-</option>
-                          <option value={5}>O+</option>
-                          <option value={6}>O-</option>
-                          <option value={7}>AB+</option>
-                          <option value={8}>AB-</option>
+                          <option>A+</option>
+                          <option>A-</option>
+                          <option>B+</option>
+                          <option>B-</option>
+                          <option>O+</option>
+                          <option>O-</option>
+                          <option>AB+</option>
+                          <option>AB-</option>
                         </select>
                       </div>
                     </div>
@@ -137,9 +137,9 @@ export default function PatientSignup() {
                       <div className="input-group">
                         <select className="custom-select text-muted form-control" id="inputGroupSelect02">
                           <option selected>Select Gender</option>
-                          <option value={1}>Male</option>
-                          <option value={2}>Female</option>
-                          <option value={3}>Others</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                          <option>Others</option>
                         </select>
                       </div>
                     </div>
