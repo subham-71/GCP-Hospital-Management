@@ -1,7 +1,18 @@
 import React from "react";
 // import "./Navbar.css";
+import { useAuth } from "../contexts/AuthContext";
 
 const TopNavbar = () => {
+    const {logout} = useAuth();
+
+    const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark" id="topbar">
             <div className="container-fluid">
@@ -109,9 +120,7 @@ const TopNavbar = () => {
                                 <hr className="dropdown-divider" />
                             </li>
                             <li>
-                                <a className="dropdown-item" href="#">
-                                    Sign out
-                                </a>
+                                <button className="dropdown-item" onClick={()=>handleLogout()}>Sign out</button>
                             </li>
                         </ul>
                     </div>

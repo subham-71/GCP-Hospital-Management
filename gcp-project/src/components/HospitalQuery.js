@@ -28,9 +28,19 @@ export default function HospitalQuery() {
     getQueries();
  },[])
 
-  return (
+ const nav_links = [
+  {
+    name: 'Profile',
+    link: '/doctor-profile'
+  },
+  {
+    name: 'Patient List',
+    link: '/patient-list'
+  }
+] 
+ return (
     <>
-    <Navbar />
+    <Navbar Link={nav_links} />
     <div className="main-content">
     <div className="container">
       <div className="item1">

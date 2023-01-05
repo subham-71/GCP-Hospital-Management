@@ -90,19 +90,11 @@ export default function Lp() {
                 </div>
             </div>
         </div> */}
-          <meta charSet="utf-8" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>Bootstrap Testimonial Carousel</title>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet" />
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-          <link rel="stylesheet" href="style.css" />
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-center m-auto">
                 <h2 className="section-head">Testimonials</h2>
-                <div id="myCarousel" className="carousel slide" data-ride="carousel">
+                <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                   {/* Carousel */}
                   <div className="carousel-inner">
                     <div className="item carousel-item active">
@@ -122,12 +114,12 @@ export default function Lp() {
                     </div>
                   </div>
                   {/* Carousel Controls */}
-                  <a className="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                  <button className="carousel-control left carousel-control-prev"  type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <i className="fa fa-angle-left" />
-                  </a>
-                  <a className="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+                  </button>
+                  <button className="carousel-control right carousel-control-next"  type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                     <i className="fa fa-angle-right" />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -171,47 +163,83 @@ export default function Lp() {
           <div className="footer text-center d-flex align-items-center justify-content-center">
             <table className="table table-borderless text-center" style={{width: '50%'}}>
               <thead>
-                <tr>
-                  <th />
-                  <th />
+              <tr>
+                  <th>Name</th>
+                  <th>Contact</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td scope="row">Parth Jain</td>
-                  <td><a href className="fa fa-envelope fa-lg mx-2 social" />
-                    <a href className="fa fa-linkedin-square fa-lg mx-2 social" />
-                    <a href className="fa fa-github fa-lg mx-2 social" />
+                  <td><a href= "mailto:2020csb1106@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2 social" />
+                    <a href="https://www.linkedin.com/in/parth-jain-7148061bb/" className="fa fa-linkedin-square fa-lg mx-2 social" />
+                    <a href="https://github.com/Parth-Jain-2002" className="fa fa-github fa-lg mx-2 social" />
                   </td>
                 </tr>
                 <tr>
-                  <td scope="row">Parth Jain</td>
-                  <td><a href className="fa fa-envelope fa-lg mx-2" />
-                    <a href className="fa fa-linkedin-square fa-lg mx-2" />
-                    <a href className="fa fa-github fa-lg mx-2" />
+                  <td scope="row">PranavKumar Mallela</td>
+                  <td><a href="mailto:2020csb1112@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/pranavkumar-mallela-27980b210/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/pranav-mallela" className="fa fa-github fa-lg mx-2" />
                   </td>
                 </tr>
                 <tr>
-                  <td scope="row">Parth Jain</td>
-                  <td><a href className="fa fa-envelope fa-lg mx-2" />
-                    <a href className="fa fa-linkedin-square fa-lg mx-2" />
-                    <a href className="fa fa-github fa-lg mx-2" />
+                  <td scope="row">Pooja Goyal</td>
+                  <td><a href="mailto:2020csb1108@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/pooja-goyal-565401200/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/Pooja-Goyal-1" className="fa fa-github fa-lg mx-2" />
                   </td>
                 </tr>
                 <tr>
-                  <td scope="row">Parth Jain</td>
-                  <td><a href className="fa fa-envelope fa-lg mx-2" />
-                    <a href className="fa fa-linkedin-square fa-lg mx-2" />
-                    <a href className="fa fa-github fa-lg mx-2" />
+                  <td scope="row">Sukhmeet Singh</td>
+                  <td><a href="mailto:2020csb1129@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/sukhmeet-singh-cse/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/SukhmeetSingh2002" className="fa fa-github fa-lg mx-2" />
                   </td>
                 </tr>
                 <tr>
-                  <td scope="row">Parth Jain</td>
-                  <td><a href className="fa fa-envelope fa-lg mx-2" />
-                    <a href className="fa fa-linkedin-square fa-lg mx-2" />
-                    <a href className="fa fa-github fa-lg mx-2" />
+                  <td scope="row">Pratham Kundan</td>
+                  <td><a href="mailto:2020csb1114@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/pratham-kundan-126513208/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/prathamkundan" className="fa fa-github fa-lg mx-2" />
                   </td>
                 </tr>
+                <tr>
+                  <td scope="row">Alankrit Kadian</td>
+                  <td><a href="mailto:2021csb1065@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/alankrit-kadian-a848a623a/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/alankritkadian" className="fa fa-github fa-lg mx-2" />
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">Siddhi Apraj</td>
+                  <td><a href="mailto:2021mcb1251@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/siddhi-apraj-9b837a231/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/SiddhiApraj7" className="fa fa-github fa-lg mx-2" />
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">Ashima Goyal</td>
+                  <td><a href="mailto:2021csb1075@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/ashima-goyal-66966b227/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/ashima-09" className="fa fa-github fa-lg mx-2" />
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">Simran Kaur</td>
+                  <td><a href="mailto:2021csb1134@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/simran-kaur-096bb5244/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/Simran042" className="fa fa-github fa-lg mx-2" />
+                  </td>
+                </tr>
+                <tr>
+                  <td scope="row">Tanisha Daharwal</td>
+                  <td><a href="mailto:2021mcb1251@iitrpr.ac.in" className="fa fa-envelope fa-lg mx-2" />
+                    <a href="https://www.linkedin.com/in/tanisha-daharwal-4b2394226/" className="fa fa-linkedin-square fa-lg mx-2" />
+                    <a href="https://github.com/tanishadaharwal" className="fa fa-github fa-lg mx-2" />
+                  </td>
+                </tr>
+
               </tbody>
             </table>
           </div>

@@ -35,9 +35,13 @@ export default function Profile() {
   };
 
   const getPfp = async () => {
-    const storageRef = ref(storage, `pictures/${currentUser.uid}--pfp.png`);
-    const url = await getDownloadURL(storageRef);
-    setPfpSrc(url);
+    try {
+      const storageRef = ref(storage, `pictures/${currentUser.uid}--pfp.png`);
+      const url = await getDownloadURL(storageRef);
+      setPfpSrc(url);
+    } catch(err) {
+      return;
+    }
   }
 
   useEffect(() => {
@@ -47,9 +51,19 @@ export default function Profile() {
 
   const navigate = useNavigate();
 
+  const nav_links = [
+    {
+      name: 'Profile',
+      link: '/doctor-profile'
+    },
+    {
+      name: 'Patient List',
+      link: '/patient-list'
+    }
+  ]
   return (
     <>
-      <Navbar />
+      <Navbar Link={nav_links} pfpLink = {pfpSrc}/>
       <div class="main-content2">
         <div className="container mt-3">
           <div className="row row-cols-3">

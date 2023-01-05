@@ -90,3 +90,7 @@ tr:hover {
   display: none;
 }
 
+.link-button{
+  background-color: white;
+  border:none;
+}

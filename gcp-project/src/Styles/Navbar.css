@@ -6,19 +6,26 @@
     position: relative;
     display: none;
 }
+#edit{
+    background : white;
+    color : black;
+  }
+  #edit:hover{
+    background: linear-gradient(135deg, #f75959 0%, #f35587 100%);
+  }
 #navbar{
     position: fixed;
     z-index: 20;
-    height: 100%;
-    width: 5rem;
-    background-color: white;
+    /* height: 100%; */
+    /* width: 5rem; */
+    top: 0;
+    background:linear-gradient(135deg, #f75959 0%, #f35587 100%);
     color: white;
     /* opacity: 0 */
     /* background-color: #0b596d; */
-    border-radius: 0px 0px 3px 0px;
-    /* top: 8%; */
+    border-radius: 0px 0px 30px 0px;
     /* add box shadow */
-    /* box-shadow: 10px 15px 30px 1px rgba(0,0,0,.1); */
+    box-shadow: 0px 0px 30px 1px #f45680;
 }
 #nav_layout{
     bottom: 0;
@@ -70,6 +77,7 @@
     text-align: center;
     width: 100%;
 }
+
 .nav-item i{
     /* width: 1.5rem;
     padding-right: 10px; */

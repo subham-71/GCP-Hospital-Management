@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import sample from '../images/sample.png'
 
 import Navbar from './Navbar'
 
 import "../Styles/DoctorProfile.css"
-import { db } from '../firebase'
+import { db, storage } from '../firebase'
+import { ref, getDownloadURL } from 'firebase/storage';
 import { useAuth } from '../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
+
 
 const DoctorProfile = () => {
   const { currentUser } = useAuth()
   const [doctorInfo, setDoctorInfo] = useState()
+  const [pfpSrc, setPfpSrc] = useState(null);
   const [doctorEvents, setDoctorEvents] = useState([])
   const navigate = useNavigate()
 
@@ -28,15 +32,36 @@ const DoctorProfile = () => {
     }
   }
 
+  const getPfp = async () => {
+    try {
+      const storageRef = ref(storage, `pictures/${currentUser.uid}--pfp.png`);
+      const url = await getDownloadURL(storageRef);
+      setPfpSrc(url);
+    } catch(err) {
+      return;
+    }
+  }
+
   useEffect(() => {
     getDoctorInfo()
+    getPfp()
   }, [currentUser])
 
 
+  const nav_links = [
+    {
+      name: 'Profile',
+      link: '/doctor-profile'
+    },
+    {
+      name: 'Patient List',
+      link: '/patient-list'
+    }
+  ]
   return (
     <>
-      <Navbar />
-      <div className="body" style={{ backgroundColor:'whitesmoke' }} >
+      <Navbar Link={nav_links} pfpLink = {pfpSrc}/>
+      <div className="body" style={{ backgroundColor: 'whitesmoke' }} >
         <div className="container">
           <div className="row" id>
             <div className="col-md-5 my-5">
@@ -47,7 +72,7 @@ const DoctorProfile = () => {
                 </div>
                 <div className="card-body text-center">
                   <div id="flexwala">
-                    <img id="propic" alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-3" />
+                    <img id="propic" alt="Image placeholder" src={pfpSrc ? pfpSrc:sample} className="rounded-3"/>
 
                   </div><table className="table">
                     {/* <thead>
@@ -100,84 +125,21 @@ const DoctorProfile = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">1</th>
-                        <th><a href>4444325</a></th>
-                        <td>Jane Austin</td>
-                        <td>3 p.m.</td>
-                      </tr>
+                      {
+                        doctorEvents.map((event, index) => {
+                          const appdate = new Date(event.start);
+                          const today = new Date();
+                          if (today.toDateString() === appdate.toDateString())
+                            return (
+                              <tr>
+                                <th scope="row">{index + 1}</th>
+                                <th><a href>{event.patientId}</a></th>
+                                <td>{event.patientName}</td>
+                                <td>{appdate.getHours() + ":" + appdate.getMinutes()}</td>
+                              </tr>
+                            )
+                        })
+                      }
                     </tbody>
                   </table>
                 </div>

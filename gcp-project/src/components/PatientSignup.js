@@ -76,7 +76,7 @@ export default function PatientSignup() {
   const uploadPic = async () => {
     console.log(pfp)
     if (pfp == null) return;
-    const iamgeRef = ref(storage, `documents/${currentUser.uid + "--" + "pfp.png"}`);
+    const iamgeRef = ref(storage, `pictures/${currentUser.uid + "--" + "pfp.png"}`);
     await uploadBytes(iamgeRef, pfp);
   }
 

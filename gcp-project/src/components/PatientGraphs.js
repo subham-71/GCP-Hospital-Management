@@ -5,6 +5,20 @@ import "../Styles/PatientGraph.css";
 import Navbar from "./Navbar";
 
 const PatientGraphs = () => {
+    const nav_links = [
+        {
+            name: 'Profile',
+            link: '/doctor-profile'
+        },
+        {
+            name: 'Patient List',
+            link: '/patient-list'
+        },
+        {
+          name:"patient Graph",
+          link:"/patient-graph"
+        }
+    ]
     var xArray = [
         "20/9/22",
         "25/9/22",
@@ -103,7 +117,7 @@ const PatientGraphs = () => {
     };
     return (
         <>
-        <Navbar />
+        <Navbar Link={nav_links} />
             <div className="main-content2">
             <div id="Heading">Health History</div>
             <div id="container">

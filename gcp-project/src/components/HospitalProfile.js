@@ -3,6 +3,7 @@ import "../Styles/HospitalProfile.css"
 import { db } from '../firebase';
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
+import sample from '../images/sample.png'
 
 import Navbar from './Navbar';
 
@@ -16,7 +17,41 @@ const HospitalProfile = () => {
   const [organData, setOrganData] = useState([])
   const [equipment, setEquipment] = useState([])
   const { currentUser } = useAuth()
+  const [group, setGroup] = useState()
+  const [index,setIndex] = useState()
   const navigate = useNavigate()
+
+  const handleEvent = (item,index)=>{
+    setGroup(item)
+    setIndex(index)
+  }
+
+  const addGroup = async (quantity) => {
+    console.log("called")
+    const docRef = await db.collection('hospital').doc(currentUser.uid).get()
+    const data = docRef.data()
+    if(group=="blood"){
+      const updateData = data.bloodData
+      updateData[index].quantity = quantity
+      await db.collection('hospital').doc(currentUser.uid).update({
+        bloodData: updateData
+      })
+    }
+    else if(group=="organ"){
+      const updateData = data.organData
+      updateData[index].quantity = quantity
+      await db.collection('hospital').doc(currentUser.uid).update({
+        organData: updateData
+      })
+    }
+    else if(group=="equipment"){
+      const updateData = data.equipmentData
+      updateData[index].quantity = quantity
+      await db.collection('hospital').doc(currentUser.uid).update({
+        equipmentData: updateData
+      })
+    }
+  }
 
   const getHospitalInfo = async () => {
     const docRef = await db.collection('hospital').doc(currentUser.uid).get()
@@ -34,10 +69,20 @@ const HospitalProfile = () => {
     getHospitalInfo()
   }, [])
 
+  const nav_links = [
+    {
+      name: 'Profile',
+      link: '/doctor-profile'
+    },
+    {
+      name: 'Patient List',
+      link: '/patient-list'
+    }
+  ]
   return (
     <>
    <div className="body-hospital-profile">    
-    <Navbar />
+   <Navbar Link={nav_links} />
       <div className="container">
       <div className="row">
         <div className="col-5">
@@ -98,18 +143,14 @@ const HospitalProfile = () => {
                         <th className="th-hospital-profile"scope="row">
                           <div className="avatar-group">
                             <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                              <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
+                              <img alt="Image placeholder" src={sample} className="rounded-circle" />
                             </a>
                           </div>
                         </th>
                         <td>
-                          <div><b>{doctor.name}</b></div>
-                          <small className="form-text" style={{ fontSize: '12px' }}>{doctor.role}</small>
+                          <div><b>{doctor && doctor.name}</b></div>
+                          <small className="form-text" style={{ fontSize: '12px' }}>{doctor && doctor.role}</small>
                         </td>
-                        <td>
-                          <button onClick={()=>navigate(`/book-appointment/${doctor.id}`)} className="btn btn-outline-success">Book an appointment</button>
-                        </td>
-                        <td />
                       </tr>
                     )
                   })}
@@ -133,12 +174,12 @@ const HospitalProfile = () => {
         </div>
         <div className="modal-body">
         <div class="mb-3">
-        <input type="text" className="form-control" id="blood" aria-label="volume" />
+        <input type="text" className="form-control" id="blood-input" aria-label="volume" />
           </div>
         </div>
         <div className="modal-footer">
-          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" className="btn btn-primary">Save changes</button>
+          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }}>Close</button>
+          <button type="button" className="btn btn-primary" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }} onClick={()=>{addGroup(document.getElementById("blood-input").value)}}>Save changes</button>
         </div>
       </div>
     </div>
@@ -248,7 +289,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" className="btn" style={{ backgroundColor:"#f6c9de" }} onclick="toggleHide1()">Show/
+                  <button id="btn" className="btn" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }} onclick="toggleHide1()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -269,7 +310,7 @@ const HospitalProfile = () => {
                               <td>{index+1}. </td>
                               <td>{blood.bloodGroup}</td>
                               <td>{blood.quantity}
-                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{handleEvent("blood",index)}}>
                                 <i class="fa fa-pencil"></i>
                               </button>
                               </td>
@@ -308,7 +349,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide2()">Show/
+                  <button id="btn" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }}className="btn" onclick="toggleHide2()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -329,7 +370,7 @@ const HospitalProfile = () => {
                               <td>{index+1}. </td>
                               <td>{organ.name}</td>
                               <td>{organ.quantity}
-                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{handleEvent("organ",index)}}>
                                 <i class="fa fa-pencil"></i>
                               </button>
                               </td>
@@ -367,7 +408,7 @@ const HospitalProfile = () => {
                 {/* Button */}
                 {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                 <div className="read">
-                  <button id="btn" style={{ backgroundColor:"#f6c9de" }} className="btn" onclick="toggleHide3()">Show/
+                  <button id="btn" style={{ background: "linear-gradient(135deg, #f75959 0%, #f35587 100%)", color: 'white' }}className="btn" onclick="toggleHide3()">Show/
                     Hide</button>
                 </div>
                 <p className="card-text">
@@ -388,7 +429,7 @@ const HospitalProfile = () => {
                               <td>{index+1}. </td>
                               <td>{equip.name}</td>
                               <td>{equip.quantity}
-                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <button type="button" className="btn btn-outline float-end" id="pencil-icon" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{handleEvent("equipment",index)}}>
                                 <i class="fa fa-pencil"></i>
                               </button>
                               </td>

@@ -53,7 +53,10 @@ export default function BookAppointment() {
       appointment: [...userAppointment, appdocRef],
       events: [...userEvents, {
         title: "Appointment with " + doctor.name,
-        start: dateEv.toISOString()
+        start: dateEv.toISOString(),
+        patientId: currentUser.uid,
+        patientName: user.name,
+        doctorName: doctor.name,
       }]
     };
 
@@ -70,9 +73,20 @@ export default function BookAppointment() {
     await updateDoc(doctorDoc, newDoctorPFields)
   }
 
+  const nav_links=[
+    {
+      name: "Profile",
+      link: "/profile"
+    },
+    {
+      name: "Hospital List",
+      link: "/hospital-list"
+    }
+  ]
+
   return (
     <>
-      <Navbar />
+      <Navbar Link={nav_links} />
       <div className="container p-4">
         <div className="row">
           <div className="col-md-6">
