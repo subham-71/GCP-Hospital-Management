@@ -34,8 +34,8 @@ export default function HospitalQuery() {
     <div className="main-content">
     <div className="container">
       <div className="item1">
-        <h3 className='hospital-query-h3 text-center mx-auto' style={{width:'1035px'}} >Active Queries</h3>
-        <table id="query_table" data-paginate="true">
+        <h3 className='hospital-query-h3 text-center' style={{width:'835px'}} >Active Queries</h3>
+        <table className='hosp mx-auto' id="query_table" data-paginate="true">
           <thead>
             <tr>
               <th scope="col">Select</th>
