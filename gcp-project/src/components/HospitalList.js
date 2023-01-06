@@ -73,7 +73,7 @@ export default function HospitalList() {
                                     <td className="editable" data-type="email">{hospital && hospital.email}</td>
                                     <td className="editable" data-type="text">
                                         <button className="link-button" onClick={()=>navigate(`/hospital-page/${hospital.id}`)}>
-                                        <i class="uil uil-arrow-right icon"></i>
+                                        <i className="uil uil-arrow-right icon"></i>
                                         </button>
                                     
                                     </td>

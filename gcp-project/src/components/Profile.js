@@ -64,7 +64,7 @@ export default function Profile() {
   return (
     <>
       <Navbar Link={nav_links} pfpLink = {pfpSrc}/>
-      <div class="main-content2">
+      <div className="main-content2">
         <div className="container mt-3">
           <div className="row row-cols-3">
             <div className="col-sm-5 p-3" style={{ width: '40%' }}>
