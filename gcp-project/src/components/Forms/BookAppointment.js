@@ -73,14 +73,18 @@ export default function BookAppointment() {
     await updateDoc(doctorDoc, newDoctorPFields)
   }
 
-  const nav_links=[
+  const nav_links = [
     {
-      name: "Profile",
-      link: "/profile"
+      name: 'Profile',
+      link: '/profile'
     },
     {
-      name: "Hospital List",
-      link: "/hospital-list"
+      name: 'Hospital List',
+      link: '/hospital-list'
+    },
+    {
+      name:"Patient Graph",
+      link:"/patient-graphs"
     }
   ]
 

@@ -89,6 +89,10 @@ export default function PatientList() {
     {
       name: 'Profile',
       link: '/doctor-profile'
+    },
+    {
+      name: 'Patient List',
+      link: '/patient-list'
     }
   ]
   return (

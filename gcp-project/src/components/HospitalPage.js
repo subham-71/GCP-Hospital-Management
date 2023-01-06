@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../Styles/HospitalProfile.css"
 import { db } from '../firebase';
 import { useNavigate, useParams } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext';
+import sample from '../images/sample.png'
 
 import Navbar from './Navbar';
 
@@ -23,22 +23,60 @@ const HospitalPage = () => {
     const docRef = await db.collection('hospital').doc(hosId).get()
     const data = docRef.data()
     setHospitalInfo(data)
-    setDoctors(data.doctors)
-    setResourcesLended(data.resourcesLended)
-    setResourcesBorrowed(data.resourcesBorrowed)
-    setBloodData(data.bloodData)
-    setOrganData(data.organData)
-    setEquipment(data.equipmentData)
+    if(data){
+      setHospitalInfo(data)
+      if(data.doctors)  
+        {setDoctors(data.doctors)}
+      if(data.resourcesLended)
+        {setResourcesLended(data.resourcesLended)}
+      if(data.resourcesBorrowed)
+        {setResourcesBorrowed(data.resourcesBorrowed)}
+      if(data.bloodData)
+        {setBloodData(data.bloodData)}
+      if(data.organData)
+        {setOrganData(data.organData)}
+      if(data.equipmentData)
+        {setEquipment(data.equipmentData)}
+    }
   }
 
   useEffect(() => {
     getHospitalInfo()
   }, [])
 
+  const nav_links = [
+    {
+      name: 'Profile',
+      link: '/profile'
+    },
+    {
+      name: 'Hospital List',
+      link: '/hospital-list'
+    },
+    {
+      name:"Patient Graph",
+      link:"/patient-graphs"
+    }
+  ]
+
+  const [isHidden1, setIsHidden1] = useState(true);
+  const [isHidden2, setIsHidden2] = useState(true);
+  const [isHidden3, setIsHidden3] = useState(true);
+
+  const toggleHide1 = () => {
+    setIsHidden1(!isHidden1);
+  }
+  const toggleHide2 = () => {
+    setIsHidden2(!isHidden2);
+  }
+  const toggleHide3 = () => {
+    setIsHidden3(!isHidden3);
+  }
+
   return (
     <>
       <div className="body-hospital-profile">
-        <Navbar />
+        <Navbar Link={nav_links} />
         <div className="container">
           <div className="row">
             <div className="col-5">
@@ -98,7 +136,7 @@ const HospitalPage = () => {
                             <th className="th-hospital-profile" scope="row">
                               <div className="avatar-group">
                                 <a href="#" className="avatar avatar-sm" data-toggle="tooltip" data-original-title="Ryan Tompson">
-                                  <img alt="Image placeholder" src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-1.jpg" className="rounded-circle" />
+                                  <img alt="Image placeholder" src={sample} className="rounded-circle" />
                                 </a>
                               </div>
                             </th>
@@ -153,11 +191,10 @@ const HospitalPage = () => {
                     {/* Button */}
                     {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                     <div className="read">
-                      <button id="btn" className="btn" style={{ backgroundColor: "#f6c9de" }} onclick="toggleHide1()">Show/
-                        Hide</button>
+                    <button id="show1" className="btn"  onClick={toggleHide1}> {isHidden1 ? 'Show' : 'Hide'} </button>
                     </div>
                     <p className="card-text">
-                    </p><div id="para1">
+                    </p><div id="para1" style={{ display: isHidden1 ? 'none' : 'block' }}>
                       <table className="table table-bordered">
                         <thead>
                           <tr className="lef">
@@ -209,11 +246,10 @@ const HospitalPage = () => {
                     {/* Button */}
                     {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                     <div className="read">
-                      <button id="btn" style={{ backgroundColor: "#f6c9de" }} className="btn" onclick="toggleHide2()">Show/
-                        Hide</button>
+                    <button id="show2" className="btn" onClick={toggleHide2}> {isHidden2 ? 'Show' : 'Hide'} </button>
                     </div>
                     <p className="card-text">
-                    </p><div id="para2">
+                    </p><div id="para2" style={{ display: isHidden2 ? 'none' : 'block' }}>
                       <table className="table table-bordered">
                         <thead>
                           <tr className="lef">
@@ -266,11 +302,10 @@ const HospitalPage = () => {
                       {/* Button */}
                       {/* <a href="#" id="button" class="btn btn-primary">Button</a> */}
                       <div className="read">
-                        <button id="btn" style={{ backgroundColor: "#f6c9de" }} className="btn" onclick="toggleHide3()">Show/
-                          Hide</button>
+                      <button id="show3" className="btn" onClick={toggleHide3}> {isHidden3 ? 'Show' : 'Hide'} </button>
                       </div>
                       <p className="card-text">
-                      </p><div id="para3">
+                      </p><div id="para3" style={{ display: isHidden3 ? 'none' : 'block' }}>
                         <table className="table table-bordered">
                           <thead>
                             <tr className="lef">

@@ -53,6 +53,10 @@ export default function Profile() {
 
   const nav_links = [
     {
+      name: 'Profile',
+      link: '/profile'
+    },
+    {
       name: 'Hospital List',
       link: '/hospital-list'
     },

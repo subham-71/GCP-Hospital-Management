@@ -52,6 +52,10 @@ const DoctorProfile = () => {
 
   const nav_links = [
     {
+      name: 'Profile',
+      link: '/doctor-profile'
+    },
+    {
       name: 'Patient List',
       link: '/patient-list'
     }

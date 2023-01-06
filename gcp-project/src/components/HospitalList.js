@@ -36,11 +36,15 @@ export default function HospitalList() {
       const nav_links = [
         {
           name: 'Profile',
-          link: '/doctor-profile'
+          link: '/profile'
         },
         {
-          name: 'Patient List',
-          link: '/patient-list'
+          name: 'Hospital List',
+          link: '/hospital-list'
+        },
+        {
+          name:"Patient Graph",
+          link:"/patient-graphs"
         }
       ]
 

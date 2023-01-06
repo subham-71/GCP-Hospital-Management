@@ -32,13 +32,13 @@ export default function HospitalQuery() {
  const nav_links = [
   {
     name: 'Profile',
-    link: '/doctor-profile'
+    link: '/hospital-profile'
   },
   {
-    name: 'Patient List',
-    link: '/patient-list'
+    name: 'Hospital Query',
+    link: '/hospital-query'
   }
-] 
+]
  return (
     <>
     <Navbar Link={nav_links} />

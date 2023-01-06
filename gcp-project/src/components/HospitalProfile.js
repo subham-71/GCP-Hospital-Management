@@ -80,7 +80,7 @@ const HospitalProfile = () => {
   const nav_links = [
     {
       name: 'Profile',
-      link: '/doctor-profile'
+      link: '/hospital-profile'
     },
     {
       name: 'Hospital Query',

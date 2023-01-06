@@ -7,14 +7,18 @@ import Navbar from "./Navbar";
 const PatientGraphs = () => {
     const nav_links = [
         {
-            name: 'Profile',
-            link: '/profile'
+          name: 'Profile',
+          link: '/profile'
         },
         {
-            name: 'Patient List',
-            link: '/patient-list'
+          name: 'Hospital List',
+          link: '/hospital-list'
+        },
+        {
+          name:"Patient Graph",
+          link:"/patient-graphs"
         }
-    ]
+      ]
     var xArray = [
         "20/9/22",
         "25/9/22",
