@@ -52,9 +52,19 @@ export default function Signup() {
 
   return (
     <div>
-      <div className="container mt-3">
-      </div>
       <section className="ftco-section">
+        <div className={`toast ${error ? 'show' : ''}`} id="toast">
+          <div class="toast-header">
+          <strong class="me-auto">Error</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+          </div>
+          <div className="toast-body">
+            {/* text in red */}
+            <div>
+              {error}
+            </div>
+          </div>
+        </div>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-12 col-lg-10">
@@ -91,7 +101,7 @@ export default function Signup() {
                       <input ref={passwordConfirmRef} type="password" className="form-control" placeholder="Password" required />
                     </div>
                     <div className="form-group">
-                      <button disabled={loading} type="submit" id="register" className="form-control btn btn-primary submit px-3">Register</button>
+                      <button disabled={loading} type="submit" id="register" className="form-control btn btn-primary submit px-3">{loading ? 'Processing...' : 'Register'}</button>
                     </div>
                     {/* choice for doctor,patient or hospital using radio button */}
                     <div className="form-group d-md-flex mt-3">

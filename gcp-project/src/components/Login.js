@@ -42,19 +42,16 @@ export default function Login() {
 
   return (
     <section className="ftco-section">
-      <div className="toast" id="toast">
-        {/* <div class="toast-header"> */}
-        {/* <strong class="me-auto">Toast Header</strong> */}
-        {/* <button type="button" class="btn-close" data-bs-dismiss="toast"></button> */}
-        {/* </div> */}
+      <div className={`toast ${error ? 'show' : ''}`} id="toast">
+        <div class="toast-header">
+        <strong class="me-auto">Error</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
         <div className="toast-body">
           {/* text in red */}
           <div>
-            Invalid username or password
+            {error}
           </div>
-        </div>
-        <div className="progress">
-          <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={75} aria-valuemin={0} style={{ width: '0%' }} aria-valuemax={100} />
         </div>
       </div>
       <div className="container">
@@ -75,7 +72,7 @@ export default function Login() {
                   </div>
                 </div>
                 <form onSubmit={handleSubmit} className="signin-form">
-                  {error && <Alert variant="danger">{error}</Alert>}
+                  {/* {error && <Alert variant="danger">{error}</Alert>} */}
                   <div className="form-group mb-3">
                     <label className="label" htmlFor="name">Email</label>
                     <input ref={emailRef} type="email" className="form-control" placeholder="Username" required />
@@ -85,7 +82,7 @@ export default function Login() {
                     <input ref={passwordRef} type="password" className="form-control" placeholder="Password" required />
                   </div>
                   <div className="form-group" id="submit">
-                    <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">Sign In</button>
+                    <button disabled={loading} type="submit" className="form-control btn btn-primary submit px-3">{loading ? "Sending..." : "Sign In"}</button>
                   </div>
                   {/* choice for doctor,patient or hospital using radio button */}
                   <div className="form-group d-md-flex mt-3">

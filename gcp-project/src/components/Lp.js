@@ -14,7 +14,7 @@ export default function Lp() {
               </div>
               <div className="col-md-7">
                 <div className="row">
-                  <ul id="menu" className>
+                  <ul id="menu" >
                     <li> <a href="#banner">Home</a></li>
                     <li> <a href="#aboutus">About Us</a></li>
                     <li> <a href="#testimonials">Testimonials</a></li>
@@ -147,9 +147,13 @@ export default function Lp() {
                 </div>
                 {/* Checkbox */}
                 <div className="form-check d-flex mb-4">
-                  <input className="form-check-input me-2" type="checkbox" defaultValue id="form4Example4" defaultChecked />
+                  {/* <input className="form-check-input me-2" type="checkbox" defaultValue id="form4Example4" defaultChecked />
                   <label className="form-check-label" htmlFor="form4Example4">
                     Send me a copy of this message
+                  </label> */}
+                  <label className="checkbox-wrap checkbox-primary mb-0">Send me a copy of this message
+                        <input type="checkbox" name="copy_response" defaultValue id="form4Example4" defaultChecked />
+                        <span className="checkmark" />
                   </label>
                 </div>
                 {/* Submit button */}
