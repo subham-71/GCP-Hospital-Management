@@ -76,7 +76,7 @@ const DoctorSignup = () => {
   };
   return (
 
-    <div className="d-flex align-items-center justify-content-center vh-100">
+    <div className="d-flex align-items-center justify-content-center" style={{marginTop: '1rem'}}>
       <div className="card" style={{ width: '40rem', height: '100%', boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)', backgroundColor: 'rgba(219, 218, 218, 0.4)' }}>
         <div className="card-header" style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%) ' }}>
           <h3 style={{ background: 'linear-gradient(135deg, #f75959 0%, #f35587 100%) ', color: 'white' }}>DOCTOR DETAILS</h3>
